@@ -8,6 +8,7 @@ namespace PrintGaransi
     public partial class PrintGaransi : Form, IPrintGaransiView
     {
         private readonly PrintGaransiPresenter _presenter;
+        private TCPConnection connection;
         public PrintGaransi()
         {
             InitializeComponent();
@@ -43,6 +44,39 @@ namespace PrintGaransi
 
             // Menampilkan dialog preview cetak
             printPreviewDialog.ShowDialog();
+        }
+
+        private void UpdateSerialBox(string message)
+        {
+            // Invoke UI updates on the UI thread
+            if (textBox1.InvokeRequired)
+            {
+                textBox1.Invoke((MethodInvoker)(() => UpdateSerialBox(message)));
+            }
+            else
+            {
+                textBox1.Text = message;
+            }
+
+        }
+
+        private void UpdateCodeBox(string message)
+        {
+            // Invoke UI updates on the UI thread
+            if (textBox2.InvokeRequired)
+            {
+                textBox2.Invoke((MethodInvoker)(() => UpdateCodeBox(message)));
+            }
+            else
+            {
+                textBox2.Text = message;
+            }
+        }
+
+        private async void PrintGaransi_Load(object sender, EventArgs e)
+        {
+            connection = new TCPConnection(5000, UpdateCodeBox, UpdateSerialBox); // Passing both update methods
+            await connection.StartServerAsync();
         }
     }
 }

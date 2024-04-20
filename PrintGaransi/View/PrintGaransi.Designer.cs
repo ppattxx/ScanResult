@@ -29,30 +29,54 @@
         private void InitializeComponent()
         {
             btnPrint = new Button();
+            textBox1 = new TextBox();
+            textBox2 = new TextBox();
             SuspendLayout();
             // 
             // btnPrint
             // 
-            btnPrint.Location = new Point(339, 194);
+            btnPrint.Location = new Point(237, 116);
+            btnPrint.Margin = new Padding(2);
             btnPrint.Name = "btnPrint";
-            btnPrint.Size = new Size(112, 34);
+            btnPrint.Size = new Size(78, 20);
             btnPrint.TabIndex = 0;
             btnPrint.Text = "Print";
             btnPrint.UseVisualStyleBackColor = true;
             // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(30, 34);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(189, 23);
+            textBox1.TabIndex = 1;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(30, 76);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(189, 23);
+            textBox2.TabIndex = 2;
+            // 
             // PrintGaransi
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(560, 270);
+            Controls.Add(textBox2);
+            Controls.Add(textBox1);
             Controls.Add(btnPrint);
+            Margin = new Padding(2);
             Name = "PrintGaransi";
             Text = "Form1";
+            Load += PrintGaransi_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Button btnPrint;
+        private TextBox textBox1;
+        private TextBox textBox2;
     }
 }
