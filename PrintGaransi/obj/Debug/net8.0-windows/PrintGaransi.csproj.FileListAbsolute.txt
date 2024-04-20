@@ -1,0 +1,17 @@
+D:\Perkuliahan\Semester6\Panasonic\PrintKartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\PrintGaransi.exe
+D:\Perkuliahan\Semester6\Panasonic\PrintKartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\PrintGaransi.deps.json
+D:\Perkuliahan\Semester6\Panasonic\PrintKartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\PrintGaransi.runtimeconfig.json
+D:\Perkuliahan\Semester6\Panasonic\PrintKartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\PrintGaransi.dll
+D:\Perkuliahan\Semester6\Panasonic\PrintKartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\PrintGaransi.pdb
+D:\Perkuliahan\Semester6\Panasonic\PrintKartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.PrintGaransi.resources
+D:\Perkuliahan\Semester6\Panasonic\PrintKartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.csproj.GenerateResource.cache
+D:\Perkuliahan\Semester6\Panasonic\PrintKartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.GeneratedMSBuildEditorConfig.editorconfig
+D:\Perkuliahan\Semester6\Panasonic\PrintKartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.AssemblyInfoInputs.cache
+D:\Perkuliahan\Semester6\Panasonic\PrintKartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.AssemblyInfo.cs
+D:\Perkuliahan\Semester6\Panasonic\PrintKartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.csproj.CoreCompileInputs.cache
+D:\Perkuliahan\Semester6\Panasonic\PrintKartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.sourcelink.json
+D:\Perkuliahan\Semester6\Panasonic\PrintKartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.dll
+D:\Perkuliahan\Semester6\Panasonic\PrintKartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\refint\PrintGaransi.dll
+D:\Perkuliahan\Semester6\Panasonic\PrintKartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.pdb
+D:\Perkuliahan\Semester6\Panasonic\PrintKartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.genruntimeconfig.cache
+D:\Perkuliahan\Semester6\Panasonic\PrintKartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\ref\PrintGaransi.dll

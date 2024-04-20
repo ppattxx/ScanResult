@@ -1,6 +1,6 @@
 ﻿namespace PrintGaransi
 {
-    partial class Form1
+    partial class PrintGaransi
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,12 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            btnPrint = new Button();
+            SuspendLayout();
+            // 
+            // btnPrint
+            // 
+            btnPrint.Location = new Point(339, 194);
+            btnPrint.Name = "btnPrint";
+            btnPrint.Size = new Size(112, 34);
+            btnPrint.TabIndex = 0;
+            btnPrint.Text = "Print";
+            btnPrint.UseVisualStyleBackColor = true;
+            // 
+            // PrintGaransi
+            // 
+            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(btnPrint);
+            Name = "PrintGaransi";
+            Text = "Form1";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Button btnPrint;
     }
 }
