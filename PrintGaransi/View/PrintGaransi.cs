@@ -49,13 +49,13 @@ namespace PrintGaransi
         private void UpdateSerialBox(string message)
         {
             // Invoke UI updates on the UI thread
-            if (textBox1.InvokeRequired)
+            if (textBoxSerial.InvokeRequired)
             {
-                textBox1.Invoke((MethodInvoker)(() => UpdateSerialBox(message)));
+                textBoxSerial.Invoke((MethodInvoker)(() => UpdateSerialBox(message)));
             }
             else
             {
-                textBox1.Text = message;
+                textBoxSerial.Text = message;
             }
 
         }
@@ -63,13 +63,13 @@ namespace PrintGaransi
         private void UpdateCodeBox(string message)
         {
             // Invoke UI updates on the UI thread
-            if (textBox2.InvokeRequired)
+            if (textBoxModel.InvokeRequired)
             {
-                textBox2.Invoke((MethodInvoker)(() => UpdateCodeBox(message)));
+                textBoxModel.Invoke((MethodInvoker)(() => UpdateCodeBox(message)));
             }
             else
             {
-                textBox2.Text = message;
+                textBoxModel.Text = message;
             }
         }
 
