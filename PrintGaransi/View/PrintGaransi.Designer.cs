@@ -31,51 +31,50 @@
             btnPrint = new Button();
             textBoxSerial = new TextBox();
             textBoxModel = new TextBox();
-            textBox3 = new TextBox();
+            textBoxCode = new TextBox();
             SuspendLayout();
             // 
             // btnPrint
             // 
-            btnPrint.Location = new Point(339, 193);
+            btnPrint.Location = new Point(237, 116);
+            btnPrint.Margin = new Padding(2, 2, 2, 2);
             btnPrint.Name = "btnPrint";
-            btnPrint.Size = new Size(111, 33);
+            btnPrint.Size = new Size(78, 20);
             btnPrint.TabIndex = 0;
             btnPrint.Text = "Print";
             btnPrint.UseVisualStyleBackColor = true;
             // 
             // textBoxSerial
             // 
-            textBoxSerial.Location = new Point(43, 57);
-            textBoxSerial.Margin = new Padding(4, 5, 4, 5);
+            textBoxSerial.Location = new Point(30, 34);
             textBoxSerial.Name = "textBoxSerial";
-            textBoxSerial.Size = new Size(268, 31);
+            textBoxSerial.Size = new Size(189, 23);
             textBoxSerial.TabIndex = 1;
             // 
             // textBoxModel
             // 
-            textBoxModel.Location = new Point(43, 127);
-            textBoxModel.Margin = new Padding(4, 5, 4, 5);
+            textBoxModel.Location = new Point(30, 76);
             textBoxModel.Name = "textBoxModel";
-            textBoxModel.Size = new Size(268, 31);
+            textBoxModel.Size = new Size(189, 23);
             textBoxModel.TabIndex = 2;
             // 
-            // textBox3
+            // textBoxCode
             // 
-            textBox3.Location = new Point(339, 57);
-            textBox3.Margin = new Padding(4, 5, 4, 5);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(268, 31);
-            textBox3.TabIndex = 1;
+            textBoxCode.Location = new Point(237, 34);
+            textBoxCode.Name = "textBoxCode";
+            textBoxCode.Size = new Size(189, 23);
+            textBoxCode.TabIndex = 1;
             // 
             // PrintGaransi
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(560, 270);
             Controls.Add(textBoxModel);
-            Controls.Add(textBox3);
+            Controls.Add(textBoxCode);
             Controls.Add(textBoxSerial);
             Controls.Add(btnPrint);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "PrintGaransi";
             Text = "Form1";
             Load += PrintGaransi_Load;
@@ -88,6 +87,6 @@
         private Button btnPrint;
         private TextBox textBoxSerial;
         private TextBox textBoxModel;
-        private TextBox textBox3;
+        private TextBox textBoxCode;
     }
 }

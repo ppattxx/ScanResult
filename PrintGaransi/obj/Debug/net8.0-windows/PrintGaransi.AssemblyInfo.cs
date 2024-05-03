@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PrintGaransi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f95bd5303a46add03f9af47e7164e12bf9046534")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1af6277d58fcf94dd76f1f79dc1be262f7fa14cc")]
 [assembly: System.Reflection.AssemblyProductAttribute("PrintGaransi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PrintGaransi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -32,3 +32,12 @@ D:\WarrantyPrint\Yg terbaru\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\r
 D:\WarrantyPrint\Yg terbaru\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.pdb
 D:\WarrantyPrint\Yg terbaru\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.genruntimeconfig.cache
 D:\WarrantyPrint\Yg terbaru\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\ref\PrintGaransi.dll
+D:\WarrantyPrint\Yg terbaru\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\PrintGaransi.dll.config
+D:\WarrantyPrint\Yg terbaru\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+D:\WarrantyPrint\Yg terbaru\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+D:\WarrantyPrint\Yg terbaru\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+D:\WarrantyPrint\Yg terbaru\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+D:\WarrantyPrint\Yg terbaru\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\WarrantyPrint\Yg terbaru\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\WarrantyPrint\Yg terbaru\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.csproj.AssemblyReference.cache
+D:\WarrantyPrint\Yg terbaru\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGar.D66A7998.Up2Date

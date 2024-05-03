@@ -2,6 +2,11 @@ using PrintGaransi.Model;
 using PrintGaransi.Presenter;
 using PrintGaransi.View;
 using System.Drawing.Printing;
+using System;
+using System.Configuration;
+using System.Drawing;
+using System.Windows.Forms;
+using static PrintGaransi.View.IPrintGaransiView;
 
 namespace PrintGaransi
 {
@@ -14,7 +19,29 @@ namespace PrintGaransi
             InitializeComponent();
             _presenter = new PrintGaransiPresenter(this);
             AssociateAndRaiseViewEvents();
+            Console.WriteLine("View");
         }
+
+        //properties
+        public string SerialNumber
+        {
+            get { return textBoxSerial.Text; }
+            set { textBoxSerial.Text = value; }
+        }
+        public string ModelNumber
+        {
+            get { return textBoxModel.Text; }
+            set { textBoxModel.Text = value; }
+        }
+        public string ModelCode
+        {
+            get { return textBoxCode.Text; }
+            set { textBoxCode.Text = value; }
+        }
+
+        //event
+        public event EventHandler<ModelEventArgs> SearchModelNumber;
+
 
         private void AssociateAndRaiseViewEvents()
         {
@@ -70,7 +97,15 @@ namespace PrintGaransi
             else
             {
                 textBoxModel.Text = message;
+                Console.WriteLine(ModelCode);
             }
+            PerformModelSearch();
+        }
+
+        private void PerformModelSearch()
+        {
+            // Raise the event with the data from the view
+            SearchModelNumber?.Invoke(this, new ModelEventArgs(SerialNumber));
         }
 
         private async void PrintGaransi_Load(object sender, EventArgs e)

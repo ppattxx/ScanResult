@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,17 +10,42 @@ namespace PrintGaransi.Model
 {
     public class GaransiModel
     {
-        public string JenisProduk { get; set; }
-        public string Model { get; set; }
-        public string NoReg { get; set; }
-        public string NoSeri { get; set; }
 
-        public GaransiModel(string jenisProduk, string model, string noReg, string noSeri)
+        public string jenisProduk;
+        public string model;
+        public string noReg;
+        public string noSeri;
+        public string modelCode;
+
+        // Properties
+        public string JenisProduk
         {
-            JenisProduk = jenisProduk;
-            Model = model;
-            NoReg = noReg;
-            NoSeri = noSeri;
+            get => jenisProduk;
+            set => jenisProduk = value;
+        }
+
+        public string Model
+        {
+            get => model;
+            set => model = value;
+        }
+
+        public string NoReg
+        {
+            get => noReg;
+            set => noReg = value;
+        }
+
+        public string NoSeri
+        {
+            get => noSeri;
+            set => noSeri = value;
+        }
+        public string ModelCode
+        {
+            get => modelCode;
+            set => modelCode = value;
         }
     }
 }
+
