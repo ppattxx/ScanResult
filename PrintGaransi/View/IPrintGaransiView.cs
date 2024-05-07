@@ -14,11 +14,11 @@ namespace PrintGaransi.View
         string SerialNumber { get; set; }
         string ModelCode { get; set; }
         string ModelNumber { get; set; }
+        string Register {  get; set; }
 
         //event
         event EventHandler<ModelEventArgs> SearchModelNumber;
 
-        void DisplayGaransi(GaransiModel garansi);
         void ShowPrintPreviewDialog();
 
         public class ModelEventArgs : EventArgs

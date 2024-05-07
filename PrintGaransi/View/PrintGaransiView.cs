@@ -7,17 +7,20 @@ using System.Configuration;
 using System.Drawing;
 using System.Windows.Forms;
 using static PrintGaransi.View.IPrintGaransiView;
+using PrintGaransi._Repositories;
 
 namespace PrintGaransi
 {
-    public partial class PrintGaransi : Form, IPrintGaransiView
+    public partial class PrintGaransiView : Form, IPrintGaransiView
     {
         private readonly PrintGaransiPresenter _presenter;
         private TCPConnection connection;
-        public PrintGaransi()
+        public PrintGaransiView()
         {
             InitializeComponent();
-            _presenter = new PrintGaransiPresenter(this);
+            string sqlConnectionString = ConfigurationManager.ConnectionStrings["LSBUDBPRODUCTION"].ConnectionString;
+            IGaransiRepository garansiRepository = new GaransiRepository(sqlConnectionString);
+            _presenter = new PrintGaransiPresenter(this, garansiRepository);
             AssociateAndRaiseViewEvents();
             Console.WriteLine("View");
         }
@@ -30,13 +33,19 @@ namespace PrintGaransi
         }
         public string ModelNumber
         {
-            get { return textBoxModel.Text; }
-            set { textBoxModel.Text = value; }
+            get { return textBoxModelNumber.Text; }
+            set { textBoxModelNumber.Text = value; }
         }
         public string ModelCode
         {
             get { return textBoxCode.Text; }
             set { textBoxCode.Text = value; }
+        }
+
+        public string Register 
+        {
+            get { return textBoxRegister.Text; }
+            set { textBoxRegister.Text = value; }
         }
 
         //event
@@ -49,12 +58,6 @@ namespace PrintGaransi
             {
                 _presenter.PrintGaransi();
             };
-        }
-
-        public void DisplayGaransi(GaransiModel garansi)
-        {
-            //untuk ditampilkan ke textbox
-            throw new NotImplementedException();
         }
 
         public void ShowPrintPreviewDialog()
@@ -90,14 +93,15 @@ namespace PrintGaransi
         private void UpdateCodeBox(string message)
         {
             // Invoke UI updates on the UI thread
-            if (textBoxModel.InvokeRequired)
+            if (textBoxCode.InvokeRequired)
             {
-                textBoxModel.Invoke((MethodInvoker)(() => UpdateCodeBox(message)));
+                textBoxCode.Invoke((MethodInvoker)(() => UpdateCodeBox(message)));
             }
             else
             {
-                textBoxModel.Text = message;
+                textBoxCode.Text = message;
                 Console.WriteLine(ModelCode);
+                MessageBox.Show(ModelCode);
             }
             PerformModelSearch();
         }

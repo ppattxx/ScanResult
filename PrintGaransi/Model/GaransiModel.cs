@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace PrintGaransi.Model
 {
@@ -12,7 +13,7 @@ namespace PrintGaransi.Model
     {
 
         public string jenisProduk;
-        public string model;
+        public string modelNumber;
         public string noReg;
         public string noSeri;
         public string modelCode;
@@ -24,10 +25,10 @@ namespace PrintGaransi.Model
             set => jenisProduk = value;
         }
 
-        public string Model
+        public string ModelNumber
         {
-            get => model;
-            set => model = value;
+            get => modelNumber;
+            set => modelNumber = value;
         }
 
         public string NoReg

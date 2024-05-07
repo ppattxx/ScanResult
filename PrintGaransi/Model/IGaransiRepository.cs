@@ -8,6 +8,7 @@ namespace PrintGaransi.Model
 {
     public interface IGaransiRepository
     {
-        GaransiModel GetModelNumber(GaransiModel model);
+        GaransiModel GetByModelCode(GaransiModel model);
+        IEnumerable<GaransiModel> GetData(string model);
     }
 }

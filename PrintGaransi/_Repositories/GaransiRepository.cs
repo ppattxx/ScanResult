@@ -6,42 +6,46 @@ using System.Data.SqlClient;
 
 namespace PrintGaransi._Repositories
 {
-    public class GaransiRepository
+    public class GaransiRepository: BaseRepository, IGaransiRepository
     {
-        private readonly string connectionString;
 
-        public GaransiRepository()
+        public GaransiRepository(string connetionString)
         {
             // Menggunakan koneksi dari konfigurasi
-            this.connectionString = ConfigurationManager.ConnectionStrings["LSBUDBPRODUCTION"].ConnectionString;
+            this.connectionString = connetionString;
         }
 
-        public GaransiModel GetModelByModelCode(string modelCode)
+        public GaransiModel GetByModelCode(GaransiModel model)
         {
-            GaransiModel model = null;
-            MessageBox.Show("Repository");
+            GaransiModel result = null;
+            string query = "SELECT * FROM Global_Model_Codes WHERE ModelCode = @ModelCode";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand())
+            using (SqlCommand command = new SqlCommand(query, connection))
             {
                 connection.Open();
-                command.Connection = connection;
-                command.CommandText = "SELECT * FROM Global_Model_Code WHERE ModelCode = @ModelCode";
-                command.Parameters.Add("@ModelCode", SqlDbType.VarChar).Value = modelCode;
+
+                // Menggunakan properti yang sesuai dari objek GaransiModel
+                command.Parameters.Add("@ModelCode", SqlDbType.VarChar).Value = model.ModelCode;
 
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
                     if (reader.Read())
                     {
-                        model = new GaransiModel();
-                        model.NoReg = reader["Register"].ToString();
-                        model.Model = reader["ModelNumber"].ToString();
-                        Console.WriteLine("Value of variable: " + model.Model);
+                        result = new GaransiModel();
+                        result.NoReg = reader["Register"].ToString();
+                        result.ModelNumber = reader["ModelNumber"].ToString();
+                        Console.WriteLine("Value of variable: " + result.ModelNumber);
                     }
                 }
             }
 
-            return model;
+            return result;
+        }
+
+        public IEnumerable<GaransiModel> GetData(string model)
+        {
+            throw new NotImplementedException();
         }
     }
 }

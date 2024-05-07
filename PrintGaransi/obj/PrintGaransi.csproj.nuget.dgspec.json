@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\WarrantyPrint\\Yg terbaru\\PrintGaransi\\PrintGaransi\\PrintGaransi.csproj": {}
+    "D:\\Perkuliahan\\Semester6\\Panasonic\\PrintKartuGaransi\\PrintGaransi\\PrintGaransi\\PrintGaransi.csproj": {}
   },
   "projects": {
-    "D:\\WarrantyPrint\\Yg terbaru\\PrintGaransi\\PrintGaransi\\PrintGaransi.csproj": {
+    "D:\\Perkuliahan\\Semester6\\Panasonic\\PrintKartuGaransi\\PrintGaransi\\PrintGaransi\\PrintGaransi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\WarrantyPrint\\Yg terbaru\\PrintGaransi\\PrintGaransi\\PrintGaransi.csproj",
+        "projectUniqueName": "D:\\Perkuliahan\\Semester6\\Panasonic\\PrintKartuGaransi\\PrintGaransi\\PrintGaransi\\PrintGaransi.csproj",
         "projectName": "PrintGaransi",
-        "projectPath": "D:\\WarrantyPrint\\Yg terbaru\\PrintGaransi\\PrintGaransi\\PrintGaransi.csproj",
-        "packagesPath": "C:\\Users\\indah\\.nuget\\packages\\",
-        "outputPath": "D:\\WarrantyPrint\\Yg terbaru\\PrintGaransi\\PrintGaransi\\obj\\",
+        "projectPath": "D:\\Perkuliahan\\Semester6\\Panasonic\\PrintKartuGaransi\\PrintGaransi\\PrintGaransi\\PrintGaransi.csproj",
+        "packagesPath": "C:\\Users\\hp090\\.nuget\\packages\\",
+        "outputPath": "D:\\Perkuliahan\\Semester6\\Panasonic\\PrintKartuGaransi\\PrintGaransi\\PrintGaransi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\indah\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hp090\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,17 +34,24 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.2.0, )"
+            },
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.6, )"
@@ -69,7 +76,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

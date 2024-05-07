@@ -27,14 +27,14 @@ namespace PrintGaransi.Presenter
             // Mencetak informasi garansi
             e.Graphics.DrawString(garansi.JenisProduk, fs1, Brushes.Black, new PointF(xPos, yPos + 55));
             yPos += 20;
-            e.Graphics.DrawString(garansi.Model, fs2, Brushes.Black, new PointF(xPos, yPos + 73));
+            e.Graphics.DrawString(garansi.ModelNumber, fs2, Brushes.Black, new PointF(xPos, yPos + 73));
             e.Graphics.DrawString(garansi.NoReg, fs2, Brushes.Black, new PointF(xPos, yPos + 105));
             e.Graphics.DrawString(garansi.NoSeri, fs2, Brushes.Black, new PointF(xPos, yPos + 140));
 
             // Mencetak informasi garansi untuk Toko
             e.Graphics.DrawString(garansi.JenisProduk, fs1, Brushes.Black, new PointF(xPos, yPos + 440));
             yPos += 20;
-            e.Graphics.DrawString(garansi.Model, fs2, Brushes.Black, new PointF(xPos, yPos + 460));
+            e.Graphics.DrawString(garansi.ModelNumber, fs2, Brushes.Black, new PointF(xPos, yPos + 460));
             e.Graphics.DrawString(garansi.NoReg, fs2, Brushes.Black, new PointF(xPos, yPos + 495));
             e.Graphics.DrawString(garansi.NoSeri, fs2, Brushes.Black, new PointF(xPos, yPos + 530));
         }

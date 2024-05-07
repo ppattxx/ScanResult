@@ -18,20 +18,15 @@ namespace PrintGaransi.Presenter
         private IPrintGaransiView _view;
         private GaransiModel _model;
         private PrintGaransiLayout _printLayout;
-        private readonly GaransiRepository _repository;
+        private IGaransiRepository GaransiRepository;
 
-        public PrintGaransiPresenter(IPrintGaransiView view)
+        public PrintGaransiPresenter(IPrintGaransiView view, IGaransiRepository garansiRepository)
         {
             _view = view;
             //_model = new GaransiModel("Mesin Cuci", "NA-W86BBZ2D", "P.14.PMI3.01113.0318", "244210012");
-            _repository = new GaransiRepository();
+            GaransiRepository = garansiRepository;
             _printLayout = new PrintGaransiLayout();
             this._view.SearchModelNumber += SearchModelNumber;
-        }
-
-        public void ShowGaransi()
-        {
-            _view.DisplayGaransi(_model);
         }
 
         public void PrintGaransi()
@@ -50,16 +45,16 @@ namespace PrintGaransi.Presenter
 
             var model = new GaransiModel
             {
-                NoSeri = _view.SerialNumber,
                 ModelCode = _view.ModelCode
             };
 
-            var searchModel = _repository.GetModelByModelCode(_view.ModelCode);
+            var searchModel = GaransiRepository.GetByModelCode(model);
 
             if (searchModel != null)
             {
                 _view.ModelCode = searchModel.ModelCode;
-                Console.WriteLine("Value of modelnumber: " + _view.ModelCode);
+                _view.ModelNumber = searchModel.ModelNumber;
+                _view.Register = searchModel.noReg;
             }
 
         }

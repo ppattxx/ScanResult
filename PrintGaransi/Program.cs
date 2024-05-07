@@ -1,3 +1,5 @@
+using System.Configuration;
+
 namespace PrintGaransi
 {
     internal static class Program
@@ -11,7 +13,7 @@ namespace PrintGaransi
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new PrintGaransi());
+            Application.Run(new PrintGaransiView());
         }
     }
 }
