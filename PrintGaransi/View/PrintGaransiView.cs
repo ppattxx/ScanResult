@@ -22,7 +22,6 @@ namespace PrintGaransi
             IGaransiRepository garansiRepository = new GaransiRepository(sqlConnectionString);
             _presenter = new PrintGaransiPresenter(this, garansiRepository);
             AssociateAndRaiseViewEvents();
-            Console.WriteLine("View");
         }
 
         //properties
@@ -42,7 +41,7 @@ namespace PrintGaransi
             set { textBoxCode.Text = value; }
         }
 
-        public string Register 
+        public string Register
         {
             get { return textBoxRegister.Text; }
             set { textBoxRegister.Text = value; }
@@ -50,6 +49,7 @@ namespace PrintGaransi
 
         //event
         public event EventHandler<ModelEventArgs> SearchModelNumber;
+        public event KeyEventHandler KeyDownEvent;
 
 
         private void AssociateAndRaiseViewEvents()
@@ -58,7 +58,15 @@ namespace PrintGaransi
             {
                 _presenter.PrintGaransi();
             };
+
+            btnSetting.Click += delegate
+            {
+                ISettingView settingView = SettingView.GetInstance();
+                SettingPresenter settingPresenter = new SettingPresenter(settingView, new SettingModel());
+                (settingView as Form)?.Show();
+            };
         }
+
 
         public void ShowPrintPreviewDialog()
         {
@@ -86,8 +94,8 @@ namespace PrintGaransi
             else
             {
                 textBoxSerial.Text = message;
+            MessageBox.Show(message);
             }
-
         }
 
         private void UpdateCodeBox(string message)
@@ -100,8 +108,6 @@ namespace PrintGaransi
             else
             {
                 textBoxCode.Text = message;
-                Console.WriteLine(ModelCode);
-                MessageBox.Show(ModelCode);
             }
             PerformModelSearch();
         }
@@ -114,8 +120,28 @@ namespace PrintGaransi
 
         private async void PrintGaransi_Load(object sender, EventArgs e)
         {
-            connection = new TCPConnection(5000, UpdateCodeBox, UpdateSerialBox); // Passing both update methods
-            await connection.StartServerAsync();
+            connection = new TCPConnection(UpdateCodeBox, UpdateSerialBox); // Passing both update methods
+            await connection.ConnectToServerAsync();
+        }
+
+        private void textBoxCode_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Jika tombol "Enter" ditekan
+            if (e.KeyCode == Keys.Enter)
+            {
+                // Jika enter ditekan, kirim Keys.Enter
+                KeyDownEvent?.Invoke(this, new KeyEventArgs(Keys.Enter));
+                PerformModelSearch();
+            }
+            else
+            {
+                // Jika bukan tombol "Enter", maka pasti karakter yang dimasukkan
+                // Jika yang dimasukkan adalah angka, kirim Keys.None
+                if (int.TryParse(textBoxSerial.Text, out int _))
+                {
+                    KeyDownEvent?.Invoke(this, new KeyEventArgs(Keys.None));
+                }
+            }
         }
     }
 }

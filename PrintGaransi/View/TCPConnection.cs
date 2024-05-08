@@ -6,102 +6,125 @@ using System.Threading.Tasks;
 using System.Net.NetworkInformation;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using PrintGaransi.Properties;
 
 namespace PrintGaransi
 {
     public class TCPConnection
     {
-        private TcpListener server;
-        private int port;
         private Action<string> updateUiCallback;
         private Action<string> updateUiCallback2;
 
-        public TCPConnection(int port, Action<string> updateUiCallback, Action<string> updateUiCallback2) // Added updateUiCallback2 as a parameter
+        public TCPConnection(Action<string> updateUiCallback, Action<string> updateUiCallback2) // Added updateUiCallback2 as a parameter
         {
-            this.port = port;
             this.updateUiCallback = updateUiCallback;
             this.updateUiCallback2 = updateUiCallback2; // Assigned updateUiCallback2
         }
 
-        public async Task StartServerAsync()
+        public async Task ConnectToServerAsync()
         {
-            // Scan all network adapters
-            NetworkInterface[] adapters = NetworkInterface.GetAllNetworkInterfaces();
-            IPAddress ipAddress = null;
+            string serverIp = Settings.Default.ServerIP; // Retrieve IP from user settings
+            int port = Settings.Default.Port;
 
-            // Find the first operational Ethernet adapter
-            foreach (NetworkInterface adapter in adapters)
+            using (TcpClient client = new TcpClient())
             {
-                // Check if the adapter is Ethernet and is operational
-                if (adapter.NetworkInterfaceType == NetworkInterfaceType.Ethernet && adapter.OperationalStatus == OperationalStatus.Up)
+                try
                 {
-                    foreach (UnicastIPAddressInformation ipInfo in adapter.GetIPProperties().UnicastAddresses)
+                    await client.ConnectAsync(serverIp, port);
+                    await SendMessageToServerAsync(client, "Hello from client!");
+
+                    await HandleServerResponseAsync(client);
+                }
+                catch (Exception ex)
+                {
+                    //updateUiCallback?.Invoke($"Error connecting to server: {ex.Message}");
+                }
+            }
+        }
+
+        private async Task SendMessageToServerAsync(TcpClient client, string message)
+        {
+            try
+            {
+                NetworkStream stream = client.GetStream();
+                byte[] data = Encoding.UTF8.GetBytes(message);
+                await stream.WriteAsync(data, 0, data.Length);
+            }
+            catch (Exception ex)
+            {
+                //updateUiCallback?.Invoke($"Error sending message to server: {ex.Message}");
+            }
+        }
+
+        private async Task HandleServerResponseAsync(TcpClient client)
+        {
+            try
+            {
+                NetworkStream stream = client.GetStream();
+                byte[] buffer = new byte[1024];
+                string incomingData = "";
+
+                while (true)
+                {
+                    int bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length);
+                    if (bytesRead == 0)
                     {
-                        if (ipInfo.Address.AddressFamily == AddressFamily.InterNetwork)
+                        // Connection closed by server
+                        break;
+                    }
+
+                    incomingData += Encoding.UTF8.GetString(buffer, 0, bytesRead);
+
+                    // Process all complete messages in incomingData
+                    while (incomingData.Contains("<p>"))
+                    {
+                        int startIdx = incomingData.IndexOf("<p>");
+                        int endIdx = incomingData.IndexOf("</p>");
+
+                        if (endIdx != -1) // Ensure end tag exists
                         {
-                            ipAddress = ipInfo.Address;
+                            string message = incomingData.Substring(startIdx + 3, endIdx - startIdx - 3);
+                            incomingData = incomingData.Substring(endIdx + 4);
+
+                            ProcessMessage(message);
+                        }
+                        else
+                        {
+                            // Incomplete message, wait for more data
                             break;
                         }
                     }
-                    if (ipAddress != null)
-                    {
-                        break;
-                    }
                 }
             }
-
-            if (ipAddress == null)
+            catch (Exception ex)
             {
-                updateUiCallback?.Invoke("No operational network adapter found.");
-                return;
+                //updateUiCallback?.Invoke($"Error handling server response: {ex.Message}");
             }
-
-            server = new TcpListener(ipAddress, port);
-            server.Start();
-
-            // Display the server's IP address and port
-            //updateUiCallback?.Invoke($"Server started on IP: {ipAddress.ToString()}, Port: {port}");
-            TcpClient client = await server.AcceptTcpClientAsync();
-            await SendMessageToClientAsync(client, "Connected to server.");
-            await HandleClientAsync(client);
         }
 
-        private async Task SendMessageToClientAsync(TcpClient client, string message)
+        private void ProcessMessage(string message)
         {
-            NetworkStream stream = client.GetStream();
-            byte[] data = Encoding.UTF8.GetBytes(message);
-            await stream.WriteAsync(data, 0, data.Length);
-        }
-
-
-        private async Task HandleClientAsync(TcpClient client)
-        {
-            NetworkStream stream = client.GetStream();
-            byte[] buffer = new byte[1024];
-            int bytesRead;
-
-            while ((bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length)) != 0)
-            {
-                string message = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-                // Invoke the callback on the UI thread to update the UI
-
-                string cleanedData = Regex.Replace(message, "<.*?>", "");
-                splitData1(cleanedData);
-                splitData2(cleanedData);
-            }
-            client.Close();
+            string cleanedData = Regex.Replace(message, "<.*?>", "");
+            splitData1(cleanedData);
+            splitData2(cleanedData);
         }
 
         private void splitData1(string input)
         {
-            string data1 = input.Substring(0, 2);
-            updateUiCallback?.Invoke(data1);
+            if (input.Length >= 2)
+            {
+                string data1 = input.Substring(0, 2);
+                updateUiCallback?.Invoke(data1);
+            }
         }
 
         private void splitData2(string input)
         {
-            string data2 = input.Substring(2);
-            updateUiCallback2?.Invoke(data2);
+            if (input.Length > 2)
+            {
+                string data2 = input.Substring(2);
+                updateUiCallback2?.Invoke(data2);
+            }
         }
     }
 }

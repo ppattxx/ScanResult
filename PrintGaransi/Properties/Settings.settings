@@ -17,5 +17,11 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=LAPTOP-A0O7AHQS\SQLEXPRESS;Initial Catalog=LSBUDBPRODUCTION;Integrated Security=True;Encrypt=True;TrustServerCertificate=True</Value>
     </Setting>
+    <Setting Name="ServerIP" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Port" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

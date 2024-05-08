@@ -33,59 +33,69 @@
             textBoxCode = new TextBox();
             textBoxModelNumber = new TextBox();
             textBoxRegister = new TextBox();
+            btnSetting = new Button();
             SuspendLayout();
             // 
             // btnPrint
             // 
-            btnPrint.Location = new Point(339, 193);
+            btnPrint.Location = new Point(235, 142);
+            btnPrint.Margin = new Padding(2);
             btnPrint.Name = "btnPrint";
-            btnPrint.Size = new Size(111, 33);
+            btnPrint.Size = new Size(78, 20);
             btnPrint.TabIndex = 0;
             btnPrint.Text = "Print";
             btnPrint.UseVisualStyleBackColor = true;
             // 
             // textBoxSerial
             // 
-            textBoxSerial.Location = new Point(43, 57);
-            textBoxSerial.Margin = new Padding(4, 5, 4, 5);
+            textBoxSerial.Location = new Point(28, 60);
             textBoxSerial.Name = "textBoxSerial";
-            textBoxSerial.Size = new Size(268, 31);
+            textBoxSerial.Size = new Size(189, 23);
             textBoxSerial.TabIndex = 1;
             // 
             // textBoxCode
             // 
-            textBoxCode.Location = new Point(43, 127);
-            textBoxCode.Margin = new Padding(4, 5, 4, 5);
+            textBoxCode.Location = new Point(28, 102);
             textBoxCode.Name = "textBoxCode";
-            textBoxCode.Size = new Size(268, 31);
+            textBoxCode.Size = new Size(189, 23);
             textBoxCode.TabIndex = 2;
+            textBoxCode.KeyDown += textBoxCode_KeyDown;
             // 
             // textBoxModelNumber
             // 
-            textBoxModelNumber.Location = new Point(339, 57);
-            textBoxModelNumber.Margin = new Padding(4, 5, 4, 5);
+            textBoxModelNumber.Location = new Point(235, 60);
             textBoxModelNumber.Name = "textBoxModelNumber";
-            textBoxModelNumber.Size = new Size(268, 31);
+            textBoxModelNumber.Size = new Size(189, 23);
             textBoxModelNumber.TabIndex = 1;
             // 
             // textBoxRegister
             // 
-            textBoxRegister.Location = new Point(339, 127);
-            textBoxRegister.Margin = new Padding(4, 5, 4, 5);
+            textBoxRegister.Location = new Point(235, 102);
             textBoxRegister.Name = "textBoxRegister";
-            textBoxRegister.Size = new Size(268, 31);
+            textBoxRegister.Size = new Size(189, 23);
             textBoxRegister.TabIndex = 2;
+            // 
+            // btnSetting
+            // 
+            btnSetting.Location = new Point(459, 23);
+            btnSetting.Name = "btnSetting";
+            btnSetting.Size = new Size(75, 23);
+            btnSetting.TabIndex = 3;
+            btnSetting.Text = "Setting";
+            btnSetting.UseVisualStyleBackColor = true;
             // 
             // PrintGaransiView
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(560, 270);
+            Controls.Add(btnSetting);
             Controls.Add(textBoxRegister);
             Controls.Add(textBoxCode);
             Controls.Add(textBoxModelNumber);
             Controls.Add(textBoxSerial);
             Controls.Add(btnPrint);
+            Margin = new Padding(2);
             Name = "PrintGaransiView";
             Text = "Form1";
             Load += PrintGaransi_Load;
@@ -100,5 +110,6 @@
         private TextBox textBoxCode;
         private TextBox textBoxModelNumber;
         private TextBox textBoxRegister;
+        private Button btnSetting;
     }
 }

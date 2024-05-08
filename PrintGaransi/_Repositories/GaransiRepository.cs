@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 
 namespace PrintGaransi._Repositories
 {
-    public class GaransiRepository: BaseRepository, IGaransiRepository
+    public class GaransiRepository : BaseRepository, IGaransiRepository
     {
 
         public GaransiRepository(string connetionString)

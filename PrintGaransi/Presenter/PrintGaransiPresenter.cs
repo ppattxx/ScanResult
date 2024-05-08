@@ -48,7 +48,10 @@ namespace PrintGaransi.Presenter
                 ModelCode = _view.ModelCode
             };
 
+            //MessageBox.Show(model.ModelCode);
+
             var searchModel = GaransiRepository.GetByModelCode(model);
+            /***
 
             if (searchModel != null)
             {
@@ -56,7 +59,7 @@ namespace PrintGaransi.Presenter
                 _view.ModelNumber = searchModel.ModelNumber;
                 _view.Register = searchModel.noReg;
             }
-
+            ***/
         }
     }
 }

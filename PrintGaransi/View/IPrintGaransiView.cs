@@ -18,6 +18,7 @@ namespace PrintGaransi.View
 
         //event
         event EventHandler<ModelEventArgs> SearchModelNumber;
+        event KeyEventHandler KeyDownEvent;
 
         void ShowPrintPreviewDialog();
 
