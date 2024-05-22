@@ -28,11 +28,15 @@ namespace PrintGaransi.Model
             OnSettingsSaved(serverIP);
         }
 
-        public void SaveSettingPort(int port)
+        public void SaveSettingPort(string port)
         {
-            Properties.Settings.Default.Port = port;
-            Properties.Settings.Default.Save();
-            OnSaveSettingsPort(port);
+            int portNumber;
+            if (int.TryParse(port, out portNumber))
+            {
+                Properties.Settings.Default.Port = portNumber;
+                Properties.Settings.Default.Save();
+                OnSaveSettingsPort(portNumber);
+            }
         }
 
         protected virtual void OnSettingsLoaded(string ip)

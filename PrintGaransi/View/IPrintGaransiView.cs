@@ -9,27 +9,7 @@ namespace PrintGaransi.View
 {
     public interface IPrintGaransiView
     {
+        void Show();
 
-        //properties - fields
-        string SerialNumber { get; set; }
-        string ModelCode { get; set; }
-        string ModelNumber { get; set; }
-        string Register {  get; set; }
-
-        //event
-        event EventHandler<ModelEventArgs> SearchModelNumber;
-        event KeyEventHandler KeyDownEvent;
-
-        void ShowPrintPreviewDialog();
-
-        public class ModelEventArgs : EventArgs
-        {
-            public string Message { get; set; }
-
-            public ModelEventArgs(string message)
-            {
-                Message = message;
-            }
-        }
     }
 }

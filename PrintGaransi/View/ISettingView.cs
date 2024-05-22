@@ -9,7 +9,7 @@ namespace PrintGaransi.View
     public interface ISettingView
     {
         string ipaddress { get; set; }
-        int portaddress { get; set; }
+        string portaddress { get; set; }
 
         //Event
         event EventHandler SaveIPSettings;

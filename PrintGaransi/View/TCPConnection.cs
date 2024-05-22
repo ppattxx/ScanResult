@@ -31,7 +31,7 @@ namespace PrintGaransi
                 try
                 {
                     await client.ConnectAsync(serverIp, port);
-                    await SendMessageToServerAsync(client, "Hello from client!");
+                    //await SendMessageToServerAsync(client, "Hello from client!");
 
                     await HandleServerResponseAsync(client);
                 }

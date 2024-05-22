@@ -8,7 +8,9 @@ namespace PrintGaransi.Model
 {
     public interface IGaransiRepository
     {
-        GaransiModel GetByModelCode(GaransiModel model);
+        void Add(dynamic model);
         IEnumerable<GaransiModel> GetData(string model);
+        IEnumerable<GaransiModel> GetAll();
+        IEnumerable<GaransiModel> GetFilter(string globalCodeId);
     }
 }

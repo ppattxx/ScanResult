@@ -54,7 +54,11 @@ D:\WarrantyPrint\versi mei\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\ru
 D:\WarrantyPrint\versi mei\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\WarrantyPrint\versi mei\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Runtime.Caching.dll
 D:\WarrantyPrint\versi mei\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.csproj.AssemblyReference.cache
+D:\WarrantyPrint\versi mei\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.Properties.Resources.resources
+D:\WarrantyPrint\versi mei\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.View.LoginView.resources
 D:\WarrantyPrint\versi mei\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.PrintGaransiView.resources
+D:\WarrantyPrint\versi mei\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.View.SettingView.resources
+D:\WarrantyPrint\versi mei\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.View.TabControlView.resources
 D:\WarrantyPrint\versi mei\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.csproj.GenerateResource.cache
 D:\WarrantyPrint\versi mei\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.GeneratedMSBuildEditorConfig.editorconfig
 D:\WarrantyPrint\versi mei\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.AssemblyInfoInputs.cache
@@ -67,4 +71,3 @@ D:\WarrantyPrint\versi mei\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\re
 D:\WarrantyPrint\versi mei\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.pdb
 D:\WarrantyPrint\versi mei\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.genruntimeconfig.cache
 D:\WarrantyPrint\versi mei\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\ref\PrintGaransi.dll
-D:\WarrantyPrint\versi mei\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.View.SettingView.resources

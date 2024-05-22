@@ -24,10 +24,10 @@ namespace PrintGaransi.View
             get => textBoxIP.Text;
             set => textBoxIP.Text = value;
         }
-        public int portaddress
+        public string portaddress
         {
-            get { return int.Parse(textBoxPort.Text); }
-            set { textBoxPort.Text = value.ToString(); }
+            get { return textBoxPort.Text; }
+            set { textBoxPort.Text = value; }
         }
 
         public event EventHandler SaveIPSettings;

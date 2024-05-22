@@ -11,41 +11,95 @@ namespace PrintGaransi.Model
 {
     public class GaransiModel
     {
-
+        public string id;
         public string jenisProduk;
         public string modelNumber;
         public string noReg;
         public string noSeri;
         public string modelCode;
+        public string date;
+        public string scanTime;
+        public string different;
+        public string actualTT;
+        public string location;
 
         // Properties
+        [DisplayName("ID")]
+        [Browsable(false)]
+        public string Id
+        {
+            get => id;
+            set => id = value;
+        }
+        [DisplayName("Jenis Produk")]
+        [Browsable(false)]
         public string JenisProduk
         {
             get => jenisProduk;
             set => jenisProduk = value;
         }
 
+        [DisplayName("Model Code")]
+        public string ModelCode
+        {
+            get => modelCode;
+            set => modelCode = value;
+        }
+
+        [DisplayName("Model Number")]
         public string ModelNumber
         {
             get => modelNumber;
             set => modelNumber = value;
         }
 
+        [DisplayName("Register")]
         public string NoReg
         {
             get => noReg;
             set => noReg = value;
         }
 
+        [DisplayName("Serial Number")]
         public string NoSeri
         {
             get => noSeri;
             set => noSeri = value;
         }
-        public string ModelCode
+
+        [DisplayName("Scanning Date")]
+        public string Date
         {
-            get => modelCode;
-            set => modelCode = value;
+            get => date;
+            set => date = value;
+        }
+
+        [DisplayName("Scanning Time")]
+        public string ScanTime
+        {
+            get => scanTime;
+            set => scanTime = value;
+        }
+
+        [DisplayName("Different")]
+        public string Different
+        {
+            get => different;
+            set => different = value;
+        }
+
+        [DisplayName("ActualTT")]
+        public string ActualTT
+        {
+            get => actualTT;
+            set => actualTT = value;
+        }
+
+        [DisplayName("Location")]
+        public string Location
+        {
+            get => location;
+            set => location = value;
         }
     }
 }

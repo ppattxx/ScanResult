@@ -13,50 +13,39 @@ namespace PrintGaransi
 {
     public partial class PrintGaransiView : Form, IPrintGaransiView
     {
-        private readonly PrintGaransiPresenter _presenter;
-        private TCPConnection connection;
+        private TabControlPresenter tabControlPresenter;
         public PrintGaransiView()
         {
             InitializeComponent();
-            string sqlConnectionString = ConfigurationManager.ConnectionStrings["LSBUDBPRODUCTION"].ConnectionString;
-            IGaransiRepository garansiRepository = new GaransiRepository(sqlConnectionString);
-            _presenter = new PrintGaransiPresenter(this, garansiRepository);
             AssociateAndRaiseViewEvents();
+            InitializeTabControl();
+            btnHome.BackColor = Color.FromArgb(217, 215, 215);
         }
 
-        //properties
-        public string SerialNumber
+        public void InitializeTabControl()
         {
-            get { return textBoxSerial.Text; }
-            set { textBoxSerial.Text = value; }
-        }
-        public string ModelNumber
-        {
-            get { return textBoxModelNumber.Text; }
-            set { textBoxModelNumber.Text = value; }
-        }
-        public string ModelCode
-        {
-            get { return textBoxCode.Text; }
-            set { textBoxCode.Text = value; }
+            TabControlView tabControlView = new TabControlView(); // Create the user control instance
+            tabControlPresenter = new TabControlPresenter(tabControlView, new GaransiRepository()); // Inisialisasi variabel instance
+            splitContainer1.Panel2.Controls.Add(tabControlView);
+            tabControlView.Dock = DockStyle.Fill;
         }
 
-        public string Register
-        {
-            get { return textBoxRegister.Text; }
-            set { textBoxRegister.Text = value; }
-        }
 
         //event
-        public event EventHandler<ModelEventArgs> SearchModelNumber;
-        public event KeyEventHandler KeyDownEvent;
 
+        private void PrintGaransi_Load(object sender, EventArgs e)
+        {
+        }
 
         private void AssociateAndRaiseViewEvents()
         {
-            btnPrint.Click += delegate
+            btnHome.Click += delegate
             {
-                _presenter.PrintGaransi();
+                int selectedTabPageIndex = 0;
+                tabControlPresenter.ChangeTabPage(selectedTabPageIndex);
+                btnHome.BackColor = Color.FromArgb(217, 215, 215);
+                btnRePrint.BackColor = SystemColors.Control;
+                btnSetting.BackColor = SystemColors.Control;
             };
 
             btnSetting.Click += delegate
@@ -65,9 +54,33 @@ namespace PrintGaransi
                 SettingPresenter settingPresenter = new SettingPresenter(settingView, new SettingModel());
                 (settingView as Form)?.Show();
             };
+
+            btnRePrint.Click += delegate
+            {
+                int selectedTabPageIndex = 1;
+                tabControlPresenter.ChangeTabPage(selectedTabPageIndex);
+                btnHome.BackColor = SystemColors.Control;
+                btnSetting.BackColor = SystemColors.Control;
+                btnRePrint.BackColor = Color.FromArgb(217, 215, 215);
+            };
+
+            btnLogOut.Click += delegate
+            {
+                ILoginView loginView = new LoginView();
+                LoginPresenter loginPresenter = new LoginPresenter(loginView, new LoginRepository());
+                (loginView as Form)?.Show();
+                //Application.Exit();
+                this.Close();
+            };
+
         }
 
+        private void PrintGaransiView_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
 
+        /***
         public void ShowPrintPreviewDialog()
         {
             // Membuat PrintDocument baru
@@ -83,65 +96,6 @@ namespace PrintGaransi
             // Menampilkan dialog preview cetak
             printPreviewDialog.ShowDialog();
         }
-
-        private void UpdateSerialBox(string message)
-        {
-            // Invoke UI updates on the UI thread
-            if (textBoxSerial.InvokeRequired)
-            {
-                textBoxSerial.Invoke((MethodInvoker)(() => UpdateSerialBox(message)));
-            }
-            else
-            {
-                textBoxSerial.Text = message;
-            MessageBox.Show(message);
-            }
-        }
-
-        private void UpdateCodeBox(string message)
-        {
-            // Invoke UI updates on the UI thread
-            if (textBoxCode.InvokeRequired)
-            {
-                textBoxCode.Invoke((MethodInvoker)(() => UpdateCodeBox(message)));
-            }
-            else
-            {
-                textBoxCode.Text = message;
-            }
-            PerformModelSearch();
-        }
-
-        private void PerformModelSearch()
-        {
-            // Raise the event with the data from the view
-            SearchModelNumber?.Invoke(this, new ModelEventArgs(SerialNumber));
-        }
-
-        private async void PrintGaransi_Load(object sender, EventArgs e)
-        {
-            connection = new TCPConnection(UpdateCodeBox, UpdateSerialBox); // Passing both update methods
-            await connection.ConnectToServerAsync();
-        }
-
-        private void textBoxCode_KeyDown(object sender, KeyEventArgs e)
-        {
-            // Jika tombol "Enter" ditekan
-            if (e.KeyCode == Keys.Enter)
-            {
-                // Jika enter ditekan, kirim Keys.Enter
-                KeyDownEvent?.Invoke(this, new KeyEventArgs(Keys.Enter));
-                PerformModelSearch();
-            }
-            else
-            {
-                // Jika bukan tombol "Enter", maka pasti karakter yang dimasukkan
-                // Jika yang dimasukkan adalah angka, kirim Keys.None
-                if (int.TryParse(textBoxSerial.Text, out int _))
-                {
-                    KeyDownEvent?.Invoke(this, new KeyEventArgs(Keys.None));
-                }
-            }
-        }
+        ***/
     }
 }
