@@ -20,6 +20,7 @@ namespace PrintGaransi.View
     {
         private PrintGaransiLayout _printLayout;
         private TCPConnection connection;
+
         public TabControlView()
         {
             InitializeComponent();
@@ -175,7 +176,16 @@ namespace PrintGaransi.View
 
         private void textBoxSerial_TextChanged(object sender, EventArgs e)
         {
-            CheckProperties?.Invoke(this, EventArgs.Empty);
+            if (textBoxCode.Text == null)
+            {
+                MessageBox.Show("Data Product tidak ditemukan", "Pemberitahuan", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                CheckProperties?.Invoke(this, EventArgs.Empty);
+            }
+
         }
+
     }
 }

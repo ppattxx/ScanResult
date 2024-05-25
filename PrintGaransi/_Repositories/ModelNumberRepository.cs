@@ -16,13 +16,13 @@ namespace PrintGaransi._Repositories
 
         public ModelNumberRepository()
         {
-            DBConnection = ConfigurationManager.ConnectionStrings["DBConnectionCommon"].ConnectionString;
+            DBConnection = ConfigurationManager.ConnectionStrings["LSBU"].ConnectionString;
         }
 
         public GaransiModel GetByModelCode(GaransiModel model)
         {
             GaransiModel result = null;
-            string query = "SELECT * FROM GlobalModelCodes WHERE ModelCodeId = @ModelCodeId";
+            string query = "SELECT * FROM Global_Model_Codes WHERE ModelCode = @ModelCodeId";
 
             using (SqlConnection connection = new SqlConnection(DBConnection))
             using (SqlCommand command = new SqlCommand(query, connection))

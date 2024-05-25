@@ -13,7 +13,7 @@ namespace PrintGaransi._Repositories
         private string LSBUDBPRODUCTION;
         public GaransiRepository()
         {
-            LSBUDBPRODUCTION = ConfigurationManager.ConnectionStrings["LSBUDBPRODUCTION"].ConnectionString;
+            LSBUDBPRODUCTION = ConfigurationManager.ConnectionStrings["LSBU"].ConnectionString;
         }
 
         public IEnumerable<GaransiModel> GetData(string model)
@@ -24,7 +24,7 @@ namespace PrintGaransi._Repositories
         public IEnumerable<GaransiModel> GetAll()
         {
             List<GaransiModel> models = new List<GaransiModel>();
-            string query = "SELECT * FROM Results";
+            string query = "SELECT * FROM Warranty_Results";
 
             using (SqlConnection connection = new SqlConnection(LSBUDBPRODUCTION))
             using (SqlCommand command = new SqlCommand(query, connection))
@@ -58,7 +58,7 @@ namespace PrintGaransi._Repositories
         public IEnumerable<GaransiModel> GetFilter(string serialNumber)
         {
             List<GaransiModel> results = new List<GaransiModel>();
-            string query = "SELECT * FROM Results WHERE SerialNumber = @SerialNumber";
+            string query = "SELECT * FROM Warranty_Results WHERE SerialNumber = @SerialNumber";
 
             using (SqlConnection connection = new SqlConnection(LSBUDBPRODUCTION))
             using (SqlCommand command = new SqlCommand(query, connection))
@@ -100,17 +100,17 @@ namespace PrintGaransi._Repositories
                 connection.Open();
                 command.Connection = connection;
 
-                command.CommandText = "INSERT INTO Results (JenisProduk, ModelCode, ModelNumber, SerialNumber, ScanningDate, ScanningTime, Different, ActualTT, Location, Register) values (@JenisProduk, M@odelCode, @ModelNumber, @SerialNumber, @ScanningDate, @ScanningTime, @Different, @ActualTT, @Location, @Register)";
+                command.CommandText = "INSERT INTO Warranty_Results (JenisProduk, ModelCode, ModelNumber, SerialNumber, ScanningDate, ScanningTime, Different, ActualTT, Location, Register) values (@JenisProduk, @ModelCode, @ModelNumber, @SerialNumber, @ScanningDate, @ScanningTime, @Different, @ActualTT, @Location, @Register)";
                 command.Parameters.Add("@JenisProduk", SqlDbType.VarChar).Value = model.JenisProduk;
                 command.Parameters.Add("@ModelCode", SqlDbType.VarChar).Value = model.ModelCode;
                 command.Parameters.Add("@ModelNumber", SqlDbType.VarChar).Value = model.ModelNumber;
-                command.Parameters.Add("@SerialNumber", SqlDbType.VarChar).Value = model.SerialNumber;
-                command.Parameters.Add("@ScanningDate", SqlDbType.Date).Value = model.ScanningDate;
-                command.Parameters.Add("@ScanningDate", SqlDbType.Time).Value = model.ScanningDate;
+                command.Parameters.Add("@SerialNumber", SqlDbType.VarChar).Value = model.NoSeri;
+                command.Parameters.Add("@ScanningDate", SqlDbType.Date).Value = model.Date;
+                command.Parameters.Add("@ScanningTime", SqlDbType.Time).Value = model.ScanTime;
                 command.Parameters.Add("@Different", SqlDbType.Time).Value = model.Different;
                 command.Parameters.Add("@ActualTT", SqlDbType.Decimal).Value = model.ActualTT;
                 command.Parameters.Add("@Location", SqlDbType.Int).Value = model.Location;
-                command.Parameters.Add("@Register", SqlDbType.VarChar).Value = model.Register;
+                command.Parameters.Add("@Register", SqlDbType.VarChar).Value = model.NoReg;
                 command.ExecuteNonQuery();
             }
         }

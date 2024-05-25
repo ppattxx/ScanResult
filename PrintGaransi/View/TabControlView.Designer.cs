@@ -87,10 +87,11 @@
             // tabPage2
             // 
             tabPage2.Controls.Add(tableLayoutPanel9);
-            tabPage2.Location = new Point(4, 27);
+            tabPage2.Location = new Point(4, 37);
+            tabPage2.Margin = new Padding(4, 5, 4, 5);
             tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(885, 445);
+            tabPage2.Padding = new Padding(4, 5, 4, 5);
+            tabPage2.Size = new Size(1268, 752);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Search";
             tabPage2.UseVisualStyleBackColor = true;
@@ -102,13 +103,14 @@
             tableLayoutPanel9.Controls.Add(dataGridView2, 0, 2);
             tableLayoutPanel9.Controls.Add(tableLayoutPanel10, 0, 1);
             tableLayoutPanel9.Dock = DockStyle.Fill;
-            tableLayoutPanel9.Location = new Point(3, 3);
+            tableLayoutPanel9.Location = new Point(4, 5);
+            tableLayoutPanel9.Margin = new Padding(4, 5, 4, 5);
             tableLayoutPanel9.Name = "tableLayoutPanel9";
             tableLayoutPanel9.RowCount = 3;
-            tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Absolute, 83F));
             tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 8F));
             tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 92F));
-            tableLayoutPanel9.Size = new Size(879, 439);
+            tableLayoutPanel9.Size = new Size(1260, 742);
             tableLayoutPanel9.TabIndex = 8;
             // 
             // dataGridView2
@@ -119,10 +121,12 @@
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView2.Dock = DockStyle.Fill;
             dataGridView2.EnableHeadersVisualStyles = false;
-            dataGridView2.Location = new Point(3, 84);
+            dataGridView2.Location = new Point(4, 140);
+            dataGridView2.Margin = new Padding(4, 5, 4, 5);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.RowHeadersVisible = false;
-            dataGridView2.Size = new Size(873, 352);
+            dataGridView2.RowHeadersWidth = 62;
+            dataGridView2.Size = new Size(1252, 597);
             dataGridView2.TabIndex = 4;
             // 
             // tableLayoutPanel10
@@ -131,25 +135,27 @@
             tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 31.8181839F));
             tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 45.4545479F));
             tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 22.7272739F));
-            tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 150F));
+            tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 216F));
             tableLayoutPanel10.Controls.Add(textBoxSearch, 0, 0);
             tableLayoutPanel10.Controls.Add(label11, 0, 0);
             tableLayoutPanel10.Controls.Add(btnSearch, 2, 0);
             tableLayoutPanel10.Dock = DockStyle.Fill;
-            tableLayoutPanel10.Location = new Point(3, 53);
+            tableLayoutPanel10.Location = new Point(4, 88);
+            tableLayoutPanel10.Margin = new Padding(4, 5, 4, 5);
             tableLayoutPanel10.Name = "tableLayoutPanel10";
             tableLayoutPanel10.RowCount = 1;
             tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel10.Size = new Size(873, 25);
+            tableLayoutPanel10.Size = new Size(1252, 42);
             tableLayoutPanel10.TabIndex = 3;
             // 
             // textBoxSearch
             // 
             textBoxSearch.Dock = DockStyle.Fill;
             textBoxSearch.Font = new Font("Microsoft Sans Serif", 18F);
-            textBoxSearch.Location = new Point(233, 3);
+            textBoxSearch.Location = new Point(333, 5);
+            textBoxSearch.Margin = new Padding(4, 5, 4, 5);
             textBoxSearch.Name = "textBoxSearch";
-            textBoxSearch.Size = new Size(322, 35);
+            textBoxSearch.Size = new Size(462, 48);
             textBoxSearch.TabIndex = 11;
             textBoxSearch.KeyDown += textBoxSearch_KeyDown;
             // 
@@ -157,19 +163,19 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
-            label11.Location = new Point(3, 0);
+            label11.Location = new Point(4, 0);
+            label11.Margin = new Padding(4, 0, 4, 0);
             label11.Name = "label11";
-            label11.Size = new Size(178, 25);
+            label11.Size = new Size(257, 42);
             label11.TabIndex = 10;
             label11.Text = "Search Serial Number";
             // 
             // btnSearch
             // 
             btnSearch.Dock = DockStyle.Fill;
-            btnSearch.Location = new Point(560, 2);
-            btnSearch.Margin = new Padding(2);
+            btnSearch.Location = new Point(802, 3);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(160, 21);
+            btnSearch.Size = new Size(229, 36);
             btnSearch.TabIndex = 6;
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = true;
@@ -177,10 +183,11 @@
             // tabPage1
             // 
             tabPage1.Controls.Add(tableLayoutPanel2);
-            tabPage1.Location = new Point(4, 27);
+            tabPage1.Location = new Point(4, 37);
+            tabPage1.Margin = new Padding(4, 5, 4, 5);
             tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(885, 445);
+            tabPage1.Padding = new Padding(4, 5, 4, 5);
+            tabPage1.Size = new Size(1268, 752);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Home";
             tabPage1.UseVisualStyleBackColor = true;
@@ -192,13 +199,14 @@
             tableLayoutPanel2.Controls.Add(dataGridView1, 0, 2);
             tableLayoutPanel2.Controls.Add(tableLayoutPanel3, 0, 1);
             tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(3, 3);
+            tableLayoutPanel2.Location = new Point(4, 5);
+            tableLayoutPanel2.Margin = new Padding(4, 5, 4, 5);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 3;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 83F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 60F));
-            tableLayoutPanel2.Size = new Size(879, 439);
+            tableLayoutPanel2.Size = new Size(1260, 742);
             tableLayoutPanel2.TabIndex = 8;
             // 
             // dataGridView1
@@ -209,10 +217,12 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.Location = new Point(3, 208);
+            dataGridView1.Location = new Point(4, 351);
+            dataGridView1.Margin = new Padding(4, 5, 4, 5);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
-            dataGridView1.Size = new Size(873, 228);
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.Size = new Size(1252, 386);
             dataGridView1.TabIndex = 2;
             // 
             // tableLayoutPanel3
@@ -220,15 +230,16 @@
             tableLayoutPanel3.ColumnCount = 3;
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 76.92308F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 23.07692F));
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 150F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 216F));
             tableLayoutPanel3.Controls.Add(tableLayoutPanel5, 0, 0);
             tableLayoutPanel3.Controls.Add(tableLayoutPanel6, 1, 0);
             tableLayoutPanel3.Dock = DockStyle.Fill;
-            tableLayoutPanel3.Location = new Point(3, 53);
+            tableLayoutPanel3.Location = new Point(4, 88);
+            tableLayoutPanel3.Margin = new Padding(4, 5, 4, 5);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 1;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel3.Size = new Size(873, 149);
+            tableLayoutPanel3.Size = new Size(1252, 253);
             tableLayoutPanel3.TabIndex = 3;
             // 
             // tableLayoutPanel5
@@ -247,7 +258,8 @@
             tableLayoutPanel5.Controls.Add(textBoxSerial, 1, 0);
             tableLayoutPanel5.Controls.Add(label8, 0, 2);
             tableLayoutPanel5.Dock = DockStyle.Fill;
-            tableLayoutPanel5.Location = new Point(3, 3);
+            tableLayoutPanel5.Location = new Point(4, 5);
+            tableLayoutPanel5.Margin = new Padding(4, 5, 4, 5);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
             tableLayoutPanel5.RowCount = 5;
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
@@ -255,25 +267,27 @@
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel5.Size = new Size(550, 143);
+            tableLayoutPanel5.Size = new Size(788, 243);
             tableLayoutPanel5.TabIndex = 7;
             // 
             // textBoxJP
             // 
             textBoxJP.Dock = DockStyle.Fill;
             textBoxJP.Font = new Font("Microsoft Sans Serif", 18F);
-            textBoxJP.Location = new Point(238, 115);
+            textBoxJP.Location = new Point(341, 197);
+            textBoxJP.Margin = new Padding(4, 5, 4, 5);
             textBoxJP.Name = "textBoxJP";
-            textBoxJP.Size = new Size(309, 35);
+            textBoxJP.Size = new Size(443, 48);
             textBoxJP.TabIndex = 4;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
-            label5.Location = new Point(3, 112);
+            label5.Location = new Point(4, 192);
+            label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(165, 29);
+            label5.Size = new Size(237, 40);
             label5.TabIndex = 9;
             label5.Text = "Jenis Produk";
             // 
@@ -281,18 +295,21 @@
             // 
             textBoxRegister.Dock = DockStyle.Fill;
             textBoxRegister.Font = new Font("Microsoft Sans Serif", 18F);
-            textBoxRegister.Location = new Point(238, 87);
+            textBoxRegister.Location = new Point(341, 149);
+            textBoxRegister.Margin = new Padding(4, 5, 4, 5);
             textBoxRegister.Name = "textBoxRegister";
-            textBoxRegister.Size = new Size(309, 35);
+            textBoxRegister.ReadOnly = true;
+            textBoxRegister.Size = new Size(443, 48);
             textBoxRegister.TabIndex = 2;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(3, 0);
+            label4.Location = new Point(4, 0);
+            label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(137, 28);
+            label4.Size = new Size(196, 40);
             label4.TabIndex = 5;
             label4.Text = "No. Serial ";
             // 
@@ -300,27 +317,32 @@
             // 
             textBoxModelNumber.Dock = DockStyle.Fill;
             textBoxModelNumber.Font = new Font("Microsoft Sans Serif", 18F);
-            textBoxModelNumber.Location = new Point(238, 59);
+            textBoxModelNumber.Location = new Point(341, 101);
+            textBoxModelNumber.Margin = new Padding(4, 5, 4, 5);
             textBoxModelNumber.Name = "textBoxModelNumber";
-            textBoxModelNumber.Size = new Size(309, 35);
+            textBoxModelNumber.ReadOnly = true;
+            textBoxModelNumber.Size = new Size(443, 48);
             textBoxModelNumber.TabIndex = 1;
             // 
             // textBoxCode
             // 
             textBoxCode.Dock = DockStyle.Fill;
             textBoxCode.Font = new Font("Microsoft Sans Serif", 18F);
-            textBoxCode.Location = new Point(238, 31);
+            textBoxCode.Location = new Point(341, 53);
+            textBoxCode.Margin = new Padding(4, 5, 4, 5);
             textBoxCode.Name = "textBoxCode";
-            textBoxCode.Size = new Size(309, 35);
+            textBoxCode.ReadOnly = true;
+            textBoxCode.Size = new Size(443, 48);
             textBoxCode.TabIndex = 2;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
-            label6.Location = new Point(3, 84);
+            label6.Location = new Point(4, 144);
+            label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
-            label6.Size = new Size(160, 28);
+            label6.Size = new Size(229, 40);
             label6.TabIndex = 8;
             label6.Text = "No. Register";
             // 
@@ -328,9 +350,10 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
-            label7.Location = new Point(3, 28);
+            label7.Location = new Point(4, 48);
+            label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new Size(156, 28);
+            label7.Size = new Size(221, 40);
             label7.TabIndex = 6;
             label7.Text = "Model Code";
             // 
@@ -338,9 +361,11 @@
             // 
             textBoxSerial.Dock = DockStyle.Fill;
             textBoxSerial.Font = new Font("Microsoft Sans Serif", 18F);
-            textBoxSerial.Location = new Point(238, 3);
+            textBoxSerial.Location = new Point(341, 5);
+            textBoxSerial.Margin = new Padding(4, 5, 4, 5);
             textBoxSerial.Name = "textBoxSerial";
-            textBoxSerial.Size = new Size(309, 35);
+            textBoxSerial.ReadOnly = true;
+            textBoxSerial.Size = new Size(443, 48);
             textBoxSerial.TabIndex = 1;
             textBoxSerial.TextChanged += textBoxSerial_TextChanged;
             // 
@@ -348,9 +373,10 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
-            label8.Location = new Point(3, 56);
+            label8.Location = new Point(4, 96);
+            label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
-            label8.Size = new Size(186, 28);
+            label8.Size = new Size(265, 40);
             label8.TabIndex = 7;
             label8.Text = "Model Number";
             // 
@@ -360,21 +386,21 @@
             tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel6.Controls.Add(btnPrint, 0, 1);
             tableLayoutPanel6.Dock = DockStyle.Fill;
-            tableLayoutPanel6.Location = new Point(559, 3);
+            tableLayoutPanel6.Location = new Point(800, 5);
+            tableLayoutPanel6.Margin = new Padding(4, 5, 4, 5);
             tableLayoutPanel6.Name = "tableLayoutPanel6";
             tableLayoutPanel6.RowCount = 2;
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 75F));
-            tableLayoutPanel6.Size = new Size(160, 143);
+            tableLayoutPanel6.Size = new Size(231, 243);
             tableLayoutPanel6.TabIndex = 8;
             // 
             // btnPrint
             // 
             btnPrint.Dock = DockStyle.Fill;
-            btnPrint.Location = new Point(2, 37);
-            btnPrint.Margin = new Padding(2);
+            btnPrint.Location = new Point(3, 63);
             btnPrint.Name = "btnPrint";
-            btnPrint.Size = new Size(156, 104);
+            btnPrint.Size = new Size(225, 177);
             btnPrint.TabIndex = 5;
             btnPrint.Text = "Print";
             btnPrint.UseVisualStyleBackColor = true;
@@ -386,9 +412,10 @@
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Dock = DockStyle.Fill;
             tabControl1.Location = new Point(0, 0);
+            tabControl1.Margin = new Padding(4, 5, 4, 5);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(893, 476);
+            tabControl1.Size = new Size(1276, 793);
             tabControl1.TabIndex = 0;
             // 
             // tableLayoutPanel4
@@ -440,7 +467,7 @@
             textBox1.Font = new Font("Microsoft Sans Serif", 18F);
             textBox1.Location = new Point(14, 147);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(10, 35);
+            textBox1.Size = new Size(10, 48);
             textBox1.TabIndex = 4;
             // 
             // label1
@@ -459,7 +486,7 @@
             textBox2.Font = new Font("Microsoft Sans Serif", 18F);
             textBox2.Location = new Point(14, 111);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(10, 35);
+            textBox2.Size = new Size(10, 48);
             textBox2.TabIndex = 2;
             // 
             // label2
@@ -478,7 +505,7 @@
             textBox3.Font = new Font("Microsoft Sans Serif", 18F);
             textBox3.Location = new Point(14, 75);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(10, 35);
+            textBox3.Size = new Size(10, 48);
             textBox3.TabIndex = 1;
             // 
             // textBox4
@@ -487,7 +514,7 @@
             textBox4.Font = new Font("Microsoft Sans Serif", 18F);
             textBox4.Location = new Point(14, 39);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(10, 35);
+            textBox4.Size = new Size(10, 48);
             textBox4.TabIndex = 2;
             // 
             // label3
@@ -516,7 +543,7 @@
             textBox5.Font = new Font("Microsoft Sans Serif", 18F);
             textBox5.Location = new Point(14, 3);
             textBox5.Name = "textBox5";
-            textBox5.Size = new Size(10, 35);
+            textBox5.Size = new Size(10, 48);
             textBox5.TabIndex = 1;
             // 
             // label10
@@ -563,11 +590,12 @@
             // 
             // TabControlView
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(tabControl1);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "TabControlView";
-            Size = new Size(893, 476);
+            Size = new Size(1276, 793);
             Load += TabControlView_Load;
             tabPage2.ResumeLayout(false);
             tableLayoutPanel9.ResumeLayout(false);

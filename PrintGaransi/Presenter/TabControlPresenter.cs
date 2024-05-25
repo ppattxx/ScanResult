@@ -22,6 +22,7 @@ namespace PrintGaransi.Presenter
         private IGaransiRepository GaransiRepository;
         private BindingSource dataBindingSource;
         private BindingSource dataBindingSource2;
+        private DateTime _lastScanTime;
 
         public TabControlPresenter(ITabControlView _view, IGaransiRepository garansiRepository)
         {
@@ -93,6 +94,15 @@ namespace PrintGaransi.Presenter
             DateTime currentTime = DateTime.Now;
             string date = currentTime.ToString("yyyy-MM-dd");
             string time = currentTime.ToString("HH:mm:ss");
+
+            TimeSpan different = TimeSpan.Zero;
+            if (_lastScanTime != DateTime.MinValue)
+            {
+                different = currentTime - _lastScanTime;
+            }
+
+            decimal actualTT = ConvertTimeSpanToDecimal(different);
+
             var model = new GaransiModel
             {
                 JenisProduk = _view.JenisProduk,
@@ -102,13 +112,20 @@ namespace PrintGaransi.Presenter
                 NoSeri = _view.SerialNumber,
                 Date = date,
                 ScanTime = time,
-                //Different = '00:30:00',
-               // ActualTT = '20,00',
-                //Location = 2
+                Different = different.ToString(@"hh\:mm\:ss"),
+                ActualTT = actualTT.ToString("F2"),
+                Location = "1"
             };
 
             GaransiRepository.Add(model);
             _view.ShowPrintPreviewDialog(model);
+
+            _lastScanTime = currentTime;
+        }
+
+        private decimal ConvertTimeSpanToDecimal(TimeSpan different)
+        {
+            return (decimal)different.TotalHours;
         }
 
         private void LoadAllDefectList()
@@ -148,7 +165,10 @@ namespace PrintGaransi.Presenter
                 }
                 else
                 {
-                    MessageBox.Show("Model not found.");
+                    _view.SerialNumber = "";
+                    _view.ModelCode = "";
+                    _view.ModelNumber = "";
+                    _view.Register = "";
                 }
             }
         }

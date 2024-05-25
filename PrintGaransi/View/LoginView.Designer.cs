@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginView));
             button3 = new Button();
             button2 = new Button();
-            tableLayoutPanel4 = new TableLayoutPanel();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             panel1 = new Panel();
@@ -40,9 +39,8 @@
             textBoxNik = new TextBox();
             label3 = new Label();
             roundedCornerPanel1 = new Resource.RoundedCornerPanel();
-            btnConnect = new Resource.RJButton();
             btnExit = new Resource.RJButton();
-            tableLayoutPanel4.SuspendLayout();
+            btnConnect = new Resource.RJButton();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             roundedCornerPanel1.SuspendLayout();
@@ -79,24 +77,14 @@
             button2.TextImageRelation = TextImageRelation.ImageAboveText;
             button2.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel4
-            // 
-            tableLayoutPanel4.ColumnCount = 1;
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel4.Controls.Add(button3, 0, 4);
-            tableLayoutPanel4.Location = new Point(0, 0);
-            tableLayoutPanel4.Name = "tableLayoutPanel4";
-            tableLayoutPanel4.RowCount = 5;
-            tableLayoutPanel4.Size = new Size(200, 100);
-            tableLayoutPanel4.TabIndex = 0;
-            // 
             // pictureBox1
             // 
             pictureBox1.Anchor = AnchorStyles.None;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(68, 128);
+            pictureBox1.Location = new Point(97, 213);
+            pictureBox1.Margin = new Padding(4, 5, 4, 5);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(28, 37);
+            pictureBox1.Size = new Size(40, 62);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -105,9 +93,10 @@
             // 
             pictureBox2.Anchor = AnchorStyles.None;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(68, 206);
+            pictureBox2.Location = new Point(97, 343);
+            pictureBox2.Margin = new Padding(4, 5, 4, 5);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(28, 37);
+            pictureBox2.Size = new Size(40, 62);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 5;
             pictureBox2.TabStop = false;
@@ -116,18 +105,20 @@
             // 
             panel1.Anchor = AnchorStyles.None;
             panel1.BackColor = SystemColors.ControlDark;
-            panel1.Location = new Point(114, 164);
+            panel1.Location = new Point(163, 273);
+            panel1.Margin = new Padding(4, 5, 4, 5);
             panel1.Name = "panel1";
-            panel1.Size = new Size(347, 3);
+            panel1.Size = new Size(496, 5);
             panel1.TabIndex = 6;
             // 
             // panel2
             // 
             panel2.Anchor = AnchorStyles.None;
             panel2.BackColor = SystemColors.ControlDark;
-            panel2.Location = new Point(114, 240);
+            panel2.Location = new Point(163, 400);
+            panel2.Margin = new Padding(4, 5, 4, 5);
             panel2.Name = "panel2";
-            panel2.Size = new Size(347, 3);
+            panel2.Size = new Size(496, 5);
             panel2.TabIndex = 7;
             // 
             // textBoxPassword
@@ -136,11 +127,12 @@
             textBoxPassword.BackColor = SystemColors.Control;
             textBoxPassword.BorderStyle = BorderStyle.None;
             textBoxPassword.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxPassword.Location = new Point(114, 208);
+            textBoxPassword.Location = new Point(163, 347);
+            textBoxPassword.Margin = new Padding(4, 5, 4, 5);
             textBoxPassword.Name = "textBoxPassword";
             textBoxPassword.PasswordChar = '*';
             textBoxPassword.PlaceholderText = "Password";
-            textBoxPassword.Size = new Size(347, 26);
+            textBoxPassword.Size = new Size(496, 38);
             textBoxPassword.TabIndex = 2;
             textBoxPassword.KeyDown += textBoxPassword_KeyDown;
             // 
@@ -150,10 +142,11 @@
             textBoxNik.BackColor = SystemColors.Control;
             textBoxNik.BorderStyle = BorderStyle.None;
             textBoxNik.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxNik.Location = new Point(114, 132);
+            textBoxNik.Location = new Point(163, 220);
+            textBoxNik.Margin = new Padding(4, 5, 4, 5);
             textBoxNik.Name = "textBoxNik";
             textBoxNik.PlaceholderText = "NIK";
-            textBoxNik.Size = new Size(347, 26);
+            textBoxNik.Size = new Size(496, 38);
             textBoxNik.TabIndex = 1;
             textBoxNik.KeyDown += textBoxNik_KeyDown;
             // 
@@ -162,9 +155,10 @@
             label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(235, 53);
+            label3.Location = new Point(336, 88);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(111, 33);
+            label3.Size = new Size(163, 52);
             label3.TabIndex = 8;
             label3.Text = "LOGIN";
             // 
@@ -184,36 +178,17 @@
             roundedCornerPanel1.Controls.Add(textBoxPassword);
             roundedCornerPanel1.Controls.Add(pictureBox2);
             roundedCornerPanel1.CornerRadius = 15;
-            roundedCornerPanel1.Location = new Point(129, 56);
+            roundedCornerPanel1.Location = new Point(184, 93);
+            roundedCornerPanel1.Margin = new Padding(4, 5, 4, 5);
             roundedCornerPanel1.Name = "roundedCornerPanel1";
-            roundedCornerPanel1.Size = new Size(563, 363);
+            roundedCornerPanel1.Size = new Size(804, 605);
             roundedCornerPanel1.TabIndex = 9;
-            // 
-            // btnConnect
-            // 
-            btnConnect.Anchor = AnchorStyles.None;
-            btnConnect.BackColor = SystemColors.ControlDark;
-            btnConnect.BackgroundColor = SystemColors.ControlDark;
-            btnConnect.BorderColor = Color.PaleVioletRed;
-            btnConnect.BorderRadius = 8;
-            btnConnect.BorderSize = 0;
-            btnConnect.FlatAppearance.BorderSize = 0;
-            btnConnect.FlatStyle = FlatStyle.Flat;
-            btnConnect.Font = new Font("MS Reference Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnConnect.ForeColor = Color.White;
-            btnConnect.Location = new Point(147, 279);
-            btnConnect.Name = "btnConnect";
-            btnConnect.Size = new Size(113, 40);
-            btnConnect.TabIndex = 9;
-            btnConnect.Text = "Login";
-            btnConnect.TextColor = Color.White;
-            btnConnect.UseVisualStyleBackColor = false;
             // 
             // btnExit
             // 
             btnExit.Anchor = AnchorStyles.None;
-            btnExit.BackColor = SystemColors.ControlDark;
-            btnExit.BackgroundColor = SystemColors.ControlDark;
+            btnExit.BackColor = Color.Red;
+            btnExit.BackgroundColor = Color.Red;
             btnExit.BorderColor = Color.PaleVioletRed;
             btnExit.BorderRadius = 8;
             btnExit.BorderSize = 0;
@@ -221,26 +196,48 @@
             btnExit.FlatStyle = FlatStyle.Flat;
             btnExit.Font = new Font("MS Reference Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnExit.ForeColor = Color.White;
-            btnExit.Location = new Point(309, 279);
+            btnExit.Location = new Point(441, 465);
+            btnExit.Margin = new Padding(4, 5, 4, 5);
             btnExit.Name = "btnExit";
-            btnExit.Size = new Size(113, 40);
+            btnExit.Size = new Size(161, 67);
             btnExit.TabIndex = 10;
             btnExit.Text = "Exit";
             btnExit.TextColor = Color.White;
             btnExit.UseVisualStyleBackColor = false;
             // 
+            // btnConnect
+            // 
+            btnConnect.Anchor = AnchorStyles.None;
+            btnConnect.BackColor = Color.FromArgb(0, 173, 181);
+            btnConnect.BackgroundColor = Color.FromArgb(0, 173, 181);
+            btnConnect.BorderColor = Color.PaleVioletRed;
+            btnConnect.BorderRadius = 8;
+            btnConnect.BorderSize = 0;
+            btnConnect.FlatAppearance.BorderSize = 0;
+            btnConnect.FlatStyle = FlatStyle.Flat;
+            btnConnect.Font = new Font("MS Reference Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnConnect.ForeColor = Color.White;
+            btnConnect.Location = new Point(210, 465);
+            btnConnect.Margin = new Padding(4, 5, 4, 5);
+            btnConnect.Name = "btnConnect";
+            btnConnect.Size = new Size(161, 67);
+            btnConnect.TabIndex = 9;
+            btnConnect.Text = "Login";
+            btnConnect.TextColor = Color.White;
+            btnConnect.UseVisualStyleBackColor = false;
+            // 
             // LoginView
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlDark;
-            ClientSize = new Size(800, 459);
+            ClientSize = new Size(1143, 765);
             Controls.Add(roundedCornerPanel1);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "LoginView";
             Text = "Form1";
             WindowState = FormWindowState.Maximized;
             Load += LoginView_Load;
-            tableLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             roundedCornerPanel1.ResumeLayout(false);
@@ -251,7 +248,6 @@
         #endregion
         private Button button3;
         private Button button2;
-        private TableLayoutPanel tableLayoutPanel4;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private Panel panel1;

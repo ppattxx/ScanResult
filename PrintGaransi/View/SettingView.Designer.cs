@@ -46,26 +46,29 @@
             // textBoxIP
             // 
             textBoxIP.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxIP.Location = new Point(303, 89);
+            textBoxIP.Location = new Point(433, 148);
+            textBoxIP.Margin = new Padding(4, 5, 4, 5);
             textBoxIP.Name = "textBoxIP";
-            textBoxIP.Size = new Size(207, 31);
+            textBoxIP.Size = new Size(294, 43);
             textBoxIP.TabIndex = 0;
             // 
             // textBoxPort
             // 
             textBoxPort.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxPort.Location = new Point(303, 145);
+            textBoxPort.Location = new Point(433, 242);
+            textBoxPort.Margin = new Padding(4, 5, 4, 5);
             textBoxPort.Name = "textBoxPort";
-            textBoxPort.Size = new Size(207, 31);
+            textBoxPort.Size = new Size(294, 43);
             textBoxPort.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(128, 92);
+            label1.Location = new Point(183, 153);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(116, 25);
+            label1.Size = new Size(173, 37);
             label1.TabIndex = 2;
             label1.Text = "IP Address";
             // 
@@ -73,29 +76,34 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(128, 151);
+            label2.Location = new Point(183, 252);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(51, 25);
+            label2.Size = new Size(76, 37);
             label2.TabIndex = 3;
             label2.Text = "Port";
             // 
             // btnConnect
             // 
+            btnConnect.BackColor = Color.FromArgb(0, 173, 181);
             btnConnect.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnConnect.Location = new Point(538, 155);
+            btnConnect.ForeColor = Color.White;
+            btnConnect.Location = new Point(769, 258);
+            btnConnect.Margin = new Padding(4, 5, 4, 5);
             btnConnect.Name = "btnConnect";
-            btnConnect.Size = new Size(124, 31);
+            btnConnect.Size = new Size(177, 52);
             btnConnect.TabIndex = 4;
             btnConnect.Text = "Connect";
-            btnConnect.UseVisualStyleBackColor = true;
+            btnConnect.UseVisualStyleBackColor = false;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(128, 36);
+            label3.Location = new Point(183, 60);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(185, 25);
+            label3.Size = new Size(277, 37);
             label3.TabIndex = 5;
             label3.Text = "Setting IP Camera";
             // 
@@ -150,9 +158,10 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(128, 217);
+            label4.Location = new Point(183, 362);
+            label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(94, 25);
+            label4.Size = new Size(139, 37);
             label4.TabIndex = 6;
             label4.Text = "Location";
             // 
@@ -160,16 +169,17 @@
             // 
             comboBox1.Font = new Font("MS Reference Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(306, 213);
+            comboBox1.Location = new Point(437, 355);
+            comboBox1.Margin = new Padding(4, 5, 4, 5);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(204, 34);
+            comboBox1.Size = new Size(290, 48);
             comboBox1.TabIndex = 7;
             // 
             // SettingView
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(674, 377);
+            ClientSize = new Size(963, 628);
             Controls.Add(comboBox1);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -178,6 +188,7 @@
             Controls.Add(label1);
             Controls.Add(textBoxPort);
             Controls.Add(textBoxIP);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "SettingView";
             Text = "Setting";
             Load += SettingView_Load;
