@@ -109,21 +109,21 @@ namespace PrintGaransi
             splitData2(cleanedData);
         }
 
-        private void splitData1(string input)
-        {
-            if (input.Length >= 2)
-            {
-                string data1 = input.Substring(0, 2);
-                updateUiCallback?.Invoke(data1);
-            }
-        }
-
         private void splitData2(string input)
         {
             if (input.Length > 2)
             {
                 string data2 = input.Substring(2);
                 updateUiCallback2?.Invoke(data2);
+            }
+        }
+
+        private void splitData1(string input)
+        {
+            if (input.Length >= 2)
+            {
+                string data1 = input.Substring(0, 2);
+                updateUiCallback?.Invoke(data1);
             }
         }
     }

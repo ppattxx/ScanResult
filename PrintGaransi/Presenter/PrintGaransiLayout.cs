@@ -12,11 +12,6 @@ namespace PrintGaransi.Presenter
     {
         public void Print(PrintPageEventArgs e, GaransiModel garansi)
         {
-            Console.WriteLine("Layout");
-            MessageBox.Show(garansi.JenisProduk);
-            MessageBox.Show(garansi.ModelNumber);
-            MessageBox.Show(garansi.NoReg);
-            MessageBox.Show(garansi.NoSeri);
             // Menentukan ukuran kertas dan margin
             PaperSize customPaperSize = new PaperSize("Custom", 130, 250); //dalam satuan mm
             e.PageSettings.PaperSize = customPaperSize;

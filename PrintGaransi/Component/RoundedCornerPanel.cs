@@ -7,7 +7,7 @@ using System.Windows.Forms;
 namespace PrintGaransi.Resource
 {
     [ToolboxItem(true)] // Ensure the control is visible in the Toolbox
-    public class RoundedCornerPanel : Panel
+    public class RDPanel : Panel
     {
         private int cornerRadius = 15;
         private Color borderColor = Color.Black;
@@ -46,7 +46,7 @@ namespace PrintGaransi.Resource
             }
         }
 
-        public RoundedCornerPanel()
+        public RDPanel()
         {
             this.DoubleBuffered = true;
             this.Resize += (s, e) => this.Invalidate();

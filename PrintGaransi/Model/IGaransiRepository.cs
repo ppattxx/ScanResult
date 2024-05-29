@@ -12,5 +12,6 @@ namespace PrintGaransi.Model
         IEnumerable<GaransiModel> GetData(string model);
         IEnumerable<GaransiModel> GetAll();
         IEnumerable<GaransiModel> GetFilter(string globalCodeId);
+        List<string> JenisProduk();
     }
 }

@@ -38,12 +38,16 @@
             textBoxPassword = new TextBox();
             textBoxNik = new TextBox();
             label3 = new Label();
-            roundedCornerPanel1 = new Resource.RoundedCornerPanel();
-            btnExit = new Resource.RJButton();
-            btnConnect = new Resource.RJButton();
+            roundedCornerPanel1 = new Resource.RDPanel();
+            btnExit = new Resource.RDButton();
+            btnConnect = new Resource.RDButton();
+            panel3 = new Panel();
+            label2 = new Label();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             roundedCornerPanel1.SuspendLayout();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // button3
@@ -81,10 +85,9 @@
             // 
             pictureBox1.Anchor = AnchorStyles.None;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(97, 213);
-            pictureBox1.Margin = new Padding(4, 5, 4, 5);
+            pictureBox1.Location = new Point(68, 128);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(40, 62);
+            pictureBox1.Size = new Size(28, 37);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -93,10 +96,9 @@
             // 
             pictureBox2.Anchor = AnchorStyles.None;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(97, 343);
-            pictureBox2.Margin = new Padding(4, 5, 4, 5);
+            pictureBox2.Location = new Point(68, 206);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(40, 62);
+            pictureBox2.Size = new Size(28, 37);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 5;
             pictureBox2.TabStop = false;
@@ -105,20 +107,18 @@
             // 
             panel1.Anchor = AnchorStyles.None;
             panel1.BackColor = SystemColors.ControlDark;
-            panel1.Location = new Point(163, 273);
-            panel1.Margin = new Padding(4, 5, 4, 5);
+            panel1.Location = new Point(114, 164);
             panel1.Name = "panel1";
-            panel1.Size = new Size(496, 5);
+            panel1.Size = new Size(347, 3);
             panel1.TabIndex = 6;
             // 
             // panel2
             // 
             panel2.Anchor = AnchorStyles.None;
             panel2.BackColor = SystemColors.ControlDark;
-            panel2.Location = new Point(163, 400);
-            panel2.Margin = new Padding(4, 5, 4, 5);
+            panel2.Location = new Point(114, 240);
             panel2.Name = "panel2";
-            panel2.Size = new Size(496, 5);
+            panel2.Size = new Size(347, 3);
             panel2.TabIndex = 7;
             // 
             // textBoxPassword
@@ -126,13 +126,12 @@
             textBoxPassword.Anchor = AnchorStyles.None;
             textBoxPassword.BackColor = SystemColors.Control;
             textBoxPassword.BorderStyle = BorderStyle.None;
-            textBoxPassword.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxPassword.Location = new Point(163, 347);
-            textBoxPassword.Margin = new Padding(4, 5, 4, 5);
+            textBoxPassword.Font = new Font("Arial", 15.75F);
+            textBoxPassword.Location = new Point(114, 208);
             textBoxPassword.Name = "textBoxPassword";
             textBoxPassword.PasswordChar = '*';
             textBoxPassword.PlaceholderText = "Password";
-            textBoxPassword.Size = new Size(496, 38);
+            textBoxPassword.Size = new Size(347, 25);
             textBoxPassword.TabIndex = 2;
             textBoxPassword.KeyDown += textBoxPassword_KeyDown;
             // 
@@ -141,12 +140,11 @@
             textBoxNik.Anchor = AnchorStyles.None;
             textBoxNik.BackColor = SystemColors.Control;
             textBoxNik.BorderStyle = BorderStyle.None;
-            textBoxNik.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxNik.Location = new Point(163, 220);
-            textBoxNik.Margin = new Padding(4, 5, 4, 5);
+            textBoxNik.Font = new Font("Arial", 15.75F);
+            textBoxNik.Location = new Point(114, 132);
             textBoxNik.Name = "textBoxNik";
             textBoxNik.PlaceholderText = "NIK";
-            textBoxNik.Size = new Size(496, 38);
+            textBoxNik.Size = new Size(347, 25);
             textBoxNik.TabIndex = 1;
             textBoxNik.KeyDown += textBoxNik_KeyDown;
             // 
@@ -154,11 +152,10 @@
             // 
             label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(336, 88);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Font = new Font("Arial Rounded MT Bold", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(235, 53);
             label3.Name = "label3";
-            label3.Size = new Size(163, 52);
+            label3.Size = new Size(110, 33);
             label3.TabIndex = 8;
             label3.Text = "LOGIN";
             // 
@@ -178,10 +175,10 @@
             roundedCornerPanel1.Controls.Add(textBoxPassword);
             roundedCornerPanel1.Controls.Add(pictureBox2);
             roundedCornerPanel1.CornerRadius = 15;
-            roundedCornerPanel1.Location = new Point(184, 93);
-            roundedCornerPanel1.Margin = new Padding(4, 5, 4, 5);
+            roundedCornerPanel1.Font = new Font("Arial", 15.75F);
+            roundedCornerPanel1.Location = new Point(331, 151);
             roundedCornerPanel1.Name = "roundedCornerPanel1";
-            roundedCornerPanel1.Size = new Size(804, 605);
+            roundedCornerPanel1.Size = new Size(563, 363);
             roundedCornerPanel1.TabIndex = 9;
             // 
             // btnExit
@@ -194,12 +191,11 @@
             btnExit.BorderSize = 0;
             btnExit.FlatAppearance.BorderSize = 0;
             btnExit.FlatStyle = FlatStyle.Flat;
-            btnExit.Font = new Font("MS Reference Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnExit.Font = new Font("Arial Rounded MT Bold", 14.25F);
             btnExit.ForeColor = Color.White;
-            btnExit.Location = new Point(441, 465);
-            btnExit.Margin = new Padding(4, 5, 4, 5);
+            btnExit.Location = new Point(330, 274);
             btnExit.Name = "btnExit";
-            btnExit.Size = new Size(161, 67);
+            btnExit.Size = new Size(113, 40);
             btnExit.TabIndex = 10;
             btnExit.Text = "Exit";
             btnExit.TextColor = Color.White;
@@ -215,25 +211,57 @@
             btnConnect.BorderSize = 0;
             btnConnect.FlatAppearance.BorderSize = 0;
             btnConnect.FlatStyle = FlatStyle.Flat;
-            btnConnect.Font = new Font("MS Reference Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnConnect.Font = new Font("Arial Rounded MT Bold", 14.25F);
             btnConnect.ForeColor = Color.White;
-            btnConnect.Location = new Point(210, 465);
-            btnConnect.Margin = new Padding(4, 5, 4, 5);
+            btnConnect.Location = new Point(135, 274);
             btnConnect.Name = "btnConnect";
-            btnConnect.Size = new Size(161, 67);
+            btnConnect.Size = new Size(113, 40);
             btnConnect.TabIndex = 9;
             btnConnect.Text = "Login";
             btnConnect.TextColor = Color.White;
             btnConnect.UseVisualStyleBackColor = false;
             // 
+            // panel3
+            // 
+            panel3.BackColor = SystemColors.Control;
+            panel3.Controls.Add(label2);
+            panel3.Controls.Add(label1);
+            panel3.Dock = DockStyle.Top;
+            panel3.Location = new Point(0, 0);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1229, 78);
+            panel3.TabIndex = 10;
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Right;
+            label2.AutoSize = true;
+            label2.Font = new Font("Arial Rounded MT Bold", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(666, 21);
+            label2.Name = "label2";
+            label2.Size = new Size(551, 40);
+            label2.TabIndex = 1;
+            label2.Text = "Laundry Systems Business Unit";
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Left;
+            label1.AutoSize = true;
+            label1.Font = new Font("Arial Rounded MT Bold", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(3, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(493, 55);
+            label1.TabIndex = 0;
+            label1.Text = "Print Warranty Card";
+            // 
             // LoginView
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlDark;
-            ClientSize = new Size(1143, 765);
+            ClientSize = new Size(1229, 632);
+            Controls.Add(panel3);
             Controls.Add(roundedCornerPanel1);
-            Margin = new Padding(4, 5, 4, 5);
             Name = "LoginView";
             Text = "Form1";
             WindowState = FormWindowState.Maximized;
@@ -242,6 +270,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             roundedCornerPanel1.ResumeLayout(false);
             roundedCornerPanel1.PerformLayout();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -255,8 +285,11 @@
         private TextBox textBoxPassword;
         private TextBox textBoxNik;
         private Label label3;
-        private Resource.RoundedCornerPanel roundedCornerPanel1;
-        private Resource.RJButton btnConnect;
-        private Resource.RJButton btnExit;
+        private Resource.RDPanel roundedCornerPanel1;
+        private Resource.RDButton btnConnect;
+        private Resource.RDButton btnExit;
+        private Panel panel3;
+        private Label label2;
+        private Label label1;
     }
 }

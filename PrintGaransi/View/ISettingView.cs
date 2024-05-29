@@ -8,17 +8,23 @@ namespace PrintGaransi.View
 {
     public interface ISettingView
     {
+        List<string> JenisProdukNames { get; set; }
+        List<string> LocationNames { get; set; }
         string ipaddress { get; set; }
         string portaddress { get; set; }
 
-        //Event
+        event EventHandler SelectedIndexChanged;
         event EventHandler SaveIPSettings;
         event EventHandler SavePortSettings;
         event EventHandler LoadIP;
         event EventHandler LoadPort;
+        event EventHandler LoadLocation;
+        event EventHandler LoadProductName;
+        event EventHandler SelectedProductType;
 
-        // Methods
+        void DisplayName(string JPName);
         void DisplayIP(string IPaddress);
-        void DisplayPort(int Port);
+        void DisplayPort(int portAddress);
+        void DisplaySetting(string locationName);
     }
 }

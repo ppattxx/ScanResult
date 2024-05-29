@@ -12,7 +12,6 @@ namespace PrintGaransi.View
         string ModelCode { get; set; }
         string ModelNumber { get; set; }
         string Register { get; set; }
-        string JenisProduk { get; set; }
         string Search { get; set; }
 
         // Events
@@ -20,6 +19,7 @@ namespace PrintGaransi.View
         event EventHandler SearchFilter;
         event EventHandler CheckProperties;
         event EventHandler CellClicked;
+        event EventHandler clickButton;
 
         // Methods
         void ShowFilter(BindingSource model);

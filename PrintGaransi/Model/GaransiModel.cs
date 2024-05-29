@@ -96,10 +96,23 @@ namespace PrintGaransi.Model
         }
 
         [DisplayName("Location")]
+        [Browsable(false)]
         public string Location
         {
             get => location;
             set => location = value;
+        }
+
+        public void SaveScanTime(string myData)
+        {
+            Properties.Settings.Default.ScanTime = myData;
+            Properties.Settings.Default.Save();
+        }
+
+        public string LoadScanTime()
+        {
+            string scanTime = Properties.Settings.Default.ScanTime;
+            return scanTime;
         }
     }
 }

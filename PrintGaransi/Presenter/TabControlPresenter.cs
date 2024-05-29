@@ -1,14 +1,8 @@
-﻿using Microsoft.Win32;
-using PrintGaransi._Repositories;
+﻿using PrintGaransi._Repositories;
 using PrintGaransi.Model;
 using PrintGaransi.View;
 using System;
 using System.Collections.Generic;
-using System.Drawing.Printing;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PrintGaransi.Presenter
@@ -17,59 +11,63 @@ namespace PrintGaransi.Presenter
     {
         private readonly ITabControlView _view;
         private IEnumerable<GaransiModel> _model;
-        private PrintGaransiLayout _printLayout;
-        private IModelNumberRepository ModelNumberRepository;
-        private IGaransiRepository GaransiRepository;
-        private BindingSource dataBindingSource;
-        private BindingSource dataBindingSource2;
+        private readonly GaransiModel _garansiModel;
+        private readonly SettingModel _smodel;
+        private readonly ProductTypeModel _productType;
+        private readonly IModelNumberRepository _modelNumberRepository;
+        private readonly IGaransiRepository _garansiRepository;
+        private BindingSource _dataBindingSource;
+        private BindingSource _dataBindingSource2;
         private DateTime _lastScanTime;
 
-        public TabControlPresenter(ITabControlView _view, IGaransiRepository garansiRepository)
+        public TabControlPresenter(ITabControlView view, IGaransiRepository garansiRepository)
         {
-            this._view = _view;
-            GaransiRepository = garansiRepository;
-            ModelNumberRepository = new ModelNumberRepository();
-            this._view.SearchModelNumber += SearchModelNumber;
-            this._view.SearchFilter += SearchFilter;
-            this._view.CheckProperties += CheckProperties;
-            this._view.CellClicked += CellClicked;
-            dataBindingSource = new BindingSource();
-            dataBindingSource2 = new BindingSource();
-            this._view.SetDefectListBindingSource(dataBindingSource);
-            LoadAllDefectList();
+            _view = view;
+            _garansiRepository = garansiRepository;
+            _smodel = new SettingModel();
+            _productType = new ProductTypeModel();
+            _garansiModel = new GaransiModel();
+            _modelNumberRepository = new ModelNumberRepository();
+
+            _view.SearchModelNumber += SearchModelNumber;
+            _view.SearchFilter += SearchFilter;
+            _view.CheckProperties += CheckProperties;
+            _view.CellClicked += CellClicked;
+            _view.clickButton += ClickButton;
+
+            _dataBindingSource = new BindingSource();
+            _dataBindingSource2 = new BindingSource();
+            _view.SetDefectListBindingSource(_dataBindingSource);
+            LoadAllDataList();
+        }
+
+        private void ClickButton(object sender, EventArgs e)
+        {
+            string loadTime = _garansiModel.LoadScanTime();
+            MessageBox.Show(loadTime);
+            DateTime currentTime = DateTime.Now;
+            string date = currentTime.ToString("yyyy-MM-dd");
+            string time = currentTime.ToString("HH:mm:ss");
+            _garansiModel.SaveScanTime(time);
+            MessageBox.Show(time);
         }
 
         private void CellClicked(object sender, EventArgs e)
         {
-            var model = (GaransiModel)dataBindingSource2.Current;
-            var detailModel = new
-            {
-                //SerialNumber = "12345678",
-                //ModelNumber = "NA-W123JJI34",
-                //ModelCode = "3D",
-                SerialNumber = model.NoSeri,
-                ModelNumber = model.ModelNumber,
-                Register = model.NoReg,
-                JenisProduk = model.JenisProduk,
-                //InspectorId = view.InspectorId,
-                //Inspector = view.Inspector,
-                //Location = Location
-            };
-
-            _view.ShowPrintPreviewDialog(model);
+            CreateModel();
         }
 
         private void CheckProperties(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(_view.SerialNumber))
             {
-                MessageBox.Show("SerialNumber is required.");
+                MessageBox.Show("Serial Number is required.");
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(_view.ModelNumber))
             {
-                MessageBox.Show("ModelNumber is required.");
+                MessageBox.Show("Model Number is required.");
                 return;
             }
 
@@ -79,21 +77,16 @@ namespace PrintGaransi.Presenter
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(_view.JenisProduk))
-            {
-                MessageBox.Show("JenisProduk is required.");
-                return;
-            }
-
-            // Panggil method untuk membuat model atau operasi lainnya
             CreateModel();
         }
 
         private void CreateModel()
         {
+            string loadTime = _garansiModel.LoadScanTime();
             DateTime currentTime = DateTime.Now;
             string date = currentTime.ToString("yyyy-MM-dd");
             string time = currentTime.ToString("HH:mm:ss");
+            _garansiModel.SaveScanTime(time);
 
             TimeSpan different = TimeSpan.Zero;
             if (_lastScanTime != DateTime.MinValue)
@@ -105,7 +98,7 @@ namespace PrintGaransi.Presenter
 
             var model = new GaransiModel
             {
-                JenisProduk = _view.JenisProduk,
+                JenisProduk = _productType.LoadProductType(),
                 ModelCode = _view.ModelCode,
                 ModelNumber = _view.ModelNumber,
                 NoReg = _view.Register,
@@ -114,11 +107,13 @@ namespace PrintGaransi.Presenter
                 ScanTime = time,
                 Different = different.ToString(@"hh\:mm\:ss"),
                 ActualTT = actualTT.ToString("F2"),
-                Location = "1"
+                Location = _smodel.LoadLocationID()
             };
 
-            GaransiRepository.Add(model);
+            _garansiRepository.Add(model);
             _view.ShowPrintPreviewDialog(model);
+
+            LoadAllDataList();
 
             _lastScanTime = currentTime;
         }
@@ -128,18 +123,19 @@ namespace PrintGaransi.Presenter
             return (decimal)different.TotalHours;
         }
 
-        private void LoadAllDefectList()
+        private void LoadAllDataList()
         {
-            _model = GaransiRepository.GetAll();
-            dataBindingSource.DataSource = _model;
-            dataBindingSource2.DataSource = _model;
+            _model = _garansiRepository.GetAll();
+            _dataBindingSource.DataSource = _model;
+            _dataBindingSource2.DataSource = _model;
+            _view.SetDefectListBindingSource(_dataBindingSource);
         }
 
         public void SearchFilter(object sender, EventArgs e)
         {
-            _model = GaransiRepository.GetFilter(_view.Search);
-            dataBindingSource2.DataSource = _model;
-            _view.ShowFilter(dataBindingSource2);
+            _model = _garansiRepository.GetFilter(_view.Search);
+            _dataBindingSource2.DataSource = _model;
+            _view.ShowFilter(_dataBindingSource2);
         }
 
         public void ChangeTabPage(int index)
@@ -151,27 +147,43 @@ namespace PrintGaransi.Presenter
         {
             if (int.TryParse(_view.ModelCode, out int modelCode))
             {
-                var model = new GaransiModel
+                if (modelCode >= 0)
                 {
-                    ModelCode = modelCode.ToString()
-                };
+                    var model = new GaransiModel
+                    {
+                        ModelCode = modelCode.ToString()
+                    };
 
-                var searchModel = ModelNumberRepository.GetByModelCode(model);
+                    var searchModel = _modelNumberRepository.GetByModelCode(model);
 
-                if (searchModel != null)
-                {
-                    _view.ModelNumber = searchModel.ModelNumber;
-                    _view.Register = searchModel.NoReg;
+                    if (searchModel != null)
+                    {
+                        _view.ModelNumber = searchModel.ModelNumber;
+                        _view.Register = searchModel.NoReg;
+                    }
+                    else
+                    {
+                        ClearViewFields();
+                    }
                 }
                 else
                 {
-                    _view.SerialNumber = "";
-                    _view.ModelCode = "";
-                    _view.ModelNumber = "";
-                    _view.Register = "";
+                    ClearViewFields();
                 }
+            }
+            else
+            {
+                MessageBox.Show("Not valid");
+                ClearViewFields();
             }
         }
 
+        private void ClearViewFields()
+        {
+            _view.SerialNumber = "";
+            _view.ModelCode = "";
+            _view.ModelNumber = "";
+            _view.Register = "";
+        }
     }
 }

@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static PrintGaransi.View.IPrintGaransiView;
 using PrintGaransi.Presenter;
+using System.Runtime.CompilerServices;
 
 namespace PrintGaransi.View
 {
@@ -20,6 +21,8 @@ namespace PrintGaransi.View
     {
         private PrintGaransiLayout _printLayout;
         private TCPConnection connection;
+        private bool disableEvent = false;
+        private bool buttonClickedOnce = false;
 
         public TabControlView()
         {
@@ -52,12 +55,6 @@ namespace PrintGaransi.View
             set { textBoxRegister.Text = value; }
         }
 
-        public string JenisProduk
-        {
-            get { return textBoxJP.Text; }
-            set { textBoxJP.Text = value; }
-        }
-
         public string Search
         {
             get { return textBoxSearch.Text; }
@@ -69,10 +66,10 @@ namespace PrintGaransi.View
         public event EventHandler SearchFilter;
         public event EventHandler CheckProperties;
         public event EventHandler CellClicked;
+        public event EventHandler clickButton;
 
         private async void TabControlView_Load(object sender, EventArgs e)
         {
-            textBoxJP.Focus();
             connection = new TCPConnection(UpdateCodeBox, UpdateSerialBox); // Passing both update methods
             await connection.ConnectToServerAsync();
         }
@@ -96,6 +93,53 @@ namespace PrintGaransi.View
                 CellClicked?.Invoke(this, EventArgs.Empty);
                 //CheckProperties?.Invoke(this, EventArgs.Empty);
             };
+
+            dataGridView1.RowPostPaint += (sender, e) =>
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                row.Cells["No1"].Value = (e.RowIndex + 1).ToString();
+                row.Cells["No1"].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            };
+
+            dataGridView2.RowPostPaint += (sender, e) =>
+            {
+                DataGridViewRow row = dataGridView2.Rows[e.RowIndex];
+                row.Cells["No2"].Value = (e.RowIndex + 1).ToString();
+                row.Cells["No2"].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            };
+
+            btnManual.Click += delegate
+            {
+                if (!buttonClickedOnce)
+                {
+                    // Logic to execute when button is clicked for the first time
+                    btnPrint.Visible = true;
+                    disableEvent = true;
+
+                    textBoxSerial.ReadOnly = false;
+                    textBoxCode.ReadOnly = false;
+                    textBoxModelNumber.ReadOnly = false;
+                    textBoxRegister.ReadOnly = false;
+
+                    buttonClickedOnce = true; // Update button state
+                }
+                else
+                {
+                    textBoxSerial.ReadOnly = true;
+                    textBoxCode.ReadOnly = true;
+                    textBoxModelNumber.ReadOnly = true;
+                    textBoxRegister.ReadOnly = true;
+
+                    SerialNumber = "";
+                    ModelCode = "";
+                    ModelNumber = "";
+                    Register = "";
+
+                    disableEvent = false;
+                    buttonClickedOnce = false;
+                }
+            };
+
         }
 
         public void ShowFilter(BindingSource model)
@@ -130,6 +174,7 @@ namespace PrintGaransi.View
             {
                 textBoxSerial.Text = message;
             }
+            PerformModelSearch();
         }
 
         private void UpdateCodeBox(string message)
@@ -143,7 +188,6 @@ namespace PrintGaransi.View
             {
                 textBoxCode.Text = message;
             }
-            PerformModelSearch();
         }
 
         private void PerformModelSearch()
@@ -176,16 +220,26 @@ namespace PrintGaransi.View
 
         private void textBoxSerial_TextChanged(object sender, EventArgs e)
         {
-            if (textBoxCode.Text == null)
-            {
-                MessageBox.Show("Data Product tidak ditemukan", "Pemberitahuan", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                CheckProperties?.Invoke(this, EventArgs.Empty);
-            }
-
         }
 
+        private void textBoxRegister_TextChanged(object sender, EventArgs e)
+        {
+            if (!disableEvent)
+            {
+                if (textBoxCode.Text == null)
+                {
+                    MessageBox.Show("Data Product tidak ditemukan", "Pemberitahuan", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    CheckProperties?.Invoke(this, EventArgs.Empty);
+                }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            clickButton?.Invoke(this, EventArgs.Empty);
+        }
     }
 }

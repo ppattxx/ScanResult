@@ -117,32 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="button3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        4wAAAOMBD+bfpwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAGySURBVFhH7de7
-        LwRBAMfx8xaiUhChUJDoRKPTIApUIpFoRaMRrYiCTqXxCJVoaCSUGvFI/A9ERIkIkWjE4/vbZC5uM7cz
-        t2tUfsmn2LvZmd/e7t3u5X6kCou4xldGV1iA5vTOFmyTZbEOr7TgE/EJTjCKgRIMYQPaX3M2wxntFF/c
-        uMU4Skk1zAEN6gVXdJTxheMu0QvfmAIj0ZYjPgXkAztogitBChjPmERSghYQfRp9KBZTYDjaciRNAdlF
-        sRzjHm3RliNpC5whKeWoh8YdogHWpC1wDlfaodNlxltLhCygzMBcE9YSWQpUYAX7DroezH4XqEU+WQp0
-        xV7zVfANylKgDHPYdHiE2e8I+uTyCX0NLMHso8V1ryhIyAIdMOOtiyshC9RgDzoN1sWVEAXGoKeiymjL
-        kRAF3qAx/dGWIyEKBL8byn+BYgXqYMZ4XQNJD6VJ9B9i2uIAev8djXCmFeaW+ZuW4Z1V2CZJoiN8innA
-        Kaag+4R3NHgWL7AtZpN0EaaOHrm34XNK9M8pWHqgZznbwsYagkanZQJ3iC/+ik78SfS9nscN9BuvR+5u
-        ZEwu9w0hf/Y5Z5lRNgAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="button2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        4wAAAOMBD+bfpwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFxSURBVFhH7dc9
-        LwVBFMbxoREaUQiFhE6p0PEVVCrxFjraW6k0CpVaIkTpS0i8R6ITn0CnQESjIfzPxpUxzh0zs3PXFp7k
-        18zsnjm5u7OTa37JKA5wj/dId9jHCJIyiWdoxWM8YAxR6cIttIIpbtCJ4ExBK1TGBILTgFakjGUEZw1a
-        kTJWEJxBjGfWj/qmA/M4hezfxzaR2ieYw1dk8T1oz62ddiFrm6XPgb+wAHNpDVTtAubJGhAz6LPI/rXn
-        c5K1zYs1IKZhN7AKez4nWftHA1X6b6CeDbi7ICd3R6kNyC7ohqQHWqEYdi13RxUNuN8BsQnJNty5WL5a
-        xXdA+xJW1UDxJVy0Bpp8N51jCO5PPYwruNf7askJXJxIcjLZE76bzjAArYFruNe3qrWDb5nFMeTMXpcB
-        ojUQq9nAFqT2EWSnBSVnA0nRGkh9B5KS8x1ISi0fQaxSDWxAKxpD/mUlR561vHRv0Ir7vOIQvWgRYz4A
-        4EqV7KaDdvAAAAAASUVORK5CYII=
-</value>
-  </data>
 </root>

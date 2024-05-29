@@ -24,7 +24,7 @@ namespace PrintGaransi._Repositories
         public IEnumerable<GaransiModel> GetAll()
         {
             List<GaransiModel> models = new List<GaransiModel>();
-            string query = "SELECT * FROM Warranty_Results";
+            string query = "SELECT * FROM Warranty_Results ORDER BY Id DESC;";
 
             using (SqlConnection connection = new SqlConnection(LSBUDBPRODUCTION))
             using (SqlCommand command = new SqlCommand(query, connection))
@@ -58,13 +58,13 @@ namespace PrintGaransi._Repositories
         public IEnumerable<GaransiModel> GetFilter(string serialNumber)
         {
             List<GaransiModel> results = new List<GaransiModel>();
-            string query = "SELECT * FROM Warranty_Results WHERE SerialNumber = @SerialNumber";
+            string query = "SELECT * FROM Warranty_Results WHERE SerialNumber LIKE @SerialNumber";
 
             using (SqlConnection connection = new SqlConnection(LSBUDBPRODUCTION))
             using (SqlCommand command = new SqlCommand(query, connection))
             {
                 connection.Open();
-                command.Parameters.Add("@SerialNumber", SqlDbType.VarChar).Value = serialNumber;
+                command.Parameters.Add("@SerialNumber", SqlDbType.VarChar).Value = "%" + serialNumber; // Concatenate "%" with serialNumber
 
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
@@ -113,6 +113,29 @@ namespace PrintGaransi._Repositories
                 command.Parameters.Add("@Register", SqlDbType.VarChar).Value = model.NoReg;
                 command.ExecuteNonQuery();
             }
+        }
+
+        public List<string> JenisProduk()
+        {
+            List<string> dataList = new List<string>();
+
+            using (SqlConnection connection = new SqlConnection(LSBUDBPRODUCTION))
+            {
+                connection.Open();
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "SELECT * FROM ProductType";
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        dataList.Add(reader["ProductType"].ToString());
+                    }
+
+                    reader.Close();
+                }
+            }
+            return dataList;
         }
     }
 }

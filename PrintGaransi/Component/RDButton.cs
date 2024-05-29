@@ -5,7 +5,7 @@ using System.ComponentModel;
 
 namespace PrintGaransi.Resource
 {
-    public class RJButton : Button
+    public class RDButton : Button
     {
         //Fields
         private int borderSize = 0;
@@ -60,7 +60,7 @@ namespace PrintGaransi.Resource
         }
 
         //Constructor
-        public RJButton()
+        public RDButton()
         {
             this.FlatStyle = FlatStyle.Flat;
             this.FlatAppearance.BorderSize = 0;

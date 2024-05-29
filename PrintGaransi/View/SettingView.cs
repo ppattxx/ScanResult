@@ -1,4 +1,7 @@
-﻿using System;
+﻿using PrintGaransi._Repositories;
+using PrintGaransi.Model;
+using PrintGaransi.Presenter;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,10 +16,23 @@ namespace PrintGaransi.View
 {
     public partial class SettingView : Form, ISettingView
     {
+        private bool isInitializing;
         public SettingView()
         {
             InitializeComponent();
             InitializeEventHandler();
+        }
+
+        public List<string> JenisProdukNames
+        {
+            get => JPComboBox.DataSource as List<string>;
+            set => JPComboBox.DataSource = value;
+        }
+
+        public List<string> LocationNames
+        {
+            get => locationBox.DataSource as List<string>;
+            set => locationBox.DataSource = value;
         }
 
         public string ipaddress
@@ -30,10 +46,19 @@ namespace PrintGaransi.View
             set { textBoxPort.Text = value; }
         }
 
+        public event EventHandler SelectedIndexChanged;
         public event EventHandler SaveIPSettings;
         public event EventHandler SavePortSettings;
         public event EventHandler LoadIP;
         public event EventHandler LoadPort;
+        public event EventHandler LoadLocation;
+        public event EventHandler LoadProductName;
+        public event EventHandler SelectedProductType;
+
+        public void DisplayName(string JPName)
+        {
+            JPComboBox.Text = JPName;
+        }
 
         public void DisplayIP(string IPaddress)
         {
@@ -47,6 +72,22 @@ namespace PrintGaransi.View
 
         public void InitializeEventHandler()
         {
+            JPComboBox.SelectedIndexChanged += (sender, e) =>
+            {
+                if (!isInitializing)
+                {
+                    SelectedProductType?.Invoke(sender, e);
+                }
+            };
+
+            locationBox.SelectedIndexChanged += (sender, e) =>
+            {
+                if (!isInitializing)
+                {
+                    SelectedIndexChanged?.Invoke(sender, e);
+                }
+            };
+
             textBoxIP.TextChanged += (sender, e) =>
             {
                 SaveIPSettings?.Invoke(this, EventArgs.Empty);
@@ -58,7 +99,16 @@ namespace PrintGaransi.View
             };
 
             btnConnect.Click += delegate
-            { };
+            {
+                ILoginView loginView = new LoginView();
+                LoginPresenter loginPresenter = new LoginPresenter(loginView, new LoginRepository());
+                (loginView as Form)?.Show();
+            };
+        }
+
+        public void DisplaySetting(string locationName)
+        {
+            locationBox.Text = locationName;
         }
 
         //Singeleton pattern (open a single  from instance)
@@ -78,8 +128,12 @@ namespace PrintGaransi.View
 
         private void SettingView_Load(object sender, EventArgs e)
         {
+            isInitializing = true;
+            LoadProductName?.Invoke(this, EventArgs.Empty);
+            LoadLocation?.Invoke(this, EventArgs.Empty);
             LoadIP?.Invoke(this, EventArgs.Empty);
             LoadPort?.Invoke(this, EventArgs.Empty);
+            isInitializing = false;
         }
     }
 }

@@ -19,7 +19,7 @@ namespace PrintGaransi
             InitializeComponent();
             AssociateAndRaiseViewEvents();
             InitializeTabControl();
-            btnHome.BackColor = Color.FromArgb(217, 215, 215);
+            btnHome.BackColor = Color.FromArgb(0, 133, 181);
         }
 
         public void InitializeTabControl()
@@ -43,9 +43,8 @@ namespace PrintGaransi
             {
                 int selectedTabPageIndex = 0;
                 tabControlPresenter.ChangeTabPage(selectedTabPageIndex);
-                btnHome.BackColor = Color.FromArgb(217, 215, 215);
-                btnRePrint.BackColor = SystemColors.Control;
-                btnSetting.BackColor = SystemColors.Control;
+                btnHome.BackColor = Color.FromArgb(0, 133, 181);
+                btnRePrint.BackColor = Color.FromArgb(0, 173, 181); 
             };
 
             btnSetting.Click += delegate
@@ -59,9 +58,8 @@ namespace PrintGaransi
             {
                 int selectedTabPageIndex = 1;
                 tabControlPresenter.ChangeTabPage(selectedTabPageIndex);
-                btnHome.BackColor = SystemColors.Control;
-                btnSetting.BackColor = SystemColors.Control;
-                btnRePrint.BackColor = Color.FromArgb(217, 215, 215);
+                btnHome.BackColor = Color.FromArgb(0, 173, 181); 
+                btnRePrint.BackColor = Color.FromArgb(0, 133, 181);
             };
 
             btnLogOut.Click += delegate
@@ -70,7 +68,7 @@ namespace PrintGaransi
                 LoginPresenter loginPresenter = new LoginPresenter(loginView, new LoginRepository());
                 (loginView as Form)?.Show();
                 //Application.Exit();
-                this.Close();
+                this.Hide();
             };
 
         }

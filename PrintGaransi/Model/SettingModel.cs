@@ -10,14 +10,36 @@ namespace PrintGaransi.Model
         public string LoadIP()
         {
             string ipaddress = Properties.Settings.Default.ServerIP;
-            OnSettingsLoaded(ipaddress);
             return ipaddress;
+        }
+
+        public void SaveLocationName(string myData)
+        {
+            Properties.Settings.Default.Location = myData;
+            Properties.Settings.Default.Save();
+        }
+
+        public string LoadLocation()
+        {
+            string locationName = Properties.Settings.Default.Location;
+            return locationName;
+        }
+
+        public void SaveLocationID(int locationID)
+        {
+            Properties.Settings.Default.LocationID = locationID;
+            Properties.Settings.Default.Save();
+        }
+
+        public string LoadLocationID()
+        {
+            int locationID = Properties.Settings.Default.LocationID;
+            return locationID.ToString();
         }
 
         public int LoadPort()
         {
             int port = Properties.Settings.Default.Port;
-            OnSettingsLoaded(port.ToString());
             return port;
         }
 
@@ -25,7 +47,7 @@ namespace PrintGaransi.Model
         {
             Properties.Settings.Default.ServerIP = serverIP;
             Properties.Settings.Default.Save();
-            OnSettingsSaved(serverIP);
+            //OnSettingsSaved(serverIP);
         }
 
         public void SaveSettingPort(string port)
@@ -35,23 +57,8 @@ namespace PrintGaransi.Model
             {
                 Properties.Settings.Default.Port = portNumber;
                 Properties.Settings.Default.Save();
-                OnSaveSettingsPort(portNumber);
+                //OnSaveSettingsPort(portNumber);
             }
-        }
-
-        protected virtual void OnSettingsLoaded(string ip)
-        {
-            SaveSettingsIP?.Invoke(this, ip);
-        }
-
-        protected virtual void OnSettingsSaved(string ip)
-        {
-            SaveSettingsIP?.Invoke(this, ip);
-        }
-
-        protected virtual void OnSaveSettingsPort(int port)
-        {
-            SaveSettingsPort?.Invoke(this, port);
         }
     }
 }
