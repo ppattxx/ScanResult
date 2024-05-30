@@ -53,7 +53,6 @@
             tableLayoutPanel6 = new TableLayoutPanel();
             btnManual = new Resource.RDButton();
             btnPrint = new Resource.RDButton();
-            button2 = new Button();
             tabControl1 = new TabControl();
             tableLayoutPanel4 = new TableLayoutPanel();
             tableLayoutPanel7 = new TableLayoutPanel();
@@ -108,8 +107,8 @@
             tableLayoutPanel9.Name = "tableLayoutPanel9";
             tableLayoutPanel9.RowCount = 3;
             tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
-            tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 10.7769423F));
-            tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 89.22306F));
+            tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 8F));
+            tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 92F));
             tableLayoutPanel9.Size = new Size(879, 439);
             tableLayoutPanel9.TabIndex = 8;
             // 
@@ -122,11 +121,11 @@
             dataGridView2.Columns.AddRange(new DataGridViewColumn[] { No2 });
             dataGridView2.Dock = DockStyle.Fill;
             dataGridView2.EnableHeadersVisualStyles = false;
-            dataGridView2.Location = new Point(3, 86);
+            dataGridView2.Location = new Point(3, 74);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.RowHeadersVisible = false;
             dataGridView2.RowHeadersWidth = 62;
-            dataGridView2.Size = new Size(873, 350);
+            dataGridView2.Size = new Size(873, 362);
             dataGridView2.TabIndex = 4;
             // 
             // No2
@@ -152,7 +151,7 @@
             tableLayoutPanel10.Name = "tableLayoutPanel10";
             tableLayoutPanel10.RowCount = 1;
             tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel10.Size = new Size(873, 37);
+            tableLayoutPanel10.Size = new Size(873, 25);
             tableLayoutPanel10.TabIndex = 3;
             // 
             // textBoxSearch
@@ -171,7 +170,7 @@
             label11.Font = new Font("Arial Rounded MT Bold", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label11.Location = new Point(3, 0);
             label11.Name = "label11";
-            label11.Size = new Size(176, 37);
+            label11.Size = new Size(176, 25);
             label11.TabIndex = 10;
             label11.Text = "Search Serial Number";
             // 
@@ -188,9 +187,9 @@
             btnSearch.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSearch.ForeColor = Color.White;
             btnSearch.Location = new Point(556, 0);
-            btnSearch.Margin = new Padding(0, 0, 0, 5);
+            btnSearch.Margin = new Padding(0);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(163, 32);
+            btnSearch.Size = new Size(163, 25);
             btnSearch.TabIndex = 12;
             btnSearch.Text = "Search";
             btnSearch.TextColor = Color.White;
@@ -375,7 +374,6 @@
             tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel6.Controls.Add(btnManual, 0, 2);
             tableLayoutPanel6.Controls.Add(btnPrint, 0, 3);
-            tableLayoutPanel6.Controls.Add(button2, 0, 0);
             tableLayoutPanel6.Dock = DockStyle.Fill;
             tableLayoutPanel6.Location = new Point(557, 3);
             tableLayoutPanel6.Name = "tableLayoutPanel6";
@@ -430,16 +428,6 @@
             btnPrint.TextColor = Color.White;
             btnPrint.UseVisualStyleBackColor = false;
             btnPrint.Visible = false;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(3, 3);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 20);
-            button2.TabIndex = 8;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
             // 
             // tabControl1
             // 
@@ -694,6 +682,5 @@
         private DataGridViewTextBoxColumn No1;
         private DataGridViewTextBoxColumn No2;
         private Resource.RDButton btnManual;
-        private Button button2;
     }
 }

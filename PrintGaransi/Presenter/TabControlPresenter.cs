@@ -33,23 +33,11 @@ namespace PrintGaransi.Presenter
             _view.SearchFilter += SearchFilter;
             _view.CheckProperties += CheckProperties;
             _view.CellClicked += CellClicked;
-            _view.clickButton += ClickButton;
 
             _dataBindingSource = new BindingSource();
             _dataBindingSource2 = new BindingSource();
             _view.SetDefectListBindingSource(_dataBindingSource);
             LoadAllDataList();
-        }
-
-        private void ClickButton(object sender, EventArgs e)
-        {
-            string loadTime = _garansiModel.LoadScanTime();
-            MessageBox.Show(loadTime);
-            DateTime currentTime = DateTime.Now;
-            string date = currentTime.ToString("yyyy-MM-dd");
-            string time = currentTime.ToString("HH:mm:ss");
-            _garansiModel.SaveScanTime(time);
-            MessageBox.Show(time);
         }
 
         private void CellClicked(object sender, EventArgs e)

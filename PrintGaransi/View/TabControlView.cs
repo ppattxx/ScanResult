@@ -66,7 +66,6 @@ namespace PrintGaransi.View
         public event EventHandler SearchFilter;
         public event EventHandler CheckProperties;
         public event EventHandler CellClicked;
-        public event EventHandler clickButton;
 
         private async void TabControlView_Load(object sender, EventArgs e)
         {
@@ -125,6 +124,7 @@ namespace PrintGaransi.View
                 }
                 else
                 {
+                    btnPrint.Visible = false;
                     textBoxSerial.ReadOnly = true;
                     textBoxCode.ReadOnly = true;
                     textBoxModelNumber.ReadOnly = true;
@@ -235,11 +235,6 @@ namespace PrintGaransi.View
                     CheckProperties?.Invoke(this, EventArgs.Empty);
                 }
             }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            clickButton?.Invoke(this, EventArgs.Empty);
         }
     }
 }

@@ -19,7 +19,6 @@ namespace PrintGaransi.View
         event EventHandler SearchFilter;
         event EventHandler CheckProperties;
         event EventHandler CellClicked;
-        event EventHandler clickButton;
 
         // Methods
         void ShowFilter(BindingSource model);

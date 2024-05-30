@@ -175,6 +175,7 @@
             Controls.Add(textBoxPort);
             Controls.Add(textBoxIP);
             Name = "SettingView";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Setting";
             Load += SettingView_Load;
             ResumeLayout(false);
