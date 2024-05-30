@@ -65,7 +65,7 @@ namespace PrintGaransi.View
         public event EventHandler<ModelEventArgs> SearchModelNumber;
         public event EventHandler SearchFilter;
         public event EventHandler CheckProperties;
-        public event EventHandler CellClicked;
+        public event EventHandler<DataGridViewCellEventArgs> CellClicked;
 
         private async void TabControlView_Load(object sender, EventArgs e)
         {
@@ -87,9 +87,7 @@ namespace PrintGaransi.View
 
             dataGridView2.CellContentClick += (sender, e) =>
             {
-                DataGridViewRow selectedRow = dataGridView2.Rows[e.RowIndex];
-                var selectedCell = selectedRow.DataBoundItem as GaransiModel;
-                CellClicked?.Invoke(this, EventArgs.Empty);
+                CellClicked?.Invoke(sender, e);
                 //CheckProperties?.Invoke(this, EventArgs.Empty);
             };
 

@@ -18,7 +18,7 @@ namespace PrintGaransi.View
         event EventHandler<ModelEventArgs> SearchModelNumber;
         event EventHandler SearchFilter;
         event EventHandler CheckProperties;
-        event EventHandler CellClicked;
+        event EventHandler<DataGridViewCellEventArgs> CellClicked;
 
         // Methods
         void ShowFilter(BindingSource model);

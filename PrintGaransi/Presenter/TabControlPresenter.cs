@@ -40,9 +40,33 @@ namespace PrintGaransi.Presenter
             LoadAllDataList();
         }
 
-        private void CellClicked(object sender, EventArgs e)
+        private void CellClicked(object sender, DataGridViewCellEventArgs e)
         {
-            CreateModel();
+            if (sender is DataGridView dataGridView && e.RowIndex >= 0)
+            {
+                var selectedRow = dataGridView.Rows[e.RowIndex];
+                var selectedData = (GaransiModel)selectedRow.DataBoundItem;
+                //MessageBox.Show($"Selected Model: {selectedData.ModelNumber}", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                var model = new GaransiModel
+                {
+                    JenisProduk = selectedData.JenisProduk,
+                    ModelCode = selectedData.ModelCode,
+                    ModelNumber = selectedData.ModelNumber,
+                    NoReg = selectedData.NoReg,
+                    NoSeri = selectedData.NoSeri,
+                    Date = selectedData.Date,
+                    ScanTime = selectedData.ScanTime,
+                    Different = selectedData.Different,
+                    ActualTT = selectedData.ActualTT,
+                    Location = selectedData.Location
+                };
+
+                _view.ShowPrintPreviewDialog(model);
+            }
+
+            //CreateModel();
         }
 
         private void CheckProperties(object sender, EventArgs e)
