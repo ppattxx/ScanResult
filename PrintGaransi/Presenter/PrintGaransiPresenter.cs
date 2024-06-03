@@ -21,26 +21,4 @@ public class PrintGaransiPresenter
         _printLayout = new PrintGaransiLayout();
         this._view.Show();
     }
-
-
-    /***
-    public void PrintGaransi()
-    {
-        _view.ShowPrintPreviewDialog();
-    }
-
-    public void PrintGaransiLayout(PrintPageEventArgs e)
-    {
-        var model = new GaransiModel
-        {
-            JenisProduk = _view.JenisProduk,
-            ModelCode = _view.ModelCode,
-            ModelNumber = _view.ModelNumber,
-            NoReg = _view.Register,
-            NoSeri = _view.SerialNumber
-        };
-        // _model belum diinisialisasi, jadi diubah menjadi parameter
-        _printLayout.Print(e, model);
-    }
-    ***/
 }

@@ -14,6 +14,7 @@ namespace PrintGaransi
     public partial class PrintGaransiView : Form, IPrintGaransiView
     {
         private TabControlPresenter tabControlPresenter;
+        private readonly GaransiModel _garansiModel;
         public PrintGaransiView()
         {
             InitializeComponent();
@@ -44,11 +45,12 @@ namespace PrintGaransi
                 int selectedTabPageIndex = 0;
                 tabControlPresenter.ChangeTabPage(selectedTabPageIndex);
                 btnHome.BackColor = Color.FromArgb(0, 133, 181);
-                btnRePrint.BackColor = Color.FromArgb(0, 173, 181); 
+                btnRePrint.BackColor = Color.FromArgb(0, 173, 181);
             };
 
             btnSetting.Click += delegate
             {
+               
                 ISettingView settingView = SettingView.GetInstance();
                 SettingPresenter settingPresenter = new SettingPresenter(settingView, new SettingModel());
                 (settingView as Form)?.Show();
@@ -58,7 +60,7 @@ namespace PrintGaransi
             {
                 int selectedTabPageIndex = 1;
                 tabControlPresenter.ChangeTabPage(selectedTabPageIndex);
-                btnHome.BackColor = Color.FromArgb(0, 173, 181); 
+                btnHome.BackColor = Color.FromArgb(0, 173, 181);
                 btnRePrint.BackColor = Color.FromArgb(0, 133, 181);
             };
 
@@ -78,22 +80,9 @@ namespace PrintGaransi
             Application.Exit();
         }
 
-        /***
-        public void ShowPrintPreviewDialog()
+        private void btnSetting_Click(object sender, EventArgs e)
         {
-            // Membuat PrintDocument baru
-            PrintDocument pd = new PrintDocument();
 
-            // Menambahkan event handler untuk PrintPage
-            pd.PrintPage += (s, e) => _presenter.PrintGaransiLayout(e);
-
-            // Membuat PrintPreviewDialog dan menetapkan PrintDocument-nya
-            PrintPreviewDialog printPreviewDialog = new PrintPreviewDialog();
-            printPreviewDialog.Document = pd;
-
-            // Menampilkan dialog preview cetak
-            printPreviewDialog.ShowDialog();
         }
-        ***/
     }
 }

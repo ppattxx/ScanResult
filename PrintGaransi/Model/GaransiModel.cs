@@ -20,7 +20,7 @@ namespace PrintGaransi.Model
         public string date;
         public string scanTime;
         public string different;
-        public string actualTT;
+        public decimal actualTT;
         public string location;
 
         // Properties
@@ -89,7 +89,7 @@ namespace PrintGaransi.Model
         }
 
         [DisplayName("ActualTT")]
-        public string ActualTT
+        public decimal ActualTT
         {
             get => actualTT;
             set => actualTT = value;

@@ -24,6 +24,7 @@ namespace PrintGaransi
             ILoginRepository repository = new LoginRepository();
             new LoginPresenter(view, repository);
             Application.Run((Form)view);
+            //Application.Run(new FontViewer());
         }
     }
 }

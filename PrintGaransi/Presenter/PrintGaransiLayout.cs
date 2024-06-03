@@ -17,25 +17,27 @@ namespace PrintGaransi.Presenter
             e.PageSettings.PaperSize = customPaperSize;
             int marginTop = 410;
             int yPos = marginTop;
-            int xPos = 220;
+            int xPos = 214;
 
             // Menentukan font
-            Font fs1 = new Font("Arial", 14, FontStyle.Bold);
-            Font fs2 = new Font("Arial", 10);
+            Font fs1 = new Font("Helvetica", 12, FontStyle.Bold);
+            Font fs2 = new Font("Helvetica", 10);
+            Font fs3 = new Font("Helvetica", 14.5f);
+            Font fs4 = new Font("Helvetica", 12.5f);
 
             // Mencetak informasi garansi
-            e.Graphics.DrawString(garansi.JenisProduk, fs1, Brushes.Black, new PointF(xPos, yPos + 55));
+            e.Graphics.DrawString(garansi.JenisProduk, fs1, Brushes.Black, new PointF(xPos + 4, yPos + 54));
             yPos += 20;
-            e.Graphics.DrawString(garansi.ModelNumber, fs2, Brushes.Black, new PointF(xPos, yPos + 73));
-            e.Graphics.DrawString(garansi.NoReg, fs2, Brushes.Black, new PointF(xPos, yPos + 105));
-            e.Graphics.DrawString(garansi.NoSeri, fs2, Brushes.Black, new PointF(xPos, yPos + 140));
+            e.Graphics.DrawString(garansi.ModelNumber, fs4, Brushes.Black, new PointF(xPos + 4, yPos + 67.5f));
+            e.Graphics.DrawString(garansi.NoReg, fs2, Brushes.Black, new PointF(xPos + 5, yPos + 105));
+            e.Graphics.DrawString(garansi.NoSeri, fs3, Brushes.Black, new PointF(xPos + 4, yPos + 137));
 
             // Mencetak informasi garansi untuk Toko
-            e.Graphics.DrawString(garansi.JenisProduk, fs1, Brushes.Black, new PointF(xPos, yPos + 440));
+            e.Graphics.DrawString(garansi.JenisProduk, fs1, Brushes.Black, new PointF(xPos + 4, yPos + 444));
             yPos += 20;
-            e.Graphics.DrawString(garansi.ModelNumber, fs2, Brushes.Black, new PointF(xPos, yPos + 460));
-            e.Graphics.DrawString(garansi.NoReg, fs2, Brushes.Black, new PointF(xPos, yPos + 495));
-            e.Graphics.DrawString(garansi.NoSeri, fs2, Brushes.Black, new PointF(xPos, yPos + 530));
+            e.Graphics.DrawString(garansi.ModelNumber, fs4, Brushes.Black, new PointF(xPos + 4, yPos + 457.9f));
+            e.Graphics.DrawString(garansi.NoReg, fs2, Brushes.Black, new PointF(xPos + 5, yPos + 495.5f));
+            e.Graphics.DrawString(garansi.NoSeri, fs3, Brushes.Black, new PointF(xPos + 4, yPos + 527));
         }
     }
 }

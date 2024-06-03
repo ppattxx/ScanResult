@@ -36,7 +36,6 @@ namespace PrintGaransi.Presenter
                 IPrintGaransiView printGaransiView = new PrintGaransiView();
                 IGaransiRepository garansi = new GaransiRepository();
                 PrintGaransiPresenter garansiPresenter = new PrintGaransiPresenter(printGaransiView, garansi);
-                //(printGaransiView as Form)?.Show();
             }
             else
             {

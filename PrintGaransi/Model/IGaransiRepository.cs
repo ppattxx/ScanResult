@@ -13,5 +13,7 @@ namespace PrintGaransi.Model
         IEnumerable<GaransiModel> GetAll();
         IEnumerable<GaransiModel> GetFilter(string globalCodeId);
         List<string> JenisProduk();
+
+        bool Exists(string noSeri, string modelCode);
     }
 }

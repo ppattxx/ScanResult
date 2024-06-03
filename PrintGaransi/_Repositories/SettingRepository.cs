@@ -13,18 +13,18 @@ namespace PrintGaransi._Repositories
 {
     public class SettingRepository
     {
-        private string LSBU;
+        private string DbConnectionCommon;
         private int locationId;
         public SettingRepository()
         {
-            LSBU = ConfigurationManager.ConnectionStrings["LSBU"].ConnectionString;
+            DbConnectionCommon = ConfigurationManager.ConnectionStrings["DBConnectionCommon"].ConnectionString;
         }
 
         public List<string> GetData()
         {
             List<string> dataList = new List<string>();
 
-            using (SqlConnection connection = new SqlConnection(LSBU))
+            using (SqlConnection connection = new SqlConnection(DbConnectionCommon))
             {
                 connection.Open();
                 using (SqlCommand command = connection.CreateCommand())
@@ -46,7 +46,7 @@ namespace PrintGaransi._Repositories
         public int GetID(string locationName)
         {
 
-            using (SqlConnection connection = new SqlConnection(LSBU))
+            using (SqlConnection connection = new SqlConnection(DbConnectionCommon))
             {
                 connection.Open();
                 using (SqlCommand command = connection.CreateCommand())

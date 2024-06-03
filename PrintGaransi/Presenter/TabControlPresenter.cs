@@ -38,6 +38,17 @@ namespace PrintGaransi.Presenter
             _dataBindingSource2 = new BindingSource();
             _view.SetDefectListBindingSource(_dataBindingSource);
             LoadAllDataList();
+
+            //load last scan time when start application
+            string lastScanTimeString = _garansiModel.LoadScanTime();
+            if (DateTime.TryParse(lastScanTimeString, null, System.Globalization.DateTimeStyles.RoundtripKind, out DateTime lastScanTime))
+            {
+                _lastScanTime = lastScanTime;
+            }
+            else
+            {
+                _lastScanTime = DateTime.MinValue;
+            }
         }
 
         private void CellClicked(object sender, DataGridViewCellEventArgs e)
@@ -46,7 +57,6 @@ namespace PrintGaransi.Presenter
             {
                 var selectedRow = dataGridView.Rows[e.RowIndex];
                 var selectedData = (GaransiModel)selectedRow.DataBoundItem;
-                //MessageBox.Show($"Selected Model: {selectedData.ModelNumber}", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
                 var model = new GaransiModel
@@ -71,9 +81,21 @@ namespace PrintGaransi.Presenter
 
         private void CheckProperties(object sender, EventArgs e)
         {
+            if (_garansiRepository.Exists(_view.SerialNumber, _view.ModelCode))
+            {
+                MessageBox.Show("Data sudah ada dalam database");
+                return;
+            }
+
             if (string.IsNullOrWhiteSpace(_view.SerialNumber))
             {
-                MessageBox.Show("Serial Number is required.");
+                MessageBox.Show("Serial Number is required");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(_view.ModelCode))
+            {
+                MessageBox.Show("Model Code is required");
                 return;
             }
 
@@ -96,17 +118,34 @@ namespace PrintGaransi.Presenter
         {
             string loadTime = _garansiModel.LoadScanTime();
             DateTime currentTime = DateTime.Now;
-            string date = currentTime.ToString("yyyy-MM-dd");
-            string time = currentTime.ToString("HH:mm:ss");
+            string date = currentTime.ToString("d");
+            string time;
+
+            //mengatur waktu ketika sudah ganti hari
+            if (_lastScanTime.Date != currentTime.Date)
+            {
+                _garansiModel.SaveScanTime(_lastScanTime.ToString("O"));
+                time = currentTime.ToString("HH:mm:ss");
+                currentTime = currentTime.Date;
+            }
+            else
+            {
+                time = currentTime.ToString(@"T");
+            }
+
             _garansiModel.SaveScanTime(time);
 
             TimeSpan different = TimeSpan.Zero;
-            if (_lastScanTime != DateTime.MinValue)
+            if (_lastScanTime != DateTime.MinValue && _lastScanTime.Date == currentTime.Date)
             {
                 different = currentTime - _lastScanTime;
             }
+            else
+            {
+                different = TimeSpan.Zero;
+            }
 
-            decimal actualTT = ConvertTimeSpanToDecimal(different);
+            decimal actualTT = (decimal)different.TotalSeconds;
 
             var model = new GaransiModel
             {
@@ -118,25 +157,24 @@ namespace PrintGaransi.Presenter
                 Date = date,
                 ScanTime = time,
                 Different = different.ToString(@"hh\:mm\:ss"),
-                ActualTT = actualTT.ToString("F2"),
+                ActualTT = actualTT,
                 Location = _smodel.LoadLocationID()
             };
-
             _garansiRepository.Add(model);
             _view.ShowPrintPreviewDialog(model);
 
             LoadAllDataList();
 
             _lastScanTime = currentTime;
-        }
 
-        private decimal ConvertTimeSpanToDecimal(TimeSpan different)
-        {
-            return (decimal)different.TotalHours;
+            // Save Last Scan
+            _garansiModel.SaveScanTime(_lastScanTime.ToString("O"));
         }
 
         private void LoadAllDataList()
-        {
+        {   //manual set date
+            //DateTime specificDate = new DateTime(2024, 5, 30);
+
             _model = _garansiRepository.GetAll();
             _dataBindingSource.DataSource = _model;
             _dataBindingSource2.DataSource = _model;
@@ -196,6 +234,6 @@ namespace PrintGaransi.Presenter
             _view.ModelCode = "";
             _view.ModelNumber = "";
             _view.Register = "";
-        }
+        }   
     }
 }

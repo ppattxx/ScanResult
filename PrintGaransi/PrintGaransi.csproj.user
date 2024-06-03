@@ -7,6 +7,9 @@
     <Compile Update="Component\RoundedCornerPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="View\FontViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="View\LoginView.cs">
       <SubType>Form</SubType>
     </Compile>

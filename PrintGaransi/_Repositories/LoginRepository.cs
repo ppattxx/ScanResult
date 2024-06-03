@@ -12,26 +12,26 @@ namespace PrintGaransi._Repositories
 {
     public class LoginRepository : ILoginRepository
     {
-        private readonly string DBConnection;
+        private readonly string DBConnectionCommon;
         public LoginRepository()
         {
-            DBConnection = ConfigurationManager.ConnectionStrings["LSBU"].ConnectionString;
+            DBConnectionCommon = ConfigurationManager.ConnectionStrings["DBConnectionCommon"].ConnectionString;
         }
 
         public LoginModel GetUserByUsername(string username)
         {
-            using (var connection = new SqlConnection(DBConnection))
+            using (var connection = new SqlConnection(DBConnectionCommon))
             using (var command = new SqlCommand())
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = "SELECT Nik, Name, Password FROM Users WHERE Nik = @NikId";
+                command.CommandText = "SELECT NikId, Name, Password FROM Users WHERE NikId = @NikId";
                 command.Parameters.Add("@NikId", SqlDbType.Int).Value = username;
                 using (var reader = command.ExecuteReader())
                 {
                     if (reader.Read())
                     {
-                        string nik = reader["Nik"].ToString();
+                        string nik = reader["NikId"].ToString();
                         string name = reader["Name"].ToString();
                         string password = reader["Password"].ToString();
 

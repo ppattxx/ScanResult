@@ -49,16 +49,17 @@
             tableLayoutPanel1.BackColor = Color.FromArgb(33, 47, 61);
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 250F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 357F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 29F));
             tableLayoutPanel1.Controls.Add(label1, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Top;
             tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Margin = new Padding(4, 5, 4, 5);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.Padding = new Padding(0, 5, 0, 0);
+            tableLayoutPanel1.Padding = new Padding(0, 8, 0, 0);
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(891, 85);
+            tableLayoutPanel1.Size = new Size(1273, 142);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -68,10 +69,10 @@
             label1.Dock = DockStyle.Fill;
             label1.Font = new Font("MS Reference Sans Serif", 30F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(3, 5);
-            label1.Margin = new Padding(3, 0, 0, 0);
+            label1.Location = new Point(4, 8);
+            label1.Margin = new Padding(4, 0, 0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(638, 80);
+            label1.Size = new Size(912, 134);
             label1.TabIndex = 1;
             label1.Text = "Print Warranty Card";
             label1.TextAlign = ContentAlignment.MiddleLeft;
@@ -87,9 +88,10 @@
             tableLayoutPanel4.Controls.Add(btnSetting, 0, 3);
             tableLayoutPanel4.Dock = DockStyle.Fill;
             tableLayoutPanel4.Location = new Point(0, 0);
+            tableLayoutPanel4.Margin = new Padding(4, 5, 4, 5);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 8;
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 83F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2849F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2849016F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2849F));
@@ -97,7 +99,7 @@
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2849035F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 14.287756F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 14.287756F));
-            tableLayoutPanel4.Size = new Size(75, 364);
+            tableLayoutPanel4.Size = new Size(107, 606);
             tableLayoutPanel4.TabIndex = 0;
             // 
             // btnLogOut
@@ -108,9 +110,10 @@
             btnLogOut.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnLogOut.ForeColor = Color.White;
             btnLogOut.Image = (Image)resources.GetObject("btnLogOut.Image");
-            btnLogOut.Location = new Point(3, 317);
+            btnLogOut.Location = new Point(4, 532);
+            btnLogOut.Margin = new Padding(4, 5, 4, 5);
             btnLogOut.Name = "btnLogOut";
-            btnLogOut.Size = new Size(69, 44);
+            btnLogOut.Size = new Size(99, 69);
             btnLogOut.TabIndex = 4;
             btnLogOut.Text = "Log Out";
             btnLogOut.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -124,9 +127,10 @@
             btnRePrint.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnRePrint.ForeColor = Color.White;
             btnRePrint.Image = (Image)resources.GetObject("btnRePrint.Image");
-            btnRePrint.Location = new Point(3, 97);
+            btnRePrint.Location = new Point(4, 162);
+            btnRePrint.Margin = new Padding(4, 5, 4, 5);
             btnRePrint.Name = "btnRePrint";
-            btnRePrint.Size = new Size(69, 38);
+            btnRePrint.Size = new Size(99, 64);
             btnRePrint.TabIndex = 3;
             btnRePrint.Text = "Re-Print";
             btnRePrint.TextAlign = ContentAlignment.BottomCenter;
@@ -141,9 +145,10 @@
             btnHome.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnHome.ForeColor = Color.White;
             btnHome.Image = (Image)resources.GetObject("btnHome.Image");
-            btnHome.Location = new Point(3, 53);
+            btnHome.Location = new Point(4, 88);
+            btnHome.Margin = new Padding(4, 5, 4, 5);
             btnHome.Name = "btnHome";
-            btnHome.Size = new Size(69, 38);
+            btnHome.Size = new Size(99, 64);
             btnHome.TabIndex = 2;
             btnHome.Text = "Home";
             btnHome.TextAlign = ContentAlignment.BottomCenter;
@@ -158,36 +163,39 @@
             btnSetting.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSetting.ForeColor = Color.White;
             btnSetting.Image = (Image)resources.GetObject("btnSetting.Image");
-            btnSetting.Location = new Point(3, 141);
+            btnSetting.Location = new Point(4, 236);
+            btnSetting.Margin = new Padding(4, 5, 4, 5);
             btnSetting.Name = "btnSetting";
-            btnSetting.Size = new Size(69, 38);
+            btnSetting.Size = new Size(99, 64);
             btnSetting.TabIndex = 1;
             btnSetting.Text = "Setting";
             btnSetting.TextImageRelation = TextImageRelation.ImageAboveText;
             btnSetting.UseVisualStyleBackColor = true;
+            btnSetting.Click += btnSetting_Click;
             // 
             // splitContainer1
             // 
             splitContainer1.Dock = DockStyle.Fill;
-            splitContainer1.Location = new Point(0, 85);
+            splitContainer1.Location = new Point(0, 142);
+            splitContainer1.Margin = new Padding(4, 5, 4, 5);
             splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
             // 
             splitContainer1.Panel1.Controls.Add(tableLayoutPanel4);
-            splitContainer1.Size = new Size(891, 364);
-            splitContainer1.SplitterDistance = 75;
+            splitContainer1.Size = new Size(1273, 606);
+            splitContainer1.SplitterDistance = 107;
+            splitContainer1.SplitterWidth = 6;
             splitContainer1.TabIndex = 14;
             // 
             // PrintGaransiView
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(891, 449);
+            ClientSize = new Size(1273, 748);
             Controls.Add(splitContainer1);
             Controls.Add(tableLayoutPanel1);
-            Margin = new Padding(2);
             Name = "PrintGaransiView";
             Text = "Form1";
             WindowState = FormWindowState.Maximized;

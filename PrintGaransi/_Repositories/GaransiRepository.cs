@@ -13,7 +13,7 @@ namespace PrintGaransi._Repositories
         private string LSBUDBPRODUCTION;
         public GaransiRepository()
         {
-            LSBUDBPRODUCTION = ConfigurationManager.ConnectionStrings["LSBU"].ConnectionString;
+            LSBUDBPRODUCTION = ConfigurationManager.ConnectionStrings["LSBUProduction"].ConnectionString;
         }
 
         public IEnumerable<GaransiModel> GetData(string model)
@@ -24,7 +24,7 @@ namespace PrintGaransi._Repositories
         public IEnumerable<GaransiModel> GetAll()
         {
             List<GaransiModel> models = new List<GaransiModel>();
-            string query = "SELECT * FROM Warranty_Results ORDER BY Id DESC;";
+            string query = "SELECT * FROM Result_Warranty_Cards WHERE CONVERT(DATE, ScanningDate) = CONVERT(DATE, GETDATE()) ORDER BY Id DESC;";
 
             using (SqlConnection connection = new SqlConnection(LSBUDBPRODUCTION))
             using (SqlCommand command = new SqlCommand(query, connection))
@@ -43,10 +43,10 @@ namespace PrintGaransi._Repositories
                             ModelNumber = reader["ModelNumber"].ToString(),
                             NoSeri = reader["SerialNumber"].ToString(),
                             NoReg = reader["Register"].ToString(),
-                            Date = reader["ScanningDate"].ToString(),
+                            Date = Convert.ToDateTime(reader["ScanningDate"]).ToString("yyyy-MM-dd"),
                             ScanTime = reader["ScanningTime"].ToString(),
                             Different = reader["Different"].ToString(),
-                            ActualTT = reader["ActualTT"].ToString(),
+                            ActualTT = reader["ActualTT"] != DBNull.Value ? Convert.ToDecimal(reader["ActualTT"]) : 0m,
                             Location = reader["Location"].ToString()
                         });
                     }
@@ -55,10 +55,11 @@ namespace PrintGaransi._Repositories
             return models;
         }
 
+
         public IEnumerable<GaransiModel> GetFilter(string serialNumber)
         {
             List<GaransiModel> results = new List<GaransiModel>();
-            string query = "SELECT * FROM Warranty_Results WHERE SerialNumber LIKE @SerialNumber";
+            string query = "SELECT * FROM Result_Warranty_Cards WHERE SerialNumber LIKE @SerialNumber";
 
             using (SqlConnection connection = new SqlConnection(LSBUDBPRODUCTION))
             using (SqlCommand command = new SqlCommand(query, connection))
@@ -81,7 +82,7 @@ namespace PrintGaransi._Repositories
                             Date = reader["ScanningDate"].ToString(),
                             ScanTime = reader["ScanningTime"].ToString(),
                             Different = reader["Different"].ToString(),
-                            ActualTT = reader["ActualTT"].ToString(),
+                            ActualTT = reader["ActualTT"] != DBNull.Value ? Convert.ToDecimal(reader["ActualTT"]) : 0m,
                             Location = reader["Location"].ToString()
                         };
                         results.Add(result);
@@ -100,7 +101,7 @@ namespace PrintGaransi._Repositories
                 connection.Open();
                 command.Connection = connection;
 
-                command.CommandText = "INSERT INTO Warranty_Results (JenisProduk, ModelCode, ModelNumber, SerialNumber, ScanningDate, ScanningTime, Different, ActualTT, Location, Register) values (@JenisProduk, @ModelCode, @ModelNumber, @SerialNumber, @ScanningDate, @ScanningTime, @Different, @ActualTT, @Location, @Register)";
+                command.CommandText = "INSERT INTO Result_Warranty_Cards (JenisProduk, ModelCode, ModelNumber, SerialNumber, ScanningDate, ScanningTime, Different, ActualTT, Location, Register) values (@JenisProduk, @ModelCode, @ModelNumber, @SerialNumber, @ScanningDate, @ScanningTime, @Different, @ActualTT, @Location, @Register)";
                 command.Parameters.Add("@JenisProduk", SqlDbType.VarChar).Value = model.JenisProduk;
                 command.Parameters.Add("@ModelCode", SqlDbType.VarChar).Value = model.ModelCode;
                 command.Parameters.Add("@ModelNumber", SqlDbType.VarChar).Value = model.ModelNumber;
@@ -129,13 +130,30 @@ namespace PrintGaransi._Repositories
 
                     while (reader.Read())
                     {
-                        dataList.Add(reader["ProductType"].ToString());
+                        dataList.Add(reader["ProductName"].ToString());
                     }
 
                     reader.Close();
                 }
             }
             return dataList;
+        }
+
+        public bool Exists(string noSeri, string modelCode)
+        {
+            using (SqlConnection connection = new SqlConnection(LSBUDBPRODUCTION))
+            {
+                string query = "SELECT COUNT(*) FROM Result_Warranty_Cards WHERE SerialNumber = @NoSeri AND ModelCode = @ModelCode";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@NoSeri", noSeri);
+                    command.Parameters.AddWithValue("@ModelCode", modelCode);
+
+                    connection.Open();
+                    int count = (int)command.ExecuteScalar();
+                    return count > 0;
+                }
+            }
         }
     }
 }

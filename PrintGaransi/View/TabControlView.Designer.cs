@@ -132,6 +132,7 @@
             // 
             No2.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             No2.HeaderText = "No";
+            No2.MinimumWidth = 8;
             No2.Name = "No2";
             No2.Resizable = DataGridViewTriState.False;
             No2.Width = 50;
@@ -142,7 +143,7 @@
             tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 31.8181839F));
             tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 45.4545479F));
             tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 22.7272739F));
-            tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 153F));
+            tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 155F));
             tableLayoutPanel10.Controls.Add(textBoxSearch, 0, 0);
             tableLayoutPanel10.Controls.Add(label11, 0, 0);
             tableLayoutPanel10.Controls.Add(btnSearch, 2, 0);
@@ -158,9 +159,9 @@
             // 
             textBoxSearch.Dock = DockStyle.Fill;
             textBoxSearch.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxSearch.Location = new Point(232, 3);
+            textBoxSearch.Location = new Point(231, 3);
             textBoxSearch.Name = "textBoxSearch";
-            textBoxSearch.Size = new Size(321, 35);
+            textBoxSearch.Size = new Size(320, 35);
             textBoxSearch.TabIndex = 11;
             textBoxSearch.KeyDown += textBoxSearch_KeyDown;
             // 
@@ -186,7 +187,7 @@
             btnSearch.FlatStyle = FlatStyle.Flat;
             btnSearch.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSearch.ForeColor = Color.White;
-            btnSearch.Location = new Point(556, 0);
+            btnSearch.Location = new Point(554, 0);
             btnSearch.Margin = new Padding(0);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(163, 25);
@@ -242,6 +243,7 @@
             // 
             No1.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             No1.HeaderText = "No";
+            No1.MinimumWidth = 8;
             No1.Name = "No1";
             No1.Resizable = DataGridViewTriState.False;
             No1.Width = 50;
@@ -251,7 +253,7 @@
             tableLayoutPanel3.ColumnCount = 3;
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 76.92308F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 23.07692F));
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 152F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 154F));
             tableLayoutPanel3.Controls.Add(tableLayoutPanel5, 0, 0);
             tableLayoutPanel3.Controls.Add(tableLayoutPanel6, 1, 0);
             tableLayoutPanel3.Dock = DockStyle.Fill;
@@ -283,7 +285,7 @@
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel5.Size = new Size(548, 107);
+            tableLayoutPanel5.Size = new Size(547, 107);
             tableLayoutPanel5.TabIndex = 7;
             // 
             // textBoxRegister
@@ -293,7 +295,7 @@
             textBoxRegister.Location = new Point(237, 81);
             textBoxRegister.Name = "textBoxRegister";
             textBoxRegister.ReadOnly = true;
-            textBoxRegister.Size = new Size(308, 35);
+            textBoxRegister.Size = new Size(307, 35);
             textBoxRegister.TabIndex = 2;
             textBoxRegister.TextChanged += textBoxRegister_TextChanged;
             // 
@@ -314,7 +316,7 @@
             textBoxModelNumber.Location = new Point(237, 55);
             textBoxModelNumber.Name = "textBoxModelNumber";
             textBoxModelNumber.ReadOnly = true;
-            textBoxModelNumber.Size = new Size(308, 35);
+            textBoxModelNumber.Size = new Size(307, 35);
             textBoxModelNumber.TabIndex = 1;
             // 
             // textBoxCode
@@ -324,7 +326,7 @@
             textBoxCode.Location = new Point(237, 29);
             textBoxCode.Name = "textBoxCode";
             textBoxCode.ReadOnly = true;
-            textBoxCode.Size = new Size(308, 35);
+            textBoxCode.Size = new Size(307, 35);
             textBoxCode.TabIndex = 2;
             // 
             // label6
@@ -354,7 +356,7 @@
             textBoxSerial.Location = new Point(237, 3);
             textBoxSerial.Name = "textBoxSerial";
             textBoxSerial.ReadOnly = true;
-            textBoxSerial.Size = new Size(308, 35);
+            textBoxSerial.Size = new Size(307, 35);
             textBoxSerial.TabIndex = 1;
             textBoxSerial.TextChanged += textBoxSerial_TextChanged;
             // 
@@ -375,7 +377,7 @@
             tableLayoutPanel6.Controls.Add(btnManual, 0, 2);
             tableLayoutPanel6.Controls.Add(btnPrint, 0, 3);
             tableLayoutPanel6.Dock = DockStyle.Fill;
-            tableLayoutPanel6.Location = new Point(557, 3);
+            tableLayoutPanel6.Location = new Point(556, 3);
             tableLayoutPanel6.Name = "tableLayoutPanel6";
             tableLayoutPanel6.RowCount = 4;
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
@@ -383,7 +385,7 @@
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel6.Size = new Size(160, 107);
+            tableLayoutPanel6.Size = new Size(159, 107);
             tableLayoutPanel6.TabIndex = 8;
             // 
             // btnManual
@@ -401,7 +403,7 @@
             btnManual.Location = new Point(0, 52);
             btnManual.Margin = new Padding(0, 0, 0, 2);
             btnManual.Name = "btnManual";
-            btnManual.Size = new Size(160, 24);
+            btnManual.Size = new Size(159, 24);
             btnManual.TabIndex = 7;
             btnManual.Text = "Input Manual";
             btnManual.TextColor = Color.White;
@@ -422,7 +424,7 @@
             btnPrint.Location = new Point(0, 78);
             btnPrint.Margin = new Padding(0, 0, 0, 2);
             btnPrint.Name = "btnPrint";
-            btnPrint.Size = new Size(160, 27);
+            btnPrint.Size = new Size(159, 27);
             btnPrint.TabIndex = 6;
             btnPrint.Text = "Print";
             btnPrint.TextColor = Color.White;

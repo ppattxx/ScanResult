@@ -148,3 +148,4 @@ D:\Perkuliahan\Semester6\Panasonic\PrintKartuGaransi\PrintGaransi\PrintGaransi\o
 D:\Perkuliahan\Semester6\Panasonic\PrintKartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.pdb
 D:\Perkuliahan\Semester6\Panasonic\PrintKartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.genruntimeconfig.cache
 D:\Perkuliahan\Semester6\Panasonic\PrintKartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\ref\PrintGaransi.dll
+D:\Perkuliahan\Semester6\Panasonic\PrintKartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.View.FontViewer.resources

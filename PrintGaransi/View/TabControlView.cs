@@ -88,7 +88,6 @@ namespace PrintGaransi.View
             dataGridView2.CellContentClick += (sender, e) =>
             {
                 CellClicked?.Invoke(sender, e);
-                //CheckProperties?.Invoke(this, EventArgs.Empty);
             };
 
             dataGridView1.RowPostPaint += (sender, e) =>
@@ -159,6 +158,7 @@ namespace PrintGaransi.View
 
             // Menampilkan dialog preview cetak
             printPreviewDialog.ShowDialog();
+            //pd.Print();
         }
 
         private void UpdateSerialBox(string message)
