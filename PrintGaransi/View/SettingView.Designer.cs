@@ -39,12 +39,15 @@
             btnConnect = new Resource.RDButton();
             label5 = new Label();
             JPComboBox = new ComboBox();
+            label6 = new Label();
+            btnOn = new RadioButton();
+            btnOff = new RadioButton();
             SuspendLayout();
             // 
             // textBoxIP
             // 
             textBoxIP.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxIP.Location = new Point(311, 104);
+            textBoxIP.Location = new Point(312, 216);
             textBoxIP.Name = "textBoxIP";
             textBoxIP.Size = new Size(207, 31);
             textBoxIP.TabIndex = 0;
@@ -52,7 +55,7 @@
             // textBoxPort
             // 
             textBoxPort.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxPort.Location = new Point(311, 160);
+            textBoxPort.Location = new Point(312, 272);
             textBoxPort.Name = "textBoxPort";
             textBoxPort.Size = new Size(207, 31);
             textBoxPort.TabIndex = 1;
@@ -61,7 +64,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(136, 107);
+            label1.Location = new Point(137, 219);
             label1.Name = "label1";
             label1.Size = new Size(116, 25);
             label1.TabIndex = 2;
@@ -71,7 +74,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(136, 166);
+            label2.Location = new Point(137, 278);
             label2.Name = "label2";
             label2.Size = new Size(51, 25);
             label2.TabIndex = 3;
@@ -106,7 +109,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(136, 232);
+            label4.Location = new Point(137, 344);
             label4.Name = "label4";
             label4.Size = new Size(94, 25);
             label4.TabIndex = 6;
@@ -116,15 +119,15 @@
             // 
             locationBox.Font = new Font("MS Reference Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             locationBox.FormattingEnabled = true;
-            locationBox.Location = new Point(314, 228);
+            locationBox.Location = new Point(315, 340);
             locationBox.Name = "locationBox";
             locationBox.Size = new Size(204, 34);
             locationBox.TabIndex = 7;
             // 
             // btnConnect
             // 
-            btnConnect.BackColor = Color.FromArgb(0, 173, 181);
-            btnConnect.BackgroundColor = Color.FromArgb(0, 173, 181);
+            btnConnect.BackColor = Color.FromArgb(27, 60, 115);
+            btnConnect.BackgroundColor = Color.FromArgb(27, 60, 115);
             btnConnect.BorderColor = Color.PaleVioletRed;
             btnConnect.BorderRadius = 20;
             btnConnect.BorderSize = 0;
@@ -132,19 +135,20 @@
             btnConnect.FlatStyle = FlatStyle.Flat;
             btnConnect.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnConnect.ForeColor = Color.White;
-            btnConnect.Location = new Point(250, 385);
+            btnConnect.Location = new Point(251, 497);
             btnConnect.Name = "btnConnect";
             btnConnect.Size = new Size(150, 40);
             btnConnect.TabIndex = 8;
             btnConnect.Text = "Connect";
             btnConnect.TextColor = Color.White;
             btnConnect.UseVisualStyleBackColor = false;
+            btnConnect.Click += btnConnect_Click;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(136, 292);
+            label5.Location = new Point(137, 404);
             label5.Name = "label5";
             label5.Size = new Size(137, 25);
             label5.TabIndex = 9;
@@ -154,16 +158,52 @@
             // 
             JPComboBox.Font = new Font("MS Reference Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             JPComboBox.FormattingEnabled = true;
-            JPComboBox.Location = new Point(314, 283);
+            JPComboBox.Location = new Point(315, 395);
             JPComboBox.Name = "JPComboBox";
             JPComboBox.Size = new Size(204, 34);
             JPComboBox.TabIndex = 10;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Location = new Point(137, 141);
+            label6.Name = "label6";
+            label6.Size = new Size(116, 25);
+            label6.TabIndex = 2;
+            label6.Text = "Print Mode";
+            // 
+            // btnOn
+            // 
+            btnOn.AutoSize = true;
+            btnOn.Font = new Font("Arial", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnOn.Location = new Point(312, 140);
+            btnOn.Name = "btnOn";
+            btnOn.Size = new Size(68, 36);
+            btnOn.TabIndex = 11;
+            btnOn.TabStop = true;
+            btnOn.Text = "On";
+            btnOn.UseVisualStyleBackColor = true;
+            // 
+            // btnOff
+            // 
+            btnOff.AutoSize = true;
+            btnOff.Font = new Font("Arial", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnOff.Location = new Point(412, 140);
+            btnOff.Name = "btnOff";
+            btnOff.Size = new Size(67, 36);
+            btnOff.TabIndex = 11;
+            btnOff.TabStop = true;
+            btnOff.Text = "Off";
+            btnOff.UseVisualStyleBackColor = true;
             // 
             // SettingView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(674, 488);
+            ClientSize = new Size(674, 643);
+            Controls.Add(btnOff);
+            Controls.Add(btnOn);
             Controls.Add(JPComboBox);
             Controls.Add(label5);
             Controls.Add(btnConnect);
@@ -171,6 +211,7 @@
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
+            Controls.Add(label6);
             Controls.Add(label1);
             Controls.Add(textBoxPort);
             Controls.Add(textBoxIP);
@@ -197,5 +238,8 @@
         private Resource.RDButton btnConnect;
         private Label label5;
         private ComboBox JPComboBox;
+        private Label label6;
+        private RadioButton btnOn;
+        private RadioButton btnOff;
     }
 }

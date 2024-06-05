@@ -13,6 +13,10 @@ namespace PrintGaransi.View
         string ModelNumber { get; set; }
         string Register { get; set; }
         string Search { get; set; }
+        DateTime SelectedDate { get; }
+        string Status { get; set; }
+        Color StatusBackColor { get; set; }
+        Color StatusForeColor { get; set; }
 
         // Events
         event EventHandler<ModelEventArgs> SearchModelNumber;

@@ -15,6 +15,7 @@ namespace PrintGaransi.Presenter
         private readonly SettingModel _model;
         private readonly LocationModel _smodel;
         private readonly ProductTypeModel _productType;
+        private readonly PrintModeModel _printMode;
 
         public SettingPresenter(ISettingView view, SettingModel model) 
         {
@@ -22,6 +23,7 @@ namespace PrintGaransi.Presenter
             _model = model;
             _productType = new ProductTypeModel();
             _smodel = new LocationModel();
+            _printMode = new PrintModeModel();
 
             _view.SelectedIndexChanged += View_SelectedIndexChanged;
             _view.SaveIPSettings += SaveIPSettings;
@@ -31,6 +33,27 @@ namespace PrintGaransi.Presenter
             _view.LoadLocation += View_LoadSettings;
             _view.LoadProductName += LoadProductTypeName;
             _view.SelectedProductType += SelectedProductType;
+            _view.HandleRadioButton += HandleRadioButton;
+        }
+
+        private void HandleRadioButton(object? sender, EventArgs e)
+        {
+            if (_view.mode == "on")
+                onRadio_Checked();
+            else if(_view.mode == "off")
+                offRadio_Checked();
+        }
+
+        private void offRadio_Checked()
+        {
+            _printMode.SaveData(_view.mode);
+            MessageBox.Show(_view.mode);
+        }
+
+        private void onRadio_Checked()
+        {
+            _printMode.SaveData(_view.mode);
+            MessageBox.Show(_view.mode);
         }
 
         private void SelectedProductType(object sender, EventArgs e)

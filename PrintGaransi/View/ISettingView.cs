@@ -12,6 +12,7 @@ namespace PrintGaransi.View
         List<string> LocationNames { get; set; }
         string ipaddress { get; set; }
         string portaddress { get; set; }
+        string mode { get; set; }
 
         event EventHandler SelectedIndexChanged;
         event EventHandler SaveIPSettings;
@@ -21,6 +22,7 @@ namespace PrintGaransi.View
         event EventHandler LoadLocation;
         event EventHandler LoadProductName;
         event EventHandler SelectedProductType;
+        event EventHandler HandleRadioButton;
 
         void DisplayName(string JPName);
         void DisplayIP(string IPaddress);

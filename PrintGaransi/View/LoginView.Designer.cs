@@ -124,7 +124,7 @@
             // textBoxPassword
             // 
             textBoxPassword.Anchor = AnchorStyles.None;
-            textBoxPassword.BackColor = SystemColors.Control;
+            textBoxPassword.BackColor = Color.White;
             textBoxPassword.BorderStyle = BorderStyle.None;
             textBoxPassword.Font = new Font("Arial", 15.75F);
             textBoxPassword.Location = new Point(114, 208);
@@ -138,7 +138,7 @@
             // textBoxNik
             // 
             textBoxNik.Anchor = AnchorStyles.None;
-            textBoxNik.BackColor = SystemColors.Control;
+            textBoxNik.BackColor = Color.White;
             textBoxNik.BorderStyle = BorderStyle.None;
             textBoxNik.Font = new Font("Arial", 15.75F);
             textBoxNik.Location = new Point(114, 132);
@@ -162,8 +162,8 @@
             // roundedCornerPanel1
             // 
             roundedCornerPanel1.Anchor = AnchorStyles.None;
-            roundedCornerPanel1.BackColor = SystemColors.Control;
-            roundedCornerPanel1.BorderColor = Color.Black;
+            roundedCornerPanel1.BackColor = Color.White;
+            roundedCornerPanel1.BorderColor = Color.Silver;
             roundedCornerPanel1.BorderSize = 1;
             roundedCornerPanel1.Controls.Add(btnExit);
             roundedCornerPanel1.Controls.Add(btnConnect);
@@ -204,8 +204,8 @@
             // btnConnect
             // 
             btnConnect.Anchor = AnchorStyles.None;
-            btnConnect.BackColor = Color.FromArgb(0, 173, 181);
-            btnConnect.BackgroundColor = Color.FromArgb(0, 173, 181);
+            btnConnect.BackColor = Color.FromArgb(27, 60, 115);
+            btnConnect.BackgroundColor = Color.FromArgb(27, 60, 115);
             btnConnect.BorderColor = Color.PaleVioletRed;
             btnConnect.BorderRadius = 8;
             btnConnect.BorderSize = 0;
@@ -223,7 +223,7 @@
             // 
             // panel3
             // 
-            panel3.BackColor = SystemColors.Control;
+            panel3.BackColor = Color.FromArgb(46, 119, 174);
             panel3.Controls.Add(label2);
             panel3.Controls.Add(label1);
             panel3.Dock = DockStyle.Top;
@@ -237,6 +237,7 @@
             label2.Anchor = AnchorStyles.Right;
             label2.AutoSize = true;
             label2.Font = new Font("Arial Rounded MT Bold", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.White;
             label2.Location = new Point(666, 21);
             label2.Name = "label2";
             label2.Size = new Size(551, 40);
@@ -248,6 +249,7 @@
             label1.Anchor = AnchorStyles.Left;
             label1.AutoSize = true;
             label1.Font = new Font("Arial Rounded MT Bold", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
             label1.Location = new Point(3, 9);
             label1.Name = "label1";
             label1.Size = new Size(493, 55);
@@ -258,7 +260,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ControlDark;
+            BackColor = Color.FromArgb(224, 235, 245);
             ClientSize = new Size(1229, 632);
             Controls.Add(panel3);
             Controls.Add(roundedCornerPanel1);

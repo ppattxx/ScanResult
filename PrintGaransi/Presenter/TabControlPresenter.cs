@@ -19,6 +19,7 @@ namespace PrintGaransi.Presenter
         private BindingSource _dataBindingSource;
         private BindingSource _dataBindingSource2;
         private DateTime _lastScanTime;
+        private readonly PrintModeModel _printMode;
 
         public TabControlPresenter(ITabControlView view, IGaransiRepository garansiRepository)
         {
@@ -28,6 +29,7 @@ namespace PrintGaransi.Presenter
             _productType = new ProductTypeModel();
             _garansiModel = new GaransiModel();
             _modelNumberRepository = new ModelNumberRepository();
+            _printMode = new PrintModeModel();
 
             _view.SearchModelNumber += SearchModelNumber;
             _view.SearchFilter += SearchFilter;
@@ -75,15 +77,15 @@ namespace PrintGaransi.Presenter
 
                 _view.ShowPrintPreviewDialog(model);
             }
-
-            //CreateModel();
         }
 
         private void CheckProperties(object sender, EventArgs e)
         {
             if (_garansiRepository.Exists(_view.SerialNumber, _view.ModelCode))
             {
-                MessageBox.Show("Data sudah ada dalam database");
+                _view.Status = "Data sudah ada di dalam database";
+                _view.StatusBackColor = Color.Red;
+                _view.StatusForeColor = Color.White;
                 return;
             }
 
@@ -120,6 +122,8 @@ namespace PrintGaransi.Presenter
             DateTime currentTime = DateTime.Now;
             string date = currentTime.ToString("d");
             string time;
+            TimeSpan different = TimeSpan.Zero;
+            string mode = _printMode.GetMode();
 
             //mengatur waktu ketika sudah ganti hari
             if (_lastScanTime.Date != currentTime.Date)
@@ -127,15 +131,14 @@ namespace PrintGaransi.Presenter
                 _garansiModel.SaveScanTime(_lastScanTime.ToString("O"));
                 time = currentTime.ToString("HH:mm:ss");
                 currentTime = currentTime.Date;
+                _garansiModel.SaveScanTime(time);
             }
             else
             {
                 time = currentTime.ToString(@"T");
             }
 
-            _garansiModel.SaveScanTime(time);
 
-            TimeSpan different = TimeSpan.Zero;
             if (_lastScanTime != DateTime.MinValue && _lastScanTime.Date == currentTime.Date)
             {
                 different = currentTime - _lastScanTime;
@@ -161,7 +164,15 @@ namespace PrintGaransi.Presenter
                 Location = _smodel.LoadLocationID()
             };
             _garansiRepository.Add(model);
-            _view.ShowPrintPreviewDialog(model);
+
+            if (mode == "off")
+            {
+                MessageBox.Show("Mode print dalam keadaan OFF tidak bisa melakukan Print");
+            }
+            else
+            {
+                 _view.ShowPrintPreviewDialog(model);
+            }
 
             LoadAllDataList();
 
@@ -183,7 +194,7 @@ namespace PrintGaransi.Presenter
 
         public void SearchFilter(object sender, EventArgs e)
         {
-            _model = _garansiRepository.GetFilter(_view.Search);
+            _model = _garansiRepository.GetFilter(_view.Search, _view.SelectedDate);
             _dataBindingSource2.DataSource = _model;
             _view.ShowFilter(_dataBindingSource2);
         }
@@ -195,13 +206,9 @@ namespace PrintGaransi.Presenter
 
         private void SearchModelNumber(object sender, ModelEventArgs e)
         {
-            if (int.TryParse(_view.ModelCode, out int modelCode))
-            {
-                if (modelCode >= 0)
-                {
                     var model = new GaransiModel
                     {
-                        ModelCode = modelCode.ToString()
+                        ModelCode = _view.ModelCode.ToString()
                     };
 
                     var searchModel = _modelNumberRepository.GetByModelCode(model);
@@ -215,17 +222,6 @@ namespace PrintGaransi.Presenter
                     {
                         ClearViewFields();
                     }
-                }
-                else
-                {
-                    ClearViewFields();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Not valid");
-                ClearViewFields();
-            }
         }
 
         private void ClearViewFields()

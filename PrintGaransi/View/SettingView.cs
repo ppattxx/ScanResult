@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,6 +18,7 @@ namespace PrintGaransi.View
     public partial class SettingView : Form, ISettingView
     {
         private bool isInitializing;
+        private string lastMode = "";
         public SettingView()
         {
             InitializeComponent();
@@ -46,6 +48,8 @@ namespace PrintGaransi.View
             set { textBoxPort.Text = value; }
         }
 
+        public string mode { get; set; }
+
         public event EventHandler SelectedIndexChanged;
         public event EventHandler SaveIPSettings;
         public event EventHandler SavePortSettings;
@@ -54,6 +58,7 @@ namespace PrintGaransi.View
         public event EventHandler LoadLocation;
         public event EventHandler LoadProductName;
         public event EventHandler SelectedProductType;
+        public event EventHandler HandleRadioButton;
 
         public void DisplayName(string JPName)
         {
@@ -104,6 +109,26 @@ namespace PrintGaransi.View
                 LoginPresenter loginPresenter = new LoginPresenter(loginView, new LoginRepository());
                 (loginView as Form)?.Show();
             };
+
+            btnOn.CheckedChanged += (sender, e) => 
+            {
+                if (btnOn.Checked && lastMode != "on" )
+                {
+                    mode = "on";
+                    lastMode = "on";
+                    HandleRadioButton?.Invoke(sender, e);
+                }
+            };
+
+            btnOff.CheckedChanged += (sender, e) =>
+            {
+                if (btnOff.Checked && lastMode != "off")
+                {
+                    mode = "off";
+                    lastMode = "off";
+                    HandleRadioButton?.Invoke(sender, e);
+                }
+            };
         }
 
         public void DisplaySetting(string locationName)
@@ -134,6 +159,11 @@ namespace PrintGaransi.View
             LoadIP?.Invoke(this, EventArgs.Empty);
             LoadPort?.Invoke(this, EventArgs.Empty);
             isInitializing = false;
+        }
+
+        private void btnConnect_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

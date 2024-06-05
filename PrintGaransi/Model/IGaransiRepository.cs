@@ -11,7 +11,7 @@ namespace PrintGaransi.Model
         void Add(dynamic model);
         IEnumerable<GaransiModel> GetData(string model);
         IEnumerable<GaransiModel> GetAll();
-        IEnumerable<GaransiModel> GetFilter(string globalCodeId);
+        IEnumerable<GaransiModel> GetFilter(string globalCodeId, DateTime selectDate);
         List<string> JenisProduk();
 
         bool Exists(string noSeri, string modelCode);

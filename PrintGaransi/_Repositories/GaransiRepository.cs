@@ -56,16 +56,17 @@ namespace PrintGaransi._Repositories
         }
 
 
-        public IEnumerable<GaransiModel> GetFilter(string serialNumber)
+        public IEnumerable<GaransiModel> GetFilter(string serialNumber, DateTime selectedDate)
         {
             List<GaransiModel> results = new List<GaransiModel>();
-            string query = "SELECT * FROM Result_Warranty_Cards WHERE SerialNumber LIKE @SerialNumber";
+            string query = "SELECT * FROM Result_Warranty_Cards WHERE SerialNumber LIKE @SerialNumber AND CAST(ScanningDate AS DATE) = @SelectedDate";
 
             using (SqlConnection connection = new SqlConnection(LSBUDBPRODUCTION))
             using (SqlCommand command = new SqlCommand(query, connection))
             {
                 connection.Open();
-                command.Parameters.Add("@SerialNumber", SqlDbType.VarChar).Value = "%" + serialNumber; // Concatenate "%" with serialNumber
+                command.Parameters.Add("@SerialNumber", SqlDbType.VarChar).Value = "%" + serialNumber;
+                command.Parameters.Add("@SelectedDate", SqlDbType.Date).Value = selectedDate.Date;
 
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
@@ -79,7 +80,7 @@ namespace PrintGaransi._Repositories
                             ModelNumber = reader["ModelNumber"].ToString(),
                             NoSeri = reader["SerialNumber"].ToString(),
                             NoReg = reader["Register"].ToString(),
-                            Date = reader["ScanningDate"].ToString(),
+                            Date = Convert.ToDateTime(reader["ScanningDate"]).ToString("yyyy-MM-dd"),
                             ScanTime = reader["ScanningTime"].ToString(),
                             Different = reader["Different"].ToString(),
                             ActualTT = reader["ActualTT"] != DBNull.Value ? Convert.ToDecimal(reader["ActualTT"]) : 0m,

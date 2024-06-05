@@ -60,6 +60,23 @@ namespace PrintGaransi.View
             get { return textBoxSearch.Text; }
             set { textBoxSearch.Text = value; }
         }
+        public string Status
+        {
+            get { return textBoxStatus.Text; }
+            set { textBoxStatus.Text = value; }
+        }
+        public Color StatusBackColor
+        {
+            get { return textBoxStatus.BackColor; }
+            set { textBoxStatus.BackColor = value; }
+        }
+        public Color StatusForeColor
+        {
+            get { return textBoxStatus.ForeColor; }
+            set { textBoxStatus.ForeColor = value; }
+        }
+
+        public DateTime SelectedDate => dtFromDate.Value;
 
         //event
         public event EventHandler<ModelEventArgs> SearchModelNumber;
@@ -108,8 +125,10 @@ namespace PrintGaransi.View
             {
                 if (!buttonClickedOnce)
                 {
+                    btnManual.BackColor = Color.FromArgb(0, 133, 181);
                     // Logic to execute when button is clicked for the first time
                     btnPrint.Visible = true;
+                    btnClear.Visible = true;
                     disableEvent = true;
 
                     textBoxSerial.ReadOnly = false;
@@ -121,7 +140,9 @@ namespace PrintGaransi.View
                 }
                 else
                 {
+                    btnManual.BackColor = Color.FromArgb(27, 60, 115);
                     btnPrint.Visible = false;
+                    btnClear.Visible = false;
                     textBoxSerial.ReadOnly = true;
                     textBoxCode.ReadOnly = true;
                     textBoxModelNumber.ReadOnly = true;
@@ -131,12 +152,36 @@ namespace PrintGaransi.View
                     ModelCode = "";
                     ModelNumber = "";
                     Register = "";
+                    Status = "";
 
                     disableEvent = false;
                     buttonClickedOnce = false;
                 }
             };
 
+            btnClear.Click += delegate
+            {
+                SerialNumber = "";
+                ModelCode = "";
+                ModelNumber = "";
+                Register = "";
+                Status = "";
+                textBoxStatus.BackColor = Color.LightGray;
+            };
+
+            dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 18, FontStyle.Bold);
+            dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.ColumnHeadersHeight = 40;
+
+            dataGridView1.DefaultCellStyle.Font = new Font("Arial", 16);
+            dataGridView1.RowTemplate.Height = 50;
+
+            dataGridView2.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 18, FontStyle.Bold);
+            dataGridView2.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView2.ColumnHeadersHeight = 40;
+
+            dataGridView2.DefaultCellStyle.Font = new Font("Arial", 16);
+            dataGridView2.RowTemplate.Height = 50;
         }
 
         public void ShowFilter(BindingSource model)
@@ -220,7 +265,7 @@ namespace PrintGaransi.View
         {
         }
 
-        private void textBoxRegister_TextChanged(object sender, EventArgs e)
+        private void textBoxRegister_TextChanged_1(object sender, EventArgs e)
         {
             if (!disableEvent)
             {
