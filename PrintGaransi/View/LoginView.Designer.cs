@@ -229,7 +229,7 @@
             panel3.Dock = DockStyle.Top;
             panel3.Location = new Point(0, 0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1229, 78);
+            panel3.Size = new Size(1229, 89);
             panel3.TabIndex = 10;
             // 
             // label2
@@ -238,7 +238,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Arial Rounded MT Bold", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(666, 21);
+            label2.Location = new Point(666, 26);
             label2.Name = "label2";
             label2.Size = new Size(551, 40);
             label2.TabIndex = 1;
@@ -250,11 +250,11 @@
             label1.AutoSize = true;
             label1.Font = new Font("Arial Rounded MT Bold", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(3, 9);
+            label1.Location = new Point(3, 14);
             label1.Name = "label1";
-            label1.Size = new Size(493, 55);
+            label1.Size = new Size(619, 55);
             label1.TabIndex = 0;
-            label1.Text = "Print Warranty Card";
+            label1.Text = "PRINT WARRANTY CARD";
             // 
             // LoginView
             // 

@@ -10,6 +10,5 @@ namespace PrintGaransi.View
     public interface IPrintGaransiView
     {
         void Show();
-
     }
 }

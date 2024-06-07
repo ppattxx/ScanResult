@@ -33,7 +33,7 @@ namespace PrintGaransi.Presenter
             if (user?.Nik != null && user?.Password == password)
             {
                 _view.HideView();
-                IPrintGaransiView printGaransiView = new PrintGaransiView();
+                IPrintGaransiView printGaransiView = PrintGaransiView.GetInstance();
                 IGaransiRepository garansi = new GaransiRepository();
                 PrintGaransiPresenter garansiPresenter = new PrintGaransiPresenter(printGaransiView, garansi);
             }

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrintGaransiView));
             tableLayoutPanel1 = new TableLayoutPanel();
+            label2 = new Label();
             label1 = new Label();
             tableLayoutPanel4 = new TableLayoutPanel();
             btnLogOut = new Button();
@@ -46,11 +47,12 @@
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.BackColor = Color.FromArgb(46, 119, 174);
+            tableLayoutPanel1.BackColor = Color.FromArgb(0, 35, 105);
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 250F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 596F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.Controls.Add(label2, 0, 0);
             tableLayoutPanel1.Controls.Add(label1, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Top;
             tableLayoutPanel1.Location = new Point(0, 0);
@@ -58,8 +60,22 @@
             tableLayoutPanel1.Padding = new Padding(0, 5, 0, 0);
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(891, 85);
+            tableLayoutPanel1.Size = new Size(1265, 89);
             tableLayoutPanel1.TabIndex = 0;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.FromArgb(0, 35, 105);
+            label2.Dock = DockStyle.Fill;
+            label2.Font = new Font("Arial Rounded MT Bold", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(672, 5);
+            label2.Name = "label2";
+            label2.Size = new Size(590, 84);
+            label2.TabIndex = 2;
+            label2.Text = "Laundry Systems Business Unit";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
@@ -71,9 +87,9 @@
             label1.Location = new Point(3, 5);
             label1.Margin = new Padding(3, 0, 0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(638, 80);
+            label1.Size = new Size(666, 84);
             label1.TabIndex = 1;
-            label1.Text = "Print Warranty Card";
+            label1.Text = "PRINT WARRANTY CARD";
             label1.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // tableLayoutPanel4
@@ -97,7 +113,7 @@
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2849035F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 14.287756F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 14.287756F));
-            tableLayoutPanel4.Size = new Size(74, 364);
+            tableLayoutPanel4.Size = new Size(104, 360);
             tableLayoutPanel4.TabIndex = 0;
             // 
             // btnLogOut
@@ -105,12 +121,12 @@
             btnLogOut.Dock = DockStyle.Fill;
             btnLogOut.FlatAppearance.BorderSize = 0;
             btnLogOut.FlatStyle = FlatStyle.Flat;
-            btnLogOut.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnLogOut.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLogOut.ForeColor = Color.White;
             btnLogOut.Image = (Image)resources.GetObject("btnLogOut.Image");
             btnLogOut.Location = new Point(3, 317);
             btnLogOut.Name = "btnLogOut";
-            btnLogOut.Size = new Size(68, 44);
+            btnLogOut.Size = new Size(98, 40);
             btnLogOut.TabIndex = 4;
             btnLogOut.Text = "Log Out";
             btnLogOut.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -121,12 +137,12 @@
             btnRePrint.Dock = DockStyle.Fill;
             btnRePrint.FlatAppearance.BorderSize = 0;
             btnRePrint.FlatStyle = FlatStyle.Flat;
-            btnRePrint.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnRePrint.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRePrint.ForeColor = Color.White;
             btnRePrint.Image = (Image)resources.GetObject("btnRePrint.Image");
             btnRePrint.Location = new Point(3, 97);
             btnRePrint.Name = "btnRePrint";
-            btnRePrint.Size = new Size(68, 38);
+            btnRePrint.Size = new Size(98, 38);
             btnRePrint.TabIndex = 3;
             btnRePrint.Text = "Re-Print";
             btnRePrint.TextAlign = ContentAlignment.BottomCenter;
@@ -138,12 +154,12 @@
             btnHome.Dock = DockStyle.Fill;
             btnHome.FlatAppearance.BorderSize = 0;
             btnHome.FlatStyle = FlatStyle.Flat;
-            btnHome.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnHome.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnHome.ForeColor = Color.White;
             btnHome.Image = (Image)resources.GetObject("btnHome.Image");
             btnHome.Location = new Point(3, 53);
             btnHome.Name = "btnHome";
-            btnHome.Size = new Size(68, 38);
+            btnHome.Size = new Size(98, 38);
             btnHome.TabIndex = 2;
             btnHome.Text = "Home";
             btnHome.TextAlign = ContentAlignment.BottomCenter;
@@ -155,22 +171,21 @@
             btnSetting.Dock = DockStyle.Fill;
             btnSetting.FlatAppearance.BorderSize = 0;
             btnSetting.FlatStyle = FlatStyle.Flat;
-            btnSetting.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSetting.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSetting.ForeColor = Color.White;
             btnSetting.Image = (Image)resources.GetObject("btnSetting.Image");
             btnSetting.Location = new Point(3, 141);
             btnSetting.Name = "btnSetting";
-            btnSetting.Size = new Size(68, 38);
+            btnSetting.Size = new Size(98, 38);
             btnSetting.TabIndex = 1;
             btnSetting.Text = "Setting";
             btnSetting.TextImageRelation = TextImageRelation.ImageAboveText;
             btnSetting.UseVisualStyleBackColor = true;
-            btnSetting.Click += btnSetting_Click;
             // 
             // splitContainer1
             // 
             splitContainer1.Dock = DockStyle.Fill;
-            splitContainer1.Location = new Point(0, 85);
+            splitContainer1.Location = new Point(0, 89);
             splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -180,8 +195,8 @@
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.BackColor = Color.FromArgb(224, 235, 245);
-            splitContainer1.Size = new Size(891, 364);
-            splitContainer1.SplitterDistance = 74;
+            splitContainer1.Size = new Size(1265, 360);
+            splitContainer1.SplitterDistance = 104;
             splitContainer1.TabIndex = 14;
             // 
             // PrintGaransiView
@@ -189,7 +204,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(891, 449);
+            ClientSize = new Size(1265, 449);
             Controls.Add(splitContainer1);
             Controls.Add(tableLayoutPanel1);
             Margin = new Padding(2);
@@ -217,5 +232,6 @@
         private Button btnSetting;
         private SplitContainer splitContainer1;
         private Label label1;
+        private Label label2;
     }
 }

@@ -47,13 +47,11 @@ namespace PrintGaransi.Presenter
         private void offRadio_Checked()
         {
             _printMode.SaveData(_view.mode);
-            MessageBox.Show(_view.mode);
         }
 
         private void onRadio_Checked()
         {
             _printMode.SaveData(_view.mode);
-            MessageBox.Show(_view.mode);
         }
 
         private void SelectedProductType(object sender, EventArgs e)
@@ -65,7 +63,6 @@ namespace PrintGaransi.Presenter
             {
                 string selectedName = comboBox.SelectedItem.ToString();
                 _productType.SaveProductTypeName(selectedName);
-                MessageBox.Show(selectedName);
             }
         }
 

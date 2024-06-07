@@ -83,10 +83,10 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.Location = new Point(221, 33);
             label3.Name = "label3";
-            label3.Size = new Size(235, 31);
+            label3.Size = new Size(252, 31);
             label3.TabIndex = 5;
             label3.Text = "Setting IP Camera";
             // 

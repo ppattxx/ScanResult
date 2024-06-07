@@ -81,14 +81,6 @@ namespace PrintGaransi.Presenter
 
         private void CheckProperties(object sender, EventArgs e)
         {
-            if (_garansiRepository.Exists(_view.SerialNumber, _view.ModelCode))
-            {
-                _view.Status = "Data sudah ada di dalam database";
-                _view.StatusBackColor = Color.Red;
-                _view.StatusForeColor = Color.White;
-                return;
-            }
-
             if (string.IsNullOrWhiteSpace(_view.SerialNumber))
             {
                 MessageBox.Show("Serial Number is required");
@@ -111,6 +103,31 @@ namespace PrintGaransi.Presenter
             {
                 MessageBox.Show("Register is required.");
                 return;
+            }
+
+            var existingRecords = _garansiRepository.GetExists(_view.SerialNumber, _view.ModelCode);
+            string mode = _printMode.GetMode();
+
+            if(existingRecords != null && existingRecords.Any())
+            {
+                bool isSameDay = existingRecords.Any(record => DateTime.Parse(record.Date).Date == DateTime.Now.Date);
+                if (isSameDay)
+                {
+                    if( mode == "off")
+                    {
+                        _view.Status = "Data sudah tersimpan dalam database";
+                        _view.StatusBackColor = Color.Red;
+                        _view.StatusForeColor = Color.White;
+                        return;
+                    }
+                    else if( mode == "on")
+                    {
+                        _view.Status = "Data sudah tersimpan dalam database";
+                        _view.StatusBackColor = Color.Red;
+                        _view.StatusForeColor = Color.White;
+                    }
+               
+                }
             }
 
             CreateModel();
@@ -206,22 +223,23 @@ namespace PrintGaransi.Presenter
 
         private void SearchModelNumber(object sender, ModelEventArgs e)
         {
-                    var model = new GaransiModel
-                    {
-                        ModelCode = _view.ModelCode.ToString()
-                    };
+           var model = new GaransiModel
+           {
+               ModelCode = _view.ModelCode.ToString()
+           };
 
-                    var searchModel = _modelNumberRepository.GetByModelCode(model);
+           var searchModel = _modelNumberRepository.GetByModelCode(model);
 
-                    if (searchModel != null)
-                    {
-                        _view.ModelNumber = searchModel.ModelNumber;
-                        _view.Register = searchModel.NoReg;
-                    }
-                    else
-                    {
-                        ClearViewFields();
-                    }
+           if (searchModel != null)
+           {
+               _view.ModelNumber = searchModel.ModelNumber;
+               _view.Register = searchModel.NoReg;
+           }
+           else
+           {
+               ClearViewFields();
+                MessageBox.Show("not found");
+           }
         }
 
         private void ClearViewFields()
@@ -230,6 +248,8 @@ namespace PrintGaransi.Presenter
             _view.ModelCode = "";
             _view.ModelNumber = "";
             _view.Register = "";
+            _view.Status = "";
+            _view.StatusBackColor = SystemColors.Control;
         }   
     }
 }

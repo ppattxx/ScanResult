@@ -19,10 +19,20 @@ namespace PrintGaransi.View
     {
         private bool isInitializing;
         private string lastMode = "";
+        private readonly IPrintGaransiView _printGaransiView;
+        private readonly PrintModeModel _printMode;
         public SettingView()
         {
             InitializeComponent();
             InitializeEventHandler();
+            _printMode = new PrintModeModel();
+            LoadRadioSettings();
+        }
+
+        private void LoadRadioSettings()
+        {
+            btnOn.Checked = Properties.Settings.Default.Mode == "on";
+            btnOff.Checked = Properties.Settings.Default.Mode == "off";
         }
 
         public List<string> JenisProdukNames
@@ -108,6 +118,7 @@ namespace PrintGaransi.View
                 ILoginView loginView = new LoginView();
                 LoginPresenter loginPresenter = new LoginPresenter(loginView, new LoginRepository());
                 (loginView as Form)?.Show();
+                this.Close();
             };
 
             btnOn.CheckedChanged += (sender, e) => 

@@ -31,6 +31,12 @@ namespace PrintGaransi.View
             _printLayout = new PrintGaransiLayout();
             tabControl1.ItemSize = new Size(0, 1);
             tabControl1.SizeMode = TabSizeMode.Fixed;
+            InitializeDateTimePicker();
+        }
+
+        private void InitializeDateTimePicker()
+        {
+            dtFromDate.CustomFormat = "dd MMMM yyyy";
         }
 
         public string SerialNumber
@@ -265,7 +271,7 @@ namespace PrintGaransi.View
         {
         }
 
-        private void textBoxRegister_TextChanged_1(object sender, EventArgs e)
+        private void textBoxRegister_TextChanged(object sender, EventArgs e)
         {
             if (!disableEvent)
             {

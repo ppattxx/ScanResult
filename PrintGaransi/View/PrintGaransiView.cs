@@ -45,7 +45,7 @@ namespace PrintGaransi
                 int selectedTabPageIndex = 0;
                 tabControlPresenter.ChangeTabPage(selectedTabPageIndex);
                 btnHome.BackColor = Color.FromArgb(0, 133, 181);
-                btnRePrint.BackColor = Color.FromArgb(0, 173, 181);
+                btnRePrint.BackColor = Color.FromArgb(0, 35, 105);
             };
 
             btnSetting.Click += delegate
@@ -60,7 +60,7 @@ namespace PrintGaransi
             {
                 int selectedTabPageIndex = 1;
                 tabControlPresenter.ChangeTabPage(selectedTabPageIndex);
-                btnHome.BackColor = Color.FromArgb(0, 173, 181);
+                btnHome.BackColor = Color.FromArgb(0, 35, 105);
                 btnRePrint.BackColor = Color.FromArgb(0, 133, 181);
             };
 
@@ -80,9 +80,19 @@ namespace PrintGaransi
             Application.Exit();
         }
 
-        private void btnSetting_Click(object sender, EventArgs e)
+        //Singeleton pattern (open a single  from instance)
+        private static PrintGaransiView instance;
+        public static PrintGaransiView GetInstance()
         {
-
+            if (instance == null || instance.IsDisposed)
+                instance = new PrintGaransiView();
+            else
+            {
+                if (instance.WindowState == FormWindowState.Minimized)
+                    instance.WindowState = FormWindowState.Normal;
+                instance.BringToFront();
+            }
+            return instance;
         }
     }
 }

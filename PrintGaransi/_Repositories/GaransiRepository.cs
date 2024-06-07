@@ -140,21 +140,42 @@ namespace PrintGaransi._Repositories
             return dataList;
         }
 
-        public bool Exists(string noSeri, string modelCode)
+        public IEnumerable<GaransiModel> GetExists(string noSeri, string modelCode)
         {
-            using (SqlConnection connection = new SqlConnection(LSBUDBPRODUCTION))
-            {
-                string query = "SELECT COUNT(*) FROM Result_Warranty_Cards WHERE SerialNumber = @NoSeri AND ModelCode = @ModelCode";
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@NoSeri", noSeri);
-                    command.Parameters.AddWithValue("@ModelCode", modelCode);
+            List<GaransiModel> results = new List<GaransiModel>();
+            string query = "SELECT * FROM Result_Warranty_Cards WHERE SerialNumber = @SerialNumber AND ModelCode = @ModelCode";
 
-                    connection.Open();
-                    int count = (int)command.ExecuteScalar();
-                    return count > 0;
+            using (SqlConnection connection = new SqlConnection(LSBUDBPRODUCTION))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                connection.Open();
+                command.Parameters.Add("@SerialNumber", SqlDbType.VarChar).Value = noSeri;
+                command.Parameters.Add("@ModelCode", SqlDbType.VarChar).Value = modelCode;
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        var result = new GaransiModel
+                        {
+                            Id = reader["Id"].ToString(),
+                            JenisProduk = reader["JenisProduk"].ToString(),
+                            ModelCode = reader["ModelCode"].ToString(),
+                            ModelNumber = reader["ModelNumber"].ToString(),
+                            NoSeri = reader["SerialNumber"].ToString(),
+                            NoReg = reader["Register"].ToString(),
+                            Date = reader["ScanningDate"].ToString(),
+                            ScanTime = reader["ScanningTime"].ToString(),
+                            Different = reader["Different"].ToString(),
+                            ActualTT = reader["ActualTT"] != DBNull.Value ? Convert.ToDecimal(reader["ActualTT"]) : 0m,
+                            Location = reader["Location"].ToString()
+                        };
+                        results.Add(result);
+                    }
                 }
             }
+
+            return results;
         }
     }
 }
