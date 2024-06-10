@@ -11,13 +11,15 @@ using PrintGaransi._Repositories;
 
 namespace PrintGaransi
 {
-    public partial class PrintGaransiView : Form, IPrintGaransiView
+    public partial class MainForm : Form, IPrintGaransiView
     {
         private TabControlPresenter tabControlPresenter;
         private readonly GaransiModel _garansiModel;
-        public PrintGaransiView()
+        public LoginModel _user;
+        public MainForm(LoginModel user)
         {
             InitializeComponent();
+            _user = user;
             AssociateAndRaiseViewEvents();
             InitializeTabControl();
             btnHome.BackColor = Color.FromArgb(0, 133, 181);
@@ -26,7 +28,8 @@ namespace PrintGaransi
         public void InitializeTabControl()
         {
             TabControlView tabControlView = new TabControlView(); // Create the user control instance
-            tabControlPresenter = new TabControlPresenter(tabControlView, new GaransiRepository()); // Inisialisasi variabel instance
+            PrintGaransiDataPresenter presenterData = new PrintGaransiDataPresenter(tabControlView, new GaransiRepository(), _user); // Inisialisasi variabel instance
+            tabControlPresenter = new TabControlPresenter(presenterData);
             splitContainer1.Panel2.Controls.Add(tabControlView);
             tabControlView.Dock = DockStyle.Fill;
         }
@@ -36,6 +39,7 @@ namespace PrintGaransi
 
         private void PrintGaransi_Load(object sender, EventArgs e)
         {
+            
         }
 
         private void AssociateAndRaiseViewEvents()
@@ -50,7 +54,7 @@ namespace PrintGaransi
 
             btnSetting.Click += delegate
             {
-               
+
                 ISettingView settingView = SettingView.GetInstance();
                 SettingPresenter settingPresenter = new SettingPresenter(settingView, new SettingModel());
                 (settingView as Form)?.Show();
@@ -73,6 +77,7 @@ namespace PrintGaransi
                 this.Hide();
             };
 
+          
         }
 
         private void PrintGaransiView_FormClosed(object sender, FormClosedEventArgs e)
@@ -81,11 +86,11 @@ namespace PrintGaransi
         }
 
         //Singeleton pattern (open a single  from instance)
-        private static PrintGaransiView instance;
-        public static PrintGaransiView GetInstance()
+        private static MainForm instance;
+        public static MainForm GetInstance(LoginModel loginModel)
         {
             if (instance == null || instance.IsDisposed)
-                instance = new PrintGaransiView();
+                instance = new MainForm(loginModel);
             else
             {
                 if (instance.WindowState == FormWindowState.Minimized)

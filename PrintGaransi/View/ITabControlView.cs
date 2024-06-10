@@ -12,6 +12,8 @@ namespace PrintGaransi.View
         string ModelCode { get; set; }
         string ModelNumber { get; set; }
         string Register { get; set; }
+        string InspectorId { get; set; }
+        string Inspector { get; set; }
         string Search { get; set; }
         DateTime SelectedDate { get; }
         string Status { get; set; }

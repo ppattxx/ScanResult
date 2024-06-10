@@ -10,7 +10,7 @@
     <Compile Update="View\LoginView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\PrintGaransiView.cs">
+    <Compile Update="View\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\SettingView.cs">

@@ -12,13 +12,14 @@ public class PrintGaransiPresenter
     private GaransiModel _model;
     private PrintGaransiLayout _printLayout;
     private IGaransiRepository GaransiRepository;
+    public LoginModel _login { get; }
 
-
-    public PrintGaransiPresenter(IPrintGaransiView view, IGaransiRepository garansiRepository)
+    public PrintGaransiPresenter(IPrintGaransiView view, IGaransiRepository garansiRepository, LoginModel login)
     {
         _view = view;
         GaransiRepository = garansiRepository;
         _printLayout = new PrintGaransiLayout();
         this._view.Show();
+        _login = login;
     }
 }

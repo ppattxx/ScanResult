@@ -22,6 +22,7 @@ namespace PrintGaransi.Model
         public string different;
         public decimal actualTT;
         public string location;
+        public string inspectorId;
 
         // Properties
         [DisplayName("ID")]

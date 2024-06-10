@@ -102,7 +102,7 @@ namespace PrintGaransi._Repositories
                 connection.Open();
                 command.Connection = connection;
 
-                command.CommandText = "INSERT INTO Result_Warranty_Cards (JenisProduk, ModelCode, ModelNumber, SerialNumber, ScanningDate, ScanningTime, Different, ActualTT, Location, Register) values (@JenisProduk, @ModelCode, @ModelNumber, @SerialNumber, @ScanningDate, @ScanningTime, @Different, @ActualTT, @Location, @Register)";
+                command.CommandText = "INSERT INTO Result_Warranty_Cards (JenisProduk, ModelCode, ModelNumber, SerialNumber, ScanningDate, ScanningTime, Different, ActualTT, Location, Register, InspectorId) values (@JenisProduk, @ModelCode, @ModelNumber, @SerialNumber, @ScanningDate, @ScanningTime, @Different, @ActualTT, @Location, @Register, @InspectorId)";
                 command.Parameters.Add("@JenisProduk", SqlDbType.VarChar).Value = model.JenisProduk;
                 command.Parameters.Add("@ModelCode", SqlDbType.VarChar).Value = model.ModelCode;
                 command.Parameters.Add("@ModelNumber", SqlDbType.VarChar).Value = model.ModelNumber;
@@ -113,6 +113,7 @@ namespace PrintGaransi._Repositories
                 command.Parameters.Add("@ActualTT", SqlDbType.Decimal).Value = model.ActualTT;
                 command.Parameters.Add("@Location", SqlDbType.Int).Value = model.Location;
                 command.Parameters.Add("@Register", SqlDbType.VarChar).Value = model.NoReg;
+                command.Parameters.Add("@InspectorId", SqlDbType.VarChar).Value = model.inspectorId;
                 command.ExecuteNonQuery();
             }
         }

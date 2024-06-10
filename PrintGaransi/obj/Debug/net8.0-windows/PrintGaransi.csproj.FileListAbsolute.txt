@@ -133,7 +133,6 @@ D:\Perkuliahan\Semester6\Panasonic\PrintKartuGaransi\PrintGaransi\PrintGaransi\b
 D:\Perkuliahan\Semester6\Panasonic\PrintKartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.csproj.AssemblyReference.cache
 D:\Perkuliahan\Semester6\Panasonic\PrintKartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.Properties.Resources.resources
 D:\Perkuliahan\Semester6\Panasonic\PrintKartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.View.LoginView.resources
-D:\Perkuliahan\Semester6\Panasonic\PrintKartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.PrintGaransiView.resources
 D:\Perkuliahan\Semester6\Panasonic\PrintKartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.View.SettingView.resources
 D:\Perkuliahan\Semester6\Panasonic\PrintKartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.View.TabControlView.resources
 D:\Perkuliahan\Semester6\Panasonic\PrintKartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.csproj.GenerateResource.cache
@@ -221,3 +220,4 @@ D:\WarrantyPrint\versi Juni\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\r
 D:\WarrantyPrint\versi Juni\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.pdb
 D:\WarrantyPrint\versi Juni\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.genruntimeconfig.cache
 D:\WarrantyPrint\versi Juni\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\ref\PrintGaransi.dll
+D:\Perkuliahan\Semester6\Panasonic\PrintKartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.MainForm.resources

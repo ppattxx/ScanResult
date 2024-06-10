@@ -23,6 +23,7 @@ namespace PrintGaransi.View
         private TCPConnection connection;
         private bool disableEvent = false;
         private bool buttonClickedOnce = false;
+        private string inspectorId;
 
         public TabControlView()
         {
@@ -84,6 +85,17 @@ namespace PrintGaransi.View
 
         public DateTime SelectedDate => dtFromDate.Value;
 
+        public string InspectorId
+        {
+            get { return inspectorId; }
+            set { inspectorId = value; }
+        }
+        public string Inspector
+        {
+            get { return textBoxInspector.Text; }
+            set { textBoxInspector.Text = value; }
+        }
+
         //event
         public event EventHandler<ModelEventArgs> SearchModelNumber;
         public event EventHandler SearchFilter;
@@ -92,6 +104,7 @@ namespace PrintGaransi.View
 
         private async void TabControlView_Load(object sender, EventArgs e)
         {
+            timer1.Start();
             connection = new TCPConnection(UpdateCodeBox, UpdateSerialBox); // Passing both update methods
             await connection.ConnectToServerAsync();
         }
@@ -116,14 +129,16 @@ namespace PrintGaransi.View
             dataGridView1.RowPostPaint += (sender, e) =>
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-                row.Cells["No1"].Value = (e.RowIndex + 1).ToString();
+                int totalRows = dataGridView1.Rows.Count;
+                row.Cells["No1"].Value = (totalRows - e.RowIndex).ToString();
                 row.Cells["No1"].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             };
 
             dataGridView2.RowPostPaint += (sender, e) =>
             {
                 DataGridViewRow row = dataGridView2.Rows[e.RowIndex];
-                row.Cells["No2"].Value = (e.RowIndex + 1).ToString();
+                int totalRows = dataGridView2.Rows.Count;
+                row.Cells["No2"].Value = (totalRows - e.RowIndex).ToString();
                 row.Cells["No2"].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             };
 
@@ -138,9 +153,6 @@ namespace PrintGaransi.View
                     disableEvent = true;
 
                     textBoxSerial.ReadOnly = false;
-                    textBoxCode.ReadOnly = false;
-                    textBoxModelNumber.ReadOnly = false;
-                    textBoxRegister.ReadOnly = false;
 
                     buttonClickedOnce = true; // Update button state
                 }
@@ -172,7 +184,7 @@ namespace PrintGaransi.View
                 ModelNumber = "";
                 Register = "";
                 Status = "";
-                textBoxStatus.BackColor = Color.LightGray;
+                textBoxStatus.BackColor = SystemColors.Control;
             };
 
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 18, FontStyle.Bold);
@@ -188,6 +200,12 @@ namespace PrintGaransi.View
 
             dataGridView2.DefaultCellStyle.Font = new Font("Arial", 16);
             dataGridView2.RowTemplate.Height = 50;
+
+            timer1.Tick += delegate
+            {
+                timeHeader.Text = DateTime.Now.ToLongTimeString();
+                DateHeader.Text = DateTime.Now.ToLongDateString();
+            };
         }
 
         public void ShowFilter(BindingSource model)
@@ -267,10 +285,6 @@ namespace PrintGaransi.View
             }
         }
 
-        private void textBoxSerial_TextChanged(object sender, EventArgs e)
-        {
-        }
-
         private void textBoxRegister_TextChanged(object sender, EventArgs e)
         {
             if (!disableEvent)
@@ -283,6 +297,30 @@ namespace PrintGaransi.View
                 {
                     CheckProperties?.Invoke(this, EventArgs.Empty);
                 }
+            }
+        }
+
+        private void textBoxSerial_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+
+                if (textBoxSerial.Text.Length >= 2)
+                {
+                    string code = textBoxSerial.Text;
+                    textBoxCode.Text = textBoxSerial.Text.Substring(0, 2);
+                    textBoxSerial.Text = code.Substring(2);
+                    PerformModelSearch();
+                    CheckProperties?.Invoke(this, EventArgs.Empty);
+                }
+            }
+        }
+
+        private void dtFromDate_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SearchFilter?.Invoke(this, EventArgs.Empty);
             }
         }
     }

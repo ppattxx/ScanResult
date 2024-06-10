@@ -20,11 +20,13 @@ namespace PrintGaransi.Presenter
         private BindingSource _dataBindingSource2;
         private DateTime _lastScanTime;
         private readonly PrintModeModel _printMode;
+        private readonly LoginModel _login;
 
-        public TabControlPresenter(ITabControlView view, IGaransiRepository garansiRepository)
+        public TabControlPresenter(PrintGaransiDataPresenter Data)
         {
-            _view = view;
-            _garansiRepository = garansiRepository;
+            _login = Data._User;
+            _view = Data.View;
+            _garansiRepository = Data.GaransiRepository;
             _smodel = new SettingModel();
             _productType = new ProductTypeModel();
             _garansiModel = new GaransiModel();
@@ -35,6 +37,8 @@ namespace PrintGaransi.Presenter
             _view.SearchFilter += SearchFilter;
             _view.CheckProperties += CheckProperties;
             _view.CellClicked += CellClicked;
+            _view.Inspector = _login.Name;
+            _view.InspectorId = _login.Nik;
 
             _dataBindingSource = new BindingSource();
             _dataBindingSource2 = new BindingSource();
@@ -86,22 +90,19 @@ namespace PrintGaransi.Presenter
                 MessageBox.Show("Serial Number is required");
                 return;
             }
-
             if (string.IsNullOrWhiteSpace(_view.ModelCode))
             {
                 MessageBox.Show("Model Code is required");
                 return;
             }
-
             if (string.IsNullOrWhiteSpace(_view.ModelNumber))
             {
-                MessageBox.Show("Model Number is required.");
+                MessageBox.Show("Model Number is required");
                 return;
             }
-
             if (string.IsNullOrWhiteSpace(_view.Register))
             {
-                MessageBox.Show("Register is required.");
+                MessageBox.Show("Register is required");
                 return;
             }
 
@@ -110,24 +111,21 @@ namespace PrintGaransi.Presenter
 
             if(existingRecords != null && existingRecords.Any())
             {
-                bool isSameDay = existingRecords.Any(record => DateTime.Parse(record.Date).Date == DateTime.Now.Date);
-                if (isSameDay)
-                {
-                    if( mode == "off")
-                    {
-                        _view.Status = "Data sudah tersimpan dalam database";
-                        _view.StatusBackColor = Color.Red;
-                        _view.StatusForeColor = Color.White;
-                        return;
-                    }
-                    else if( mode == "on")
-                    {
-                        _view.Status = "Data sudah tersimpan dalam database";
-                        _view.StatusBackColor = Color.Red;
-                        _view.StatusForeColor = Color.White;
-                    }
-               
-                }
+              
+               if( mode == "off")
+               {
+                   _view.Status = "Data sudah tersimpan dalam database";
+                   _view.StatusBackColor = Color.Red;
+                   _view.StatusForeColor = Color.White;
+                   return;
+               }
+               else if( mode == "on")
+               {
+                   _view.Status = "Data sudah tersimpan dalam database";
+                   _view.StatusBackColor = Color.Red;
+                   _view.StatusForeColor = Color.White;
+                   return;
+               }
             }
 
             CreateModel();
@@ -135,20 +133,18 @@ namespace PrintGaransi.Presenter
 
         private void CreateModel()
         {
-            string loadTime = _garansiModel.LoadScanTime();
             DateTime currentTime = DateTime.Now;
             string date = currentTime.ToString("d");
             string time;
             TimeSpan different = TimeSpan.Zero;
             string mode = _printMode.GetMode();
+            var existingRecords = _garansiRepository.GetExists(_view.SerialNumber, _view.ModelCode);
 
             //mengatur waktu ketika sudah ganti hari
             if (_lastScanTime.Date != currentTime.Date)
             {
-                _garansiModel.SaveScanTime(_lastScanTime.ToString("O"));
                 time = currentTime.ToString("HH:mm:ss");
-                currentTime = currentTime.Date;
-                _garansiModel.SaveScanTime(time);
+                _lastScanTime = currentTime;
             }
             else
             {
@@ -178,17 +174,48 @@ namespace PrintGaransi.Presenter
                 ScanTime = time,
                 Different = different.ToString(@"hh\:mm\:ss"),
                 ActualTT = actualTT,
-                Location = _smodel.LoadLocationID()
+                Location = _smodel.LoadLocationID(),
+                inspectorId = _view.InspectorId
             };
             _garansiRepository.Add(model);
 
             if (mode == "off")
             {
-                MessageBox.Show("Mode print dalam keadaan OFF tidak bisa melakukan Print");
+                if (existingRecords == null || !existingRecords.Any())
+                {
+                    // Data belum ada dalam database
+                    MessageBox.Show("Mode print dalam keadaan OFF. Data telah tersimpan, tapi tidak bisa melakukan Print.");
+                    _view.Status = "Data tersimpan, tapi print dalam mode OFF.";
+                    _view.StatusBackColor = Color.Orange;
+                    _view.StatusForeColor = Color.White;
+                }
+                else
+                {
+                    // Data sudah ada dalam database
+                    MessageBox.Show("Mode print dalam keadaan OFF. Data sudah ada dalam database.");
+                    _view.Status = "Data sudah tersimpan dalam database.";
+                    _view.StatusBackColor = Color.Red;
+                    _view.StatusForeColor = Color.White;
+                }
             }
             else
             {
-                 _view.ShowPrintPreviewDialog(model);
+                if (existingRecords == null || !existingRecords.Any())
+                {
+                    // Data belum ada dalam database, print diizinkan
+                    _view.ShowPrintPreviewDialog(model);
+                    _view.Status = "";
+                    _view.StatusBackColor = SystemColors.Control;
+                    _view.StatusForeColor = SystemColors.ControlText;
+                }
+                else
+                {
+                    // Data sudah ada dalam database
+                    MessageBox.Show("Data sudah ada dalam database.");
+                    _view.Status = "Data sudah tersimpan dalam database.";
+                    _view.StatusBackColor = Color.Red;
+                    _view.StatusForeColor = Color.White;
+                }
             }
 
             LoadAllDataList();
