@@ -42,6 +42,7 @@
             btnExit = new Resource.RDButton();
             btnConnect = new Resource.RDButton();
             panel3 = new Panel();
+            label4 = new Label();
             label2 = new Label();
             label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -152,10 +153,10 @@
             // 
             label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
-            label3.Font = new Font("Arial Rounded MT Bold", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Helvetica", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.Location = new Point(235, 53);
             label3.Name = "label3";
-            label3.Size = new Size(110, 33);
+            label3.Size = new Size(107, 35);
             label3.TabIndex = 8;
             label3.Text = "LOGIN";
             // 
@@ -191,7 +192,7 @@
             btnExit.BorderSize = 0;
             btnExit.FlatAppearance.BorderSize = 0;
             btnExit.FlatStyle = FlatStyle.Flat;
-            btnExit.Font = new Font("Arial Rounded MT Bold", 14.25F);
+            btnExit.Font = new Font("Helvetica", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnExit.ForeColor = Color.White;
             btnExit.Location = new Point(330, 274);
             btnExit.Name = "btnExit";
@@ -211,7 +212,7 @@
             btnConnect.BorderSize = 0;
             btnConnect.FlatAppearance.BorderSize = 0;
             btnConnect.FlatStyle = FlatStyle.Flat;
-            btnConnect.Font = new Font("Arial Rounded MT Bold", 14.25F);
+            btnConnect.Font = new Font("Helvetica", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnConnect.ForeColor = Color.White;
             btnConnect.Location = new Point(135, 274);
             btnConnect.Name = "btnConnect";
@@ -224,37 +225,50 @@
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(46, 119, 174);
+            panel3.Controls.Add(label4);
             panel3.Controls.Add(label2);
             panel3.Controls.Add(label1);
             panel3.Dock = DockStyle.Top;
             panel3.Location = new Point(0, 0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1229, 89);
+            panel3.Size = new Size(1229, 107);
             panel3.TabIndex = 10;
+            // 
+            // label4
+            // 
+            label4.Anchor = AnchorStyles.Right;
+            label4.AutoSize = true;
+            label4.Font = new Font("Helvetica", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(483, 30);
+            label4.Name = "label4";
+            label4.Size = new Size(746, 45);
+            label4.TabIndex = 2;
+            label4.Text = "PANASONIC MANUFACTURE INDONESIA";
+            label4.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
-            label2.Anchor = AnchorStyles.Right;
             label2.AutoSize = true;
-            label2.Font = new Font("Arial Rounded MT Bold", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Helvetica", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(666, 26);
+            label2.Location = new Point(8, 67);
             label2.Name = "label2";
-            label2.Size = new Size(551, 40);
+            label2.Size = new Size(275, 22);
             label2.TabIndex = 1;
-            label2.Text = "Laundry Systems Business Unit";
+            label2.Text = "Laundry System Business Unit";
             // 
             // label1
             // 
-            label1.Anchor = AnchorStyles.Left;
             label1.AutoSize = true;
-            label1.Font = new Font("Arial Rounded MT Bold", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Helvetica", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(3, 14);
+            label1.Location = new Point(0, 10);
             label1.Name = "label1";
-            label1.Size = new Size(619, 55);
+            label1.Size = new Size(679, 57);
             label1.TabIndex = 0;
-            label1.Text = "PRINT WARRANTY CARD";
+            label1.Text = "WARRANTY CARD PRINTING";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // LoginView
             // 
@@ -264,8 +278,9 @@
             ClientSize = new Size(1229, 632);
             Controls.Add(panel3);
             Controls.Add(roundedCornerPanel1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "LoginView";
-            Text = "Form1";
+            Text = "WARRANTY CARD PRINTING";
             WindowState = FormWindowState.Maximized;
             Load += LoginView_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -293,5 +308,6 @@
         private Panel panel3;
         private Label label2;
         private Label label1;
+        private Label label4;
     }
 }

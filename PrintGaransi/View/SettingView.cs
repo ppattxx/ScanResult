@@ -19,7 +19,7 @@ namespace PrintGaransi.View
     {
         private bool isInitializing;
         private string lastMode = "";
-        private readonly IPrintGaransiView _printGaransiView;
+        private readonly IMainFormView _printGaransiView;
         private readonly PrintModeModel _printMode;
         public SettingView()
         {
@@ -140,6 +140,10 @@ namespace PrintGaransi.View
                     HandleRadioButton?.Invoke(sender, e);
                 }
             };
+            btnClose.Click += delegate
+            {
+                this.Close();
+            };
         }
 
         public void DisplaySetting(string locationName)
@@ -170,11 +174,6 @@ namespace PrintGaransi.View
             LoadIP?.Invoke(this, EventArgs.Empty);
             LoadPort?.Invoke(this, EventArgs.Empty);
             isInitializing = false;
-        }
-
-        private void btnConnect_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

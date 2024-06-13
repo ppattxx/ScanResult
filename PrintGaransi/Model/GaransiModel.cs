@@ -33,18 +33,11 @@ namespace PrintGaransi.Model
             set => id = value;
         }
         [DisplayName("Jenis Produk")]
-        [Browsable(false)]
+        //[Browsable(false)]
         public string JenisProduk
         {
             get => jenisProduk;
             set => jenisProduk = value;
-        }
-
-        [DisplayName("Model Code")]
-        public string ModelCode
-        {
-            get => modelCode;
-            set => modelCode = value;
         }
 
         [DisplayName("Model Number")]
@@ -54,7 +47,16 @@ namespace PrintGaransi.Model
             set => modelNumber = value;
         }
 
-        [DisplayName("Register")]
+        [DisplayName("Model Code")]
+        //[Browsable(false)]
+        public string ModelCode
+        {
+            get => modelCode;
+            set => modelCode = value;
+        }
+
+
+        [DisplayName("No. Register")]
         public string NoReg
         {
             get => noReg;
@@ -67,6 +69,7 @@ namespace PrintGaransi.Model
             get => noSeri;
             set => noSeri = value;
         }
+
 
         [DisplayName("Scanning Date")]
         public string Date
@@ -82,22 +85,15 @@ namespace PrintGaransi.Model
             set => scanTime = value;
         }
 
-        [DisplayName("Different")]
-        public string Different
+        [DisplayName("Inspector")]
+        public string Inspector
         {
-            get => different;
-            set => different = value;
-        }
-
-        [DisplayName("ActualTT")]
-        public decimal ActualTT
-        {
-            get => actualTT;
-            set => actualTT = value;
+            get => inspectorId;
+            set => inspectorId = value;
         }
 
         [DisplayName("Location")]
-        [Browsable(false)]
+        //[Browsable(false)]
         public string Location
         {
             get => location;

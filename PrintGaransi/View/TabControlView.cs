@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static PrintGaransi.View.IPrintGaransiView;
+using static PrintGaransi.View.IMainFormView;
 using PrintGaransi.Presenter;
 using System.Runtime.CompilerServices;
 
@@ -151,8 +151,18 @@ namespace PrintGaransi.View
                     btnPrint.Visible = true;
                     btnClear.Visible = true;
                     disableEvent = true;
+                    btnManual.Text = "Auto Print";
 
                     textBoxSerial.ReadOnly = false;
+                    textBoxSerial.Focus();
+
+                    textBoxStatus.BackColor = SystemColors.Control;
+
+                    SerialNumber = "";
+                    ModelCode = "";
+                    ModelNumber = "";
+                    Register = "";
+                    Status = "";
 
                     buttonClickedOnce = true; // Update button state
                 }
@@ -165,6 +175,9 @@ namespace PrintGaransi.View
                     textBoxCode.ReadOnly = true;
                     textBoxModelNumber.ReadOnly = true;
                     textBoxRegister.ReadOnly = true;
+                    btnManual.Text = "Input Manual";
+                    textBoxStatus.BackColor = SystemColors.Control;
+
 
                     SerialNumber = "";
                     ModelCode = "";
@@ -185,6 +198,7 @@ namespace PrintGaransi.View
                 Register = "";
                 Status = "";
                 textBoxStatus.BackColor = SystemColors.Control;
+                textBoxSerial.Focus();
             };
 
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 18, FontStyle.Bold);
@@ -226,11 +240,11 @@ namespace PrintGaransi.View
             printPreviewDialog.Document = pd;
 
             // Menampilkan dialog preview cetak
-            printPreviewDialog.ShowDialog();
-            //pd.Print();
+            //printPreviewDialog.ShowDialog();
+            pd.Print();
         }
 
-        private void UpdateSerialBox(string message)
+        public void UpdateSerialBox(string message)
         {
             // Invoke UI updates on the UI thread
             if (textBoxSerial.InvokeRequired)
@@ -244,7 +258,7 @@ namespace PrintGaransi.View
             PerformModelSearch();
         }
 
-        private void UpdateCodeBox(string message)
+        public void UpdateCodeBox(string message)
         {
             // Invoke UI updates on the UI thread
             if (textBoxCode.InvokeRequired)

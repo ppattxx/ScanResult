@@ -44,17 +44,6 @@ namespace PrintGaransi.Presenter
             _dataBindingSource2 = new BindingSource();
             _view.SetDefectListBindingSource(_dataBindingSource);
             LoadAllDataList();
-
-            //load last scan time when start application
-            string lastScanTimeString = _garansiModel.LoadScanTime();
-            if (DateTime.TryParse(lastScanTimeString, null, System.Globalization.DateTimeStyles.RoundtripKind, out DateTime lastScanTime))
-            {
-                _lastScanTime = lastScanTime;
-            }
-            else
-            {
-                _lastScanTime = DateTime.MinValue;
-            }
         }
 
         private void CellClicked(object sender, DataGridViewCellEventArgs e)
@@ -74,8 +63,6 @@ namespace PrintGaransi.Presenter
                     NoSeri = selectedData.NoSeri,
                     Date = selectedData.Date,
                     ScanTime = selectedData.ScanTime,
-                    Different = selectedData.Different,
-                    ActualTT = selectedData.ActualTT,
                     Location = selectedData.Location
                 };
 
@@ -87,48 +74,46 @@ namespace PrintGaransi.Presenter
         {
             if (string.IsNullOrWhiteSpace(_view.SerialNumber))
             {
-                MessageBox.Show("Serial Number is required");
+                _view.Status = "Serial Number harus terisi";
+                _view.StatusBackColor = Color.Salmon;
+                _view.StatusForeColor = Color.Black;
                 return;
             }
+
             if (string.IsNullOrWhiteSpace(_view.ModelCode))
             {
-                MessageBox.Show("Model Code is required");
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(_view.ModelNumber))
-            {
-                MessageBox.Show("Model Number is required");
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(_view.Register))
-            {
-                MessageBox.Show("Register is required");
+                _view.Status = "Model Code harus terisi";
+                _view.StatusBackColor = Color.Salmon;
+                _view.StatusForeColor = Color.Black;
                 return;
             }
 
             var existingRecords = _garansiRepository.GetExists(_view.SerialNumber, _view.ModelCode);
             string mode = _printMode.GetMode();
 
-            if(existingRecords != null && existingRecords.Any())
+            if (existingRecords != null && existingRecords.Any())
             {
               
                if( mode == "off")
                {
-                   _view.Status = "Data sudah tersimpan dalam database";
-                   _view.StatusBackColor = Color.Red;
-                   _view.StatusForeColor = Color.White;
+                    _view.Register = "";
+                   _view.Status = "Data sudah tersimpan dalam database, Print dalam mode Off";
+                   _view.StatusBackColor = Color.Orange;
+                   _view.StatusForeColor = Color.Black;
                    return;
                }
                else if( mode == "on")
                {
+                    _view.Register = "";
                    _view.Status = "Data sudah tersimpan dalam database";
-                   _view.StatusBackColor = Color.Red;
-                   _view.StatusForeColor = Color.White;
+                   _view.StatusBackColor = Color.Orange;
+                   _view.StatusForeColor = Color.Black;
                    return;
                }
             }
 
             CreateModel();
+            LoadAllDataList();
         }
 
         private void CreateModel()
@@ -136,32 +121,19 @@ namespace PrintGaransi.Presenter
             DateTime currentTime = DateTime.Now;
             string date = currentTime.ToString("d");
             string time;
-            TimeSpan different = TimeSpan.Zero;
             string mode = _printMode.GetMode();
             var existingRecords = _garansiRepository.GetExists(_view.SerialNumber, _view.ModelCode);
 
-            //mengatur waktu ketika sudah ganti hari
+            // Mengatur waktu ketika sudah ganti hari
             if (_lastScanTime.Date != currentTime.Date)
             {
                 time = currentTime.ToString("HH:mm:ss");
-                _lastScanTime = currentTime;
+                //_lastScanTime = currentTime;
             }
             else
             {
                 time = currentTime.ToString(@"T");
             }
-
-
-            if (_lastScanTime != DateTime.MinValue && _lastScanTime.Date == currentTime.Date)
-            {
-                different = currentTime - _lastScanTime;
-            }
-            else
-            {
-                different = TimeSpan.Zero;
-            }
-
-            decimal actualTT = (decimal)different.TotalSeconds;
 
             var model = new GaransiModel
             {
@@ -172,8 +144,6 @@ namespace PrintGaransi.Presenter
                 NoSeri = _view.SerialNumber,
                 Date = date,
                 ScanTime = time,
-                Different = different.ToString(@"hh\:mm\:ss"),
-                ActualTT = actualTT,
                 Location = _smodel.LoadLocationID(),
                 inspectorId = _view.InspectorId
             };
@@ -184,18 +154,18 @@ namespace PrintGaransi.Presenter
                 if (existingRecords == null || !existingRecords.Any())
                 {
                     // Data belum ada dalam database
-                    MessageBox.Show("Mode print dalam keadaan OFF. Data telah tersimpan, tapi tidak bisa melakukan Print.");
-                    _view.Status = "Data tersimpan, tapi print dalam mode OFF.";
-                    _view.StatusBackColor = Color.Orange;
+                    _view.Register = "";
+                    _view.Status = "Data berhasil tersimpan, print dalam mode OFF.";
+                    _view.StatusBackColor = Color.Green;
                     _view.StatusForeColor = Color.White;
                 }
                 else
                 {
                     // Data sudah ada dalam database
-                    MessageBox.Show("Mode print dalam keadaan OFF. Data sudah ada dalam database.");
-                    _view.Status = "Data sudah tersimpan dalam database.";
-                    _view.StatusBackColor = Color.Red;
-                    _view.StatusForeColor = Color.White;
+                    _view.Register = "";
+                    _view.Status = "Data sudah tersimpan dalam database, Print dalam mode OFF";
+                    _view.StatusBackColor = Color.Orange;
+                    _view.StatusForeColor = Color.Black;
                 }
             }
             else
@@ -204,29 +174,28 @@ namespace PrintGaransi.Presenter
                 {
                     // Data belum ada dalam database, print diizinkan
                     _view.ShowPrintPreviewDialog(model);
-                    _view.Status = "";
-                    _view.StatusBackColor = SystemColors.Control;
-                    _view.StatusForeColor = SystemColors.ControlText;
+                    _view.Register = "";
+                    _view.Status = "Data berhasil di simpan";
+                    _view.StatusBackColor = Color.Green;
+                    _view.StatusForeColor = Color.White;
                 }
                 else
                 {
                     // Data sudah ada dalam database
-                    MessageBox.Show("Data sudah ada dalam database.");
+                    _view.Register = "";
                     _view.Status = "Data sudah tersimpan dalam database.";
-                    _view.StatusBackColor = Color.Red;
-                    _view.StatusForeColor = Color.White;
+                    _view.StatusBackColor = Color.Orange;
+                    _view.StatusForeColor = Color.Black;
                 }
             }
 
             LoadAllDataList();
 
-            _lastScanTime = currentTime;
-
             // Save Last Scan
             _garansiModel.SaveScanTime(_lastScanTime.ToString("O"));
         }
 
-        private void LoadAllDataList()
+        public void LoadAllDataList()
         {   //manual set date
             //DateTime specificDate = new DateTime(2024, 5, 30);
 
@@ -261,11 +230,13 @@ namespace PrintGaransi.Presenter
            {
                _view.ModelNumber = searchModel.ModelNumber;
                _view.Register = searchModel.NoReg;
-           }
+            }
            else
            {
                ClearViewFields();
-                MessageBox.Show("not found");
+                _view.Status = "Hasil scan tidak terbaca";
+                _view.StatusBackColor = Color.Salmon;
+                _view.StatusForeColor = Color.Black;
            }
         }
 
@@ -277,6 +248,24 @@ namespace PrintGaransi.Presenter
             _view.Register = "";
             _view.Status = "";
             _view.StatusBackColor = SystemColors.Control;
-        }   
+        } 
+        
+        public void ResetDataBinding()
+        {
+            _dataBindingSource.DataSource = null;
+            _dataBindingSource2.DataSource = null;
+            _view.SetDefectListBindingSource(null);
+            _view.SetDefectListBindingSource(_dataBindingSource);
+            ClearViewFields();
+            LoadAllDataList();
+        }
+
+        public void UnassociateViewEvents()
+        {
+            _view.SearchModelNumber -= SearchModelNumber;
+            _view.SearchFilter -= SearchFilter;
+            _view.CheckProperties -= CheckProperties;
+            _view.CellClicked -= CellClicked;
+        }
     }
 }

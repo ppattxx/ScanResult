@@ -30,12 +30,14 @@ namespace PrintGaransi.Presenter
 
             LoginModel user = _repository.GetUserByUsername(nik);
 
-            if (user?.Nik != null && user?.Password == password)
+            if (user?.Nik == nik && user?.Password == password)
             {
-                _view.HideView();
-                IPrintGaransiView printGaransiView = MainForm.GetInstance(user);
-                IGaransiRepository garansi = new GaransiRepository();
-                PrintGaransiPresenter garansiPresenter = new PrintGaransiPresenter(printGaransiView, garansi, user);
+                _view.CloseView();
+                IMainFormView printGaransiView = MainForm.GetInstance(user);
+                //IGaransiRepository garansi = new GaransiRepository();
+                //MainFormPresenter garansiPresenter = new MainFormPresenter(printGaransiView, garansi, user);
+                printGaransiView.Show();
+
             }
             else
             {

@@ -38,7 +38,7 @@ namespace PrintGaransi.View
             MessageBox.Show(message);
         }
 
-        public void HideView()
+        public void CloseView()
         {
             this.Hide();
         }

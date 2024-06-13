@@ -20,7 +20,7 @@ namespace PrintGaransi.Presenter
             int xPos = 214;
 
             // Menentukan font
-            Font fs1 = new Font("Helvetica", 12, FontStyle.Bold);
+            Font fs1 = new Font("Helvetica", 12);
             Font fs2 = new Font("Helvetica", 10);
             Font fs3 = new Font("Helvetica", 14.5f);
             Font fs4 = new Font("Helvetica", 12.5f);

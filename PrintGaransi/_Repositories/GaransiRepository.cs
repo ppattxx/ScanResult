@@ -11,6 +11,7 @@ namespace PrintGaransi._Repositories
     public class GaransiRepository : IGaransiRepository
     {
         private string LSBUDBPRODUCTION;
+
         public GaransiRepository()
         {
             LSBUDBPRODUCTION = ConfigurationManager.ConnectionStrings["LSBUProduction"].ConnectionString;
@@ -24,11 +25,17 @@ namespace PrintGaransi._Repositories
         public IEnumerable<GaransiModel> GetAll()
         {
             List<GaransiModel> models = new List<GaransiModel>();
-            string query = "SELECT * FROM Result_Warranty_Cards WHERE CONVERT(DATE, ScanningDate) = CONVERT(DATE, GETDATE()) ORDER BY Id DESC;";
+
+            string query = "SELECT Result_Warranty_Cards.Id, Result_Warranty_Cards.JenisProduk, Result_Warranty_Cards.ModelCode, Result_Warranty_Cards.ModelNumber, Result_Warranty_Cards.SerialNumber, Result_Warranty_Cards.Register, Result_Warranty_Cards.ScanningDate, Result_Warranty_Cards.ScanningTime, Locations.LocationName AS Location, Users.Name AS InspectorId " +
+                "FROM Result_Warranty_Cards " +
+                "INNER JOIN LSBU_Common.dbo.Users ON Result_Warranty_Cards.InspectorId = Users.NikId " +
+                "INNER JOIN LSBU_Common.dbo.Locations ON Result_Warranty_Cards.Location = Locations.Id " +
+                "WHERE CONVERT(DATE, ScanningDate) = @date ORDER BY Id DESC;";
 
             using (SqlConnection connection = new SqlConnection(LSBUDBPRODUCTION))
             using (SqlCommand command = new SqlCommand(query, connection))
             {
+                command.Parameters.AddWithValue("@date", Convert.ToDateTime(DateTime.Today).Date);
                 connection.Open();
 
                 using (SqlDataReader reader = command.ExecuteReader())
@@ -45,12 +52,12 @@ namespace PrintGaransi._Repositories
                             NoReg = reader["Register"].ToString(),
                             Date = Convert.ToDateTime(reader["ScanningDate"]).ToString("yyyy-MM-dd"),
                             ScanTime = reader["ScanningTime"].ToString(),
-                            Different = reader["Different"].ToString(),
-                            ActualTT = reader["ActualTT"] != DBNull.Value ? Convert.ToDecimal(reader["ActualTT"]) : 0m,
-                            Location = reader["Location"].ToString()
+                            Location = reader["Location"].ToString(),
+                            Inspector = reader["InspectorId"].ToString()
                         });
                     }
                 }
+                connection.Close();
             }
             return models;
         }
@@ -59,7 +66,10 @@ namespace PrintGaransi._Repositories
         public IEnumerable<GaransiModel> GetFilter(string serialNumber, DateTime selectedDate)
         {
             List<GaransiModel> results = new List<GaransiModel>();
-            string query = "SELECT * FROM Result_Warranty_Cards WHERE SerialNumber LIKE @SerialNumber AND CAST(ScanningDate AS DATE) = @SelectedDate";
+            string query = "SELECT Result_Warranty_Cards.Id, Result_Warranty_Cards.JenisProduk, Result_Warranty_Cards.ModelCode, Result_Warranty_Cards.ModelNumber, Result_Warranty_Cards.SerialNumber, Result_Warranty_Cards.Register, Result_Warranty_Cards.ScanningDate, Result_Warranty_Cards.ScanningTime, Locations.LocationName AS Location Users.Name AS InspectorId " +
+                "FROM Result_Warranty_Cards " +
+                "INNER JOIN LSBU_Common.dbo.Users ON Result_Warranty_Cards.InspectorId = Users.NikId " +
+                "WHERE SerialNumber LIKE @SerialNumber AND CAST(ScanningDate AS DATE) = @SelectedDate ";
 
             using (SqlConnection connection = new SqlConnection(LSBUDBPRODUCTION))
             using (SqlCommand command = new SqlCommand(query, connection))
@@ -82,13 +92,13 @@ namespace PrintGaransi._Repositories
                             NoReg = reader["Register"].ToString(),
                             Date = Convert.ToDateTime(reader["ScanningDate"]).ToString("yyyy-MM-dd"),
                             ScanTime = reader["ScanningTime"].ToString(),
-                            Different = reader["Different"].ToString(),
-                            ActualTT = reader["ActualTT"] != DBNull.Value ? Convert.ToDecimal(reader["ActualTT"]) : 0m,
-                            Location = reader["Location"].ToString()
+                            Location = reader["Location"].ToString(),
+                            Inspector = reader["InspectorId"].ToString()
                         };
                         results.Add(result);
                     }
                 }
+                connection.Close();
             }
 
             return results;
@@ -102,19 +112,19 @@ namespace PrintGaransi._Repositories
                 connection.Open();
                 command.Connection = connection;
 
-                command.CommandText = "INSERT INTO Result_Warranty_Cards (JenisProduk, ModelCode, ModelNumber, SerialNumber, ScanningDate, ScanningTime, Different, ActualTT, Location, Register, InspectorId) values (@JenisProduk, @ModelCode, @ModelNumber, @SerialNumber, @ScanningDate, @ScanningTime, @Different, @ActualTT, @Location, @Register, @InspectorId)";
+                command.CommandText = "INSERT INTO Result_Warranty_Cards (JenisProduk, ModelCode, ModelNumber, SerialNumber, ScanningDate, ScanningTime, Location, Register, InspectorId) values (@JenisProduk, @ModelCode, @ModelNumber, @SerialNumber, @ScanningDate, @ScanningTime, @Location, @Register, @InspectorId)";
                 command.Parameters.Add("@JenisProduk", SqlDbType.VarChar).Value = model.JenisProduk;
                 command.Parameters.Add("@ModelCode", SqlDbType.VarChar).Value = model.ModelCode;
                 command.Parameters.Add("@ModelNumber", SqlDbType.VarChar).Value = model.ModelNumber;
                 command.Parameters.Add("@SerialNumber", SqlDbType.VarChar).Value = model.NoSeri;
                 command.Parameters.Add("@ScanningDate", SqlDbType.Date).Value = model.Date;
                 command.Parameters.Add("@ScanningTime", SqlDbType.Time).Value = model.ScanTime;
-                command.Parameters.Add("@Different", SqlDbType.Time).Value = model.Different;
-                command.Parameters.Add("@ActualTT", SqlDbType.Decimal).Value = model.ActualTT;
                 command.Parameters.Add("@Location", SqlDbType.Int).Value = model.Location;
                 command.Parameters.Add("@Register", SqlDbType.VarChar).Value = model.NoReg;
                 command.Parameters.Add("@InspectorId", SqlDbType.VarChar).Value = model.inspectorId;
                 command.ExecuteNonQuery();
+
+                connection.Close();
             }
         }
 
@@ -137,6 +147,7 @@ namespace PrintGaransi._Repositories
 
                     reader.Close();
                 }
+                connection.Close();
             }
             return dataList;
         }
@@ -167,13 +178,12 @@ namespace PrintGaransi._Repositories
                             NoReg = reader["Register"].ToString(),
                             Date = reader["ScanningDate"].ToString(),
                             ScanTime = reader["ScanningTime"].ToString(),
-                            Different = reader["Different"].ToString(),
-                            ActualTT = reader["ActualTT"] != DBNull.Value ? Convert.ToDecimal(reader["ActualTT"]) : 0m,
                             Location = reader["Location"].ToString()
                         };
                         results.Add(result);
                     }
                 }
+                connection.Close();
             }
 
             return results;

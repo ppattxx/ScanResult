@@ -6,16 +6,20 @@ using System;
 using System.Configuration;
 using System.Drawing;
 using System.Windows.Forms;
-using static PrintGaransi.View.IPrintGaransiView;
+using static PrintGaransi.View.IMainFormView;
 using PrintGaransi._Repositories;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace PrintGaransi
 {
-    public partial class MainForm : Form, IPrintGaransiView
+    public partial class MainForm : Form, IMainFormView
     {
         private TabControlPresenter tabControlPresenter;
         private readonly GaransiModel _garansiModel;
         public LoginModel _user;
+        private TabControlView tabControlView;
+        private TCPConnection connection;
+
         public MainForm(LoginModel user)
         {
             InitializeComponent();
@@ -23,25 +27,28 @@ namespace PrintGaransi
             AssociateAndRaiseViewEvents();
             InitializeTabControl();
             btnHome.BackColor = Color.FromArgb(0, 133, 181);
+
+            tabControlPresenter.LoadAllDataList();
         }
 
         public void InitializeTabControl()
         {
-            TabControlView tabControlView = new TabControlView(); // Create the user control instance
+
+            if (tabControlPresenter != null)
+            {
+                tabControlPresenter.UnassociateViewEvents(); // Tambahkan ini untuk menghapus event handler yang ada
+            }
+
+            tabControlView = new TabControlView(); // Create the user control instance
             PrintGaransiDataPresenter presenterData = new PrintGaransiDataPresenter(tabControlView, new GaransiRepository(), _user); // Inisialisasi variabel instance
             tabControlPresenter = new TabControlPresenter(presenterData);
             splitContainer1.Panel2.Controls.Add(tabControlView);
             tabControlView.Dock = DockStyle.Fill;
+            connection = new TCPConnection(tabControlView.UpdateCodeBox, tabControlView.UpdateSerialBox);
         }
 
 
         //event
-
-        private void PrintGaransi_Load(object sender, EventArgs e)
-        {
-            
-        }
-
         private void AssociateAndRaiseViewEvents()
         {
             btnHome.Click += delegate
@@ -70,19 +77,28 @@ namespace PrintGaransi
 
             btnLogOut.Click += delegate
             {
+                connection.CloseConnection();
+
+                tabControlPresenter.UnassociateViewEvents();
+                ResetBinding();
+                
+                this.Close();
+
                 ILoginView loginView = new LoginView();
                 LoginPresenter loginPresenter = new LoginPresenter(loginView, new LoginRepository());
                 (loginView as Form)?.Show();
-                //Application.Exit();
-                this.Hide();
             };
+        }
 
-          
+        private void ResetBinding()
+        {
+            tabControlPresenter.ResetDataBinding();
+            //tabControlPresenter.LoadAllDataList();
         }
 
         private void PrintGaransiView_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
         }
 
         //Singeleton pattern (open a single  from instance)
@@ -96,6 +112,8 @@ namespace PrintGaransi
                 if (instance.WindowState == FormWindowState.Minimized)
                     instance.WindowState = FormWindowState.Normal;
                 instance.BringToFront();
+                instance._user = loginModel; // Set new user
+                instance.InitializeTabControl();
             }
             return instance;
         }

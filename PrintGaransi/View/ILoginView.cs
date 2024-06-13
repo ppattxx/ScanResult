@@ -13,7 +13,7 @@ namespace PrintGaransi.View
         string Password { get; }
         bool IsLoginSuccessful { get; }
         void ShowMessage(string message);
-        void HideView();
+        void CloseView();
         void Show();
         event EventHandler Login;
 
