@@ -10,7 +10,7 @@ namespace PrintGaransi.View
 {
     public partial class LoginView : Form, ILoginView
     {
-
+        public bool isClickedOnce = true;
         public LoginView()
         {
             InitializeComponent();
@@ -56,6 +56,22 @@ namespace PrintGaransi.View
             btnExit.Click += delegate
             {
                 Application.Exit();
+            };
+
+            hiddenPass.Click += delegate
+            {
+                if (isClickedOnce)
+                {
+                    hiddenPass.Image = Properties.Resources.hide;
+                    textBoxPassword.PasswordChar = '\0';
+                    isClickedOnce = false;
+                }
+                else
+                {
+                    hiddenPass.Image = Properties.Resources.show;
+                    textBoxPassword.PasswordChar = '*';
+                    isClickedOnce = true;
+                }
             };
         }
 
