@@ -12,30 +12,30 @@ namespace PrintGaransi._Repositories
 {
     public class LoginRepository : ILoginRepository
     {
-        private readonly string DBConnectionCommon;
+        private readonly string DBConnectionLogin;
         public LoginRepository()
         {
-            DBConnectionCommon = ConfigurationManager.ConnectionStrings["DBConnectionCommon"].ConnectionString;
+            DBConnectionLogin = ConfigurationManager.ConnectionStrings["DBConnectionLogin"].ConnectionString;
         }
 
         public LoginModel GetUserByUsername(string username)
         {
-            using (var connection = new SqlConnection(DBConnectionCommon))
+            using (var connection = new SqlConnection(DBConnectionLogin))
             using (var command = new SqlCommand())
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = "SELECT NikId, Name, Password FROM Users WHERE NikId = @NikId";
-                command.Parameters.Add("@NikId", SqlDbType.Int).Value = username;
+                command.CommandText = "SELECT PasswordHash, NIK, Name FROM AspNetUsers WHERE NIK = @NIK";
+                command.Parameters.Add("@NIK", SqlDbType.Int).Value = username;
                 using (var reader = command.ExecuteReader())
                 {
                     if (reader.Read())
                     {
-                        string nik = reader["NikId"].ToString();
-                        string name = reader["Name"].ToString();
-                        string password = reader["Password"].ToString();
+                        string Nik = reader["NIK"].ToString();
+                        string Name = reader["Name"].ToString();
+                        string Password = reader["PasswordHash"].ToString();
 
-                        return new LoginModel { Nik = nik, Name = name, Password = password };
+                        return new LoginModel { Nik = Nik, Name = Name, Password = Password };
                     }
                     else
                     {

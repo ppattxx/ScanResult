@@ -30,18 +30,25 @@ namespace PrintGaransi.Presenter
 
             LoginModel user = _repository.GetUserByUsername(nik);
 
-            if (user?.Nik == nik && user?.Password == password)
+            if (user != null)
             {
-                _view.CloseView();
-                IMainFormView printGaransiView = MainForm.GetInstance(user);
-                //IGaransiRepository garansi = new GaransiRepository();
-                //MainFormPresenter garansiPresenter = new MainFormPresenter(printGaransiView, garansi, user);
-                printGaransiView.Show();
+
+                bool isPasswordValid = BCrypt.Net.BCrypt.Verify(password, user.Password);
+                if(isPasswordValid)
+                {
+                    _view.CloseView();
+                    IMainFormView printGaransiView = MainForm.GetInstance(user);
+                    printGaransiView.Show();
+                }
+                else
+                {
+                    _view.ShowMessage("Invalid username or password");
+                }
 
             }
             else
             {
-                _view.ShowMessage("Invalid username or password");
+                _view.ShowMessage("User not found");
             }
         }
     }

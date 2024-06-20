@@ -40,7 +40,7 @@ namespace PrintGaransi
             }
 
             tabControlView = new TabControlView(); // Create the user control instance
-            PrintGaransiDataPresenter presenterData = new PrintGaransiDataPresenter(tabControlView, new GaransiRepository(), _user); // Inisialisasi variabel instance
+            TabControlDataPresenter presenterData = new TabControlDataPresenter(tabControlView, new GaransiRepository(), _user); // Inisialisasi variabel instance
             tabControlPresenter = new TabControlPresenter(presenterData);
             splitContainer1.Panel2.Controls.Add(tabControlView);
             tabControlView.Dock = DockStyle.Fill;

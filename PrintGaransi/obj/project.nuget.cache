@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "AXAFLQMwGNdIFnOMXkIUsVr5HyIG6E9t8/kMSREgfW7Cw30cbdB8vUKXJWYOfHftMzTryHd8lwS2w6qcj9uSyA==",
+  "dgSpecHash": "whW1dawiEQk/+6fwafqGIUVsgI5PhH58+8prfSPfc3woxEfjSNBYZpgeZNc53Q3BCYcavKRn8nR1DfxnyYGqUA==",
   "success": true,
   "projectFilePath": "D:\\Perkuliahan\\Semester6\\Panasonic\\PrintKartuGaransi\\PrintGaransi\\PrintGaransi\\PrintGaransi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hp090\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\hp090\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
+    "C:\\Users\\hp090\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\hp090\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\hp090\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\hp090\\.nuget\\packages\\microsoft.data.sqlclient\\5.2.0\\microsoft.data.sqlclient.5.2.0.nupkg.sha512",

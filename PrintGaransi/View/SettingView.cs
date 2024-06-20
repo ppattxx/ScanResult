@@ -21,6 +21,7 @@ namespace PrintGaransi.View
         private string lastMode = "";
         private readonly IMainFormView _printGaransiView;
         private readonly PrintModeModel _printMode;
+
         public SettingView()
         {
             InitializeComponent();

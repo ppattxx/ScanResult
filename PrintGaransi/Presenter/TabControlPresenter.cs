@@ -22,7 +22,7 @@ namespace PrintGaransi.Presenter
         private readonly PrintModeModel _printMode;
         private readonly LoginModel _login;
 
-        public TabControlPresenter(PrintGaransiDataPresenter Data)
+        public TabControlPresenter(TabControlDataPresenter Data)
         {
             _login = Data._User;
             _view = Data.View;

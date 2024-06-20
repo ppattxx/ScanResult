@@ -50,6 +50,7 @@ namespace PrintGaransi.View
                 if (!string.IsNullOrWhiteSpace(Nik))
                 {
                     Login?.Invoke(this, EventArgs.Empty);
+                    this.Close();
                 }
             };
 
