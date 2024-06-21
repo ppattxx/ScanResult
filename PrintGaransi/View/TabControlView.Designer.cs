@@ -42,6 +42,7 @@
             label13 = new Label();
             pictureBox7 = new PictureBox();
             pictureBox8 = new PictureBox();
+            btnClear2 = new Resource.RDButton();
             tabPage1 = new TabPage();
             tableLayoutPanel2 = new TableLayoutPanel();
             dataGridView1 = new DataGridView();
@@ -138,8 +139,8 @@
             tableLayoutPanel9.Name = "tableLayoutPanel9";
             tableLayoutPanel9.RowCount = 3;
             tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Absolute, 9F));
-            tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 14.4560356F));
-            tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 85.54396F));
+            tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 12.7934275F));
+            tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 87.20657F));
             tableLayoutPanel9.Size = new Size(1201, 861);
             tableLayoutPanel9.TabIndex = 8;
             // 
@@ -152,12 +153,12 @@
             dataGridView2.Columns.AddRange(new DataGridViewColumn[] { No2 });
             dataGridView2.Dock = DockStyle.Fill;
             dataGridView2.EnableHeadersVisualStyles = false;
-            dataGridView2.Location = new Point(3, 135);
+            dataGridView2.Location = new Point(3, 121);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.ReadOnly = true;
             dataGridView2.RowHeadersVisible = false;
             dataGridView2.RowHeadersWidth = 62;
-            dataGridView2.Size = new Size(1195, 723);
+            dataGridView2.Size = new Size(1195, 737);
             dataGridView2.TabIndex = 4;
             // 
             // No2
@@ -173,9 +174,9 @@
             // tableLayoutPanel10
             // 
             tableLayoutPanel10.ColumnCount = 4;
-            tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5.47730827F));
-            tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 29.42097F));
-            tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 64.9782944F));
+            tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5.4840765F));
+            tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 29.45733F));
+            tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 65.05859F));
             tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 555F));
             tableLayoutPanel10.Controls.Add(textBoxSearch, 2, 0);
             tableLayoutPanel10.Controls.Add(label11, 1, 0);
@@ -184,14 +185,16 @@
             tableLayoutPanel10.Controls.Add(label13, 1, 1);
             tableLayoutPanel10.Controls.Add(pictureBox7, 0, 0);
             tableLayoutPanel10.Controls.Add(pictureBox8, 0, 1);
+            tableLayoutPanel10.Controls.Add(btnClear2, 3, 0);
             tableLayoutPanel10.Dock = DockStyle.Fill;
             tableLayoutPanel10.Location = new Point(3, 12);
             tableLayoutPanel10.Margin = new Padding(3, 3, 3, 10);
             tableLayoutPanel10.Name = "tableLayoutPanel10";
             tableLayoutPanel10.RowCount = 2;
-            tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Absolute, 61F));
-            tableLayoutPanel10.Size = new Size(1195, 110);
+            tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel10.Size = new Size(1195, 96);
             tableLayoutPanel10.TabIndex = 3;
             // 
             // textBoxSearch
@@ -212,7 +215,7 @@
             label11.Location = new Point(35, 7);
             label11.Margin = new Padding(0, 7, 5, 0);
             label11.Name = "label11";
-            label11.Size = new Size(171, 42);
+            label11.Size = new Size(171, 41);
             label11.TabIndex = 10;
             label11.Text = "Search Serial Number";
             label11.TextAlign = ContentAlignment.MiddleLeft;
@@ -223,7 +226,7 @@
             dtFromDate.Dock = DockStyle.Fill;
             dtFromDate.Font = new Font("Segoe UI", 18F);
             dtFromDate.Format = DateTimePickerFormat.Custom;
-            dtFromDate.Location = new Point(226, 49);
+            dtFromDate.Location = new Point(226, 48);
             dtFromDate.Margin = new Padding(3, 0, 10, 0);
             dtFromDate.Name = "dtFromDate";
             dtFromDate.Size = new Size(403, 39);
@@ -242,20 +245,23 @@
             btnSearch.FlatStyle = FlatStyle.Flat;
             btnSearch.Font = new Font("Arial Rounded MT Bold", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSearch.ForeColor = Color.White;
-            btnSearch.Location = new Point(664, 49);
-            btnSearch.Margin = new Padding(25, 0, 0, 20);
+            btnSearch.Image = (Image)resources.GetObject("btnSearch.Image");
+            btnSearch.Location = new Point(664, 48);
+            btnSearch.Margin = new Padding(25, 0, 0, 8);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(531, 41);
+            btnSearch.Padding = new Padding(130, 0, 0, 0);
+            btnSearch.Size = new Size(531, 40);
             btnSearch.TabIndex = 12;
             btnSearch.Text = "Search";
             btnSearch.TextColor = Color.White;
+            btnSearch.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSearch.UseVisualStyleBackColor = false;
             // 
             // label13
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Arial", 18F, FontStyle.Bold);
-            label13.Location = new Point(38, 57);
+            label13.Location = new Point(38, 56);
             label13.Margin = new Padding(3, 8, 100, 0);
             label13.Name = "label13";
             label13.Size = new Size(64, 29);
@@ -269,7 +275,7 @@
             pictureBox7.Location = new Point(3, 3);
             pictureBox7.Margin = new Padding(3, 3, 0, 3);
             pictureBox7.Name = "pictureBox7";
-            pictureBox7.Size = new Size(32, 43);
+            pictureBox7.Size = new Size(32, 42);
             pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox7.TabIndex = 15;
             pictureBox7.TabStop = false;
@@ -277,13 +283,37 @@
             // pictureBox8
             // 
             pictureBox8.Image = (Image)resources.GetObject("pictureBox8.Image");
-            pictureBox8.Location = new Point(3, 49);
+            pictureBox8.Location = new Point(3, 48);
             pictureBox8.Margin = new Padding(3, 0, 0, 3);
             pictureBox8.Name = "pictureBox8";
-            pictureBox8.Size = new Size(32, 50);
+            pictureBox8.Size = new Size(32, 45);
             pictureBox8.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox8.TabIndex = 16;
             pictureBox8.TabStop = false;
+            // 
+            // btnClear2
+            // 
+            btnClear2.BackColor = Color.FromArgb(0, 35, 105);
+            btnClear2.BackgroundColor = Color.FromArgb(0, 35, 105);
+            btnClear2.BorderColor = Color.PaleVioletRed;
+            btnClear2.BorderRadius = 8;
+            btnClear2.BorderSize = 0;
+            btnClear2.Dock = DockStyle.Fill;
+            btnClear2.FlatAppearance.BorderSize = 0;
+            btnClear2.FlatStyle = FlatStyle.Flat;
+            btnClear2.Font = new Font("Arial Rounded MT Bold", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnClear2.ForeColor = Color.White;
+            btnClear2.Image = (Image)resources.GetObject("btnClear2.Image");
+            btnClear2.Location = new Point(664, 3);
+            btnClear2.Margin = new Padding(25, 3, 3, 3);
+            btnClear2.Name = "btnClear2";
+            btnClear2.Padding = new Padding(100, 0, 0, 0);
+            btnClear2.Size = new Size(528, 42);
+            btnClear2.TabIndex = 17;
+            btnClear2.Text = "Clear Search";
+            btnClear2.TextColor = Color.White;
+            btnClear2.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnClear2.UseVisualStyleBackColor = false;
             // 
             // tabPage1
             // 
@@ -998,5 +1028,6 @@
         private TableLayoutPanel tableLayoutPanel11;
         private PictureBox pictureBox7;
         private PictureBox pictureBox8;
+        private Resource.RDButton btnClear2;
     }
 }

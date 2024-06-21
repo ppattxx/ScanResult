@@ -204,6 +204,8 @@ namespace PrintGaransi.View
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 18, FontStyle.Bold);
             dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.ColumnHeadersHeight = 40;
+            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(27, 60, 115);
+            dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
 
             dataGridView1.DefaultCellStyle.Font = new Font("Arial", 16);
             dataGridView1.RowTemplate.Height = 50;
@@ -211,6 +213,8 @@ namespace PrintGaransi.View
             dataGridView2.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 18, FontStyle.Bold);
             dataGridView2.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView2.ColumnHeadersHeight = 40;
+            dataGridView2.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(27, 68, 115);
+            dataGridView2.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
 
             dataGridView2.DefaultCellStyle.Font = new Font("Arial", 16);
             dataGridView2.RowTemplate.Height = 50;
@@ -219,6 +223,14 @@ namespace PrintGaransi.View
             {
                 timeHeader.Text = DateTime.Now.ToLongTimeString();
                 DateHeader.Text = DateTime.Now.ToLongDateString();
+            };
+
+            btnClear2.Click += delegate
+            {
+                textBoxSearch.Text = "";
+                textBoxSearch.Focus();
+                dtFromDate.Text = DateTime.Now.ToString();
+                SearchFilter?.Invoke(this, EventArgs.Empty);
             };
         }
 
