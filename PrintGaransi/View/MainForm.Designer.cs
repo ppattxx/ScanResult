@@ -212,7 +212,6 @@
             ClientSize = new Size(1265, 600);
             Controls.Add(splitContainer1);
             Controls.Add(tableLayoutPanel1);
-            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(2);
             Name = "MainForm";
             Text = "WARRANTY CARD PRINTING";

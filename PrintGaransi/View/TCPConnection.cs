@@ -29,6 +29,8 @@ namespace PrintGaransi
             string serverIp = Settings.Default.ServerIP; // Retrieve IP from user settings
             int port = Settings.Default.Port;
 
+            CloseConnection();
+
             client = new TcpClient();
             try
             {

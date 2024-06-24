@@ -23,6 +23,7 @@ namespace PrintGaransi.View
         event EventHandler LoadProductName;
         event EventHandler SelectedProductType;
         event EventHandler HandleRadioButton;
+        event EventHandler SelectedPrinterType;
 
         void DisplayName(string JPName);
         void DisplayIP(string IPaddress);

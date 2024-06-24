@@ -24,6 +24,7 @@ namespace PrintGaransi.View
         private bool disableEvent = false;
         private bool buttonClickedOnce = false;
         private string inspectorId;
+        private PrintModeModel _printMode;
 
         public TabControlView()
         {
@@ -33,6 +34,7 @@ namespace PrintGaransi.View
             tabControl1.ItemSize = new Size(0, 1);
             tabControl1.SizeMode = TabSizeMode.Fixed;
             InitializeDateTimePicker();
+            _printMode = new PrintModeModel();
         }
 
         private void InitializeDateTimePicker()
@@ -241,6 +243,8 @@ namespace PrintGaransi.View
 
         public void ShowPrintPreviewDialog(GaransiModel model)
         {
+
+            string mode = _printMode.GetMode();
             // Membuat PrintDocument baru
             PrintDocument pd = new PrintDocument();
 
@@ -251,9 +255,52 @@ namespace PrintGaransi.View
             PrintPreviewDialog printPreviewDialog = new PrintPreviewDialog();
             printPreviewDialog.Document = pd;
 
-            // Menampilkan dialog preview cetak
-            //printPreviewDialog.ShowDialog();
-            pd.Print();
+            if(mode == "preview")
+            {
+                // Menampilkan dialog preview cetak
+                printPreviewDialog.Load += (s, e) =>
+                {
+                    // Mengakses PrintPreviewControl menggunakan refleksi
+                    PrintPreviewControl printPreviewControl = FindPrintPreviewControl(printPreviewDialog);
+
+                    if (printPreviewControl != null)
+                    {
+                        printPreviewControl.Zoom = 1.0; // Mengatur zoom 200%
+                    }
+
+                    // Mengatur posisi jendela ke tengah layar
+                    printPreviewDialog.StartPosition = FormStartPosition.CenterScreen;
+                    printPreviewDialog.WindowState = FormWindowState.Maximized;
+                };
+
+                // Menampilkan dialog preview cetak
+                printPreviewDialog.ShowDialog();
+            }
+            else
+            {
+                 pd.Print();
+            }
+
+        }
+
+        private PrintPreviewControl FindPrintPreviewControl(Control parent)
+        {
+            foreach (Control control in parent.Controls)
+            {
+                if (control is PrintPreviewControl previewControl)
+                {
+                    return previewControl;
+                }
+                else
+                {
+                    PrintPreviewControl foundControl = FindPrintPreviewControl(control);
+                    if (foundControl != null)
+                    {
+                        return foundControl;
+                    }
+                }
+            }
+            return null;
         }
 
         public void UpdateSerialBox(string message)

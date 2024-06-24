@@ -44,6 +44,9 @@
             btnOff = new RadioButton();
             btnClose = new Resource.RDButton();
             label7 = new Label();
+            btnPreview = new RadioButton();
+            label8 = new Label();
+            printerBox = new ComboBox();
             SuspendLayout();
             // 
             // textBoxIP
@@ -190,7 +193,7 @@
             // 
             btnOff.AutoSize = true;
             btnOff.Font = new Font("Arial", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnOff.Location = new Point(412, 140);
+            btnOff.Location = new Point(389, 140);
             btnOff.Name = "btnOff";
             btnOff.Size = new Size(67, 36);
             btnOff.TabIndex = 11;
@@ -228,14 +231,48 @@
             label7.TabIndex = 12;
             label7.Text = "*Click button Connect after change IP/Port";
             // 
+            // btnPreview
+            // 
+            btnPreview.AutoSize = true;
+            btnPreview.Font = new Font("Arial", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnPreview.Location = new Point(473, 141);
+            btnPreview.Name = "btnPreview";
+            btnPreview.Size = new Size(126, 36);
+            btnPreview.TabIndex = 11;
+            btnPreview.TabStop = true;
+            btnPreview.Text = "Preview";
+            btnPreview.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Arial", 15.75F, FontStyle.Bold);
+            label8.Location = new Point(137, 455);
+            label8.Name = "label8";
+            label8.Size = new Size(77, 24);
+            label8.TabIndex = 9;
+            label8.Text = "Printer";
+            // 
+            // printerBox
+            // 
+            printerBox.Font = new Font("MS Reference Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            printerBox.FormattingEnabled = true;
+            printerBox.Location = new Point(315, 446);
+            printerBox.Name = "printerBox";
+            printerBox.Size = new Size(204, 34);
+            printerBox.TabIndex = 10;
+            // 
             // SettingView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(674, 643);
             Controls.Add(label7);
+            Controls.Add(btnPreview);
             Controls.Add(btnOff);
             Controls.Add(btnOn);
+            Controls.Add(printerBox);
+            Controls.Add(label8);
             Controls.Add(JPComboBox);
             Controls.Add(label5);
             Controls.Add(btnClose);
@@ -277,5 +314,8 @@
         private RadioButton btnOff;
         private Resource.RDButton btnClose;
         private Label label7;
+        private RadioButton btnPreview;
+        private Label label8;
+        private ComboBox printerBox;
     }
 }

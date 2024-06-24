@@ -61,7 +61,6 @@ namespace PrintGaransi
 
             btnSetting.Click += delegate
             {
-
                 ISettingView settingView = SettingView.GetInstance();
                 SettingPresenter settingPresenter = new SettingPresenter(settingView, new SettingModel());
                 (settingView as Form)?.Show();
@@ -93,7 +92,6 @@ namespace PrintGaransi
         private void ResetBinding()
         {
             tabControlPresenter.ResetDataBinding();
-            //tabControlPresenter.LoadAllDataList();
         }
 
         private void PrintGaransiView_FormClosed(object sender, FormClosedEventArgs e)
@@ -105,16 +103,25 @@ namespace PrintGaransi
         private static MainForm instance;
         public static MainForm GetInstance(LoginModel loginModel)
         {
-            if (instance == null || instance.IsDisposed)
-                instance = new MainForm(loginModel);
-            else
+            // Dispose the old instance if it exists and is not disposed
+            if (instance != null && !instance.IsDisposed)
             {
-                if (instance.WindowState == FormWindowState.Minimized)
-                    instance.WindowState = FormWindowState.Normal;
-                instance.BringToFront();
-                instance._user = loginModel; // Set new user
+                instance.Dispose();
+            }
+
+            // Create a new instance
+            instance = new MainForm(loginModel);
+
+            // Set window state and bring to front if necessary
+            if (instance.WindowState == FormWindowState.Minimized)
+                instance.WindowState = FormWindowState.Normal;
+
+            if (instance._user != loginModel)
+            {
+                instance._user = loginModel;
                 instance.InitializeTabControl();
             }
+
             return instance;
         }
     }

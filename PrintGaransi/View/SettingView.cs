@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -28,12 +29,40 @@ namespace PrintGaransi.View
             InitializeEventHandler();
             _printMode = new PrintModeModel();
             LoadRadioSettings();
+            LoadPrinters();
+        }
+
+        private void LoadPrinters()
+        {
+            try
+            {
+                // Clear existing items
+                printerBox.Items.Clear();
+
+                // Get the list of installed printers and add them to the ComboBox
+                foreach (string printer in PrinterSettings.InstalledPrinters)
+                {
+                    printerBox.Items.Add(printer);
+                }
+
+                // Optionally set the selected item to the default printer
+                PrinterSettings settings = new PrinterSettings();
+                if (printerBox.Items.Contains(settings.PrinterName))
+                {
+                    printerBox.SelectedItem = settings.PrinterName;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading printers: " + ex.Message);
+            }
         }
 
         private void LoadRadioSettings()
         {
             btnOn.Checked = Properties.Settings.Default.Mode == "on";
             btnOff.Checked = Properties.Settings.Default.Mode == "off";
+            btnPreview.Checked = Properties.Settings.Default.Mode == "preview";
         }
 
         public List<string> JenisProdukNames
@@ -70,6 +99,7 @@ namespace PrintGaransi.View
         public event EventHandler LoadProductName;
         public event EventHandler SelectedProductType;
         public event EventHandler HandleRadioButton;
+        public event EventHandler SelectedPrinterType;
 
         public void DisplayName(string JPName)
         {
@@ -141,10 +171,34 @@ namespace PrintGaransi.View
                     HandleRadioButton?.Invoke(sender, e);
                 }
             };
+
+            btnPreview.CheckedChanged += (sender, e) =>
+            {
+                if(btnPreview.Checked && lastMode != "preview")
+                {
+                    mode = "preview";
+                    lastMode = "preview";
+                    HandleRadioButton?.Invoke(sender, e);
+                }
+            };
+
             btnClose.Click += delegate
             {
                 this.Close();
             };
+
+            printerBox.SelectedIndexChanged += (sender, e) =>
+            {
+                if(!isInitializing)
+                {
+                    SelectedPrinterType?.Invoke(sender, e);
+                }
+            };
+        }
+
+        private void PrinterBox_SelectedIndexChanged(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         public void DisplaySetting(string locationName)
@@ -175,6 +229,7 @@ namespace PrintGaransi.View
             LoadIP?.Invoke(this, EventArgs.Empty);
             LoadPort?.Invoke(this, EventArgs.Empty);
             isInitializing = false;
+
         }
     }
 }

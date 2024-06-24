@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace PrintGaransi.Presenter
         private readonly LocationModel _smodel;
         private readonly ProductTypeModel _productType;
         private readonly PrintModeModel _printMode;
+        private readonly PrinterTypeModel _printerType;
 
         public SettingPresenter(ISettingView view, SettingModel model) 
         {
@@ -24,6 +26,7 @@ namespace PrintGaransi.Presenter
             _productType = new ProductTypeModel();
             _smodel = new LocationModel();
             _printMode = new PrintModeModel();
+            _printerType = new PrinterTypeModel();
 
             _view.SelectedIndexChanged += View_SelectedIndexChanged;
             _view.SaveIPSettings += SaveIPSettings;
@@ -34,19 +37,40 @@ namespace PrintGaransi.Presenter
             _view.LoadProductName += LoadProductTypeName;
             _view.SelectedProductType += SelectedProductType;
             _view.HandleRadioButton += HandleRadioButton;
+            _view.SelectedPrinterType += SelectedPrinterType;
+        }
+
+        private void SelectedPrinterType(object? sender, EventArgs e)
+        {
+            ComboBox comboBox = sender as ComboBox;
+            string location = comboBox?.SelectedItem as string;
+
+            if (comboBox?.SelectedItem != null)
+            {
+                string selectedPrinter = comboBox.SelectedItem.ToString();
+            }
         }
 
         private void HandleRadioButton(object? sender, EventArgs e)
         {
             if (_view.mode == "on")
                 onRadio_Checked();
-            else if(_view.mode == "off")
+            else if (_view.mode == "off")
                 offRadio_Checked();
+            else if (_view.mode == "preview")
+                PreviewRadio_Checked();
+        }
+
+        private void PreviewRadio_Checked()
+        {
+            _printMode.SaveData(_view.mode);
+            Debug.WriteLine(_view.mode);
         }
 
         private void offRadio_Checked()
         {
             _printMode.SaveData(_view.mode);
+            Debug.WriteLine(_view.mode);
         }
 
         private void onRadio_Checked()

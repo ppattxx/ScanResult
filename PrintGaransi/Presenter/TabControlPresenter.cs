@@ -102,6 +102,14 @@ namespace PrintGaransi.Presenter
                    _view.StatusForeColor = Color.Black;
                    return;
                }
+               else if(mode == "preview")
+                {
+                    _view.Register = "";
+                    _view.Status = "Print dalam mode Preview";
+                    _view.StatusBackColor = Color.Orange;
+                    _view.StatusForeColor = Color.Black;
+                    return;
+                }
                else if( mode == "on")
                {
                     _view.Register = "";
@@ -147,7 +155,6 @@ namespace PrintGaransi.Presenter
                 Location = _smodel.LoadLocationID(),
                 inspectorId = _view.InspectorId
             };
-            _garansiRepository.Add(model);
 
             if (mode == "off")
             {
@@ -158,6 +165,7 @@ namespace PrintGaransi.Presenter
                     _view.Status = "Data berhasil tersimpan, print dalam mode OFF.";
                     _view.StatusBackColor = Color.Green;
                     _view.StatusForeColor = Color.White;
+                    _garansiRepository.Add(model);
                 }
                 else
                 {
@@ -168,7 +176,15 @@ namespace PrintGaransi.Presenter
                     _view.StatusForeColor = Color.Black;
                 }
             }
-            else
+            else if (mode == "preview")
+            {             
+                // Data sudah ada dalam database
+                _view.Status = "Print dalam mode Preview";
+                _view.StatusBackColor = Color.Orange;
+                _view.StatusForeColor = Color.Black;
+                _view.ShowPrintPreviewDialog(model);
+            }
+            else if (mode == "on")
             {
                 if (existingRecords == null || !existingRecords.Any())
                 {
@@ -178,6 +194,7 @@ namespace PrintGaransi.Presenter
                     _view.Status = "Data berhasil di simpan";
                     _view.StatusBackColor = Color.Green;
                     _view.StatusForeColor = Color.White;
+                    _garansiRepository.Add(model);
                 }
                 else
                 {
