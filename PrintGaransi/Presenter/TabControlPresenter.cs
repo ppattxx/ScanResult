@@ -14,6 +14,7 @@ namespace PrintGaransi.Presenter
         private readonly GaransiModel _garansiModel;
         private readonly SettingModel _smodel;
         private readonly ProductTypeModel _productType;
+        private readonly PrinterTypeModel _printerType;
         private readonly IModelNumberRepository _modelNumberRepository;
         private readonly IGaransiRepository _garansiRepository;
         private BindingSource _dataBindingSource;
@@ -32,6 +33,7 @@ namespace PrintGaransi.Presenter
             _garansiModel = new GaransiModel();
             _modelNumberRepository = new ModelNumberRepository();
             _printMode = new PrintModeModel();
+            _printerType = new PrinterTypeModel();
 
             _view.SearchModelNumber += SearchModelNumber;
             _view.SearchFilter += SearchFilter;
@@ -66,7 +68,8 @@ namespace PrintGaransi.Presenter
                     Location = selectedData.Location
                 };
 
-                _view.ShowPrintPreviewDialog(model);
+                string printerType = _printerType.GetPrinterType();
+                _view.ShowPrintPreviewDialog(model,printerType);
             }
         }
 
@@ -143,6 +146,8 @@ namespace PrintGaransi.Presenter
                 time = currentTime.ToString(@"T");
             }
 
+            string printerType = _printerType.GetPrinterType();
+
             var model = new GaransiModel
             {
                 JenisProduk = _productType.LoadProductType(),
@@ -182,14 +187,14 @@ namespace PrintGaransi.Presenter
                 _view.Status = "Print dalam mode Preview";
                 _view.StatusBackColor = Color.Orange;
                 _view.StatusForeColor = Color.Black;
-                _view.ShowPrintPreviewDialog(model);
+                _view.ShowPrintPreviewDialog(model, printerType);
             }
             else if (mode == "on")
             {
                 if (existingRecords == null || !existingRecords.Any())
                 {
                     // Data belum ada dalam database, print diizinkan
-                    _view.ShowPrintPreviewDialog(model);
+                    _view.ShowPrintPreviewDialog(model, printerType);
                     _view.Register = "";
                     _view.Status = "Data berhasil di simpan";
                     _view.StatusBackColor = Color.Green;

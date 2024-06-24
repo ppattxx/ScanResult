@@ -38,7 +38,9 @@ namespace PrintGaransi.Presenter
             _view.SelectedProductType += SelectedProductType;
             _view.HandleRadioButton += HandleRadioButton;
             _view.SelectedPrinterType += SelectedPrinterType;
+            _view.LoadPrinterType += LoadPrinter;
         }
+
 
         private void SelectedPrinterType(object? sender, EventArgs e)
         {
@@ -48,7 +50,14 @@ namespace PrintGaransi.Presenter
             if (comboBox?.SelectedItem != null)
             {
                 string selectedPrinter = comboBox.SelectedItem.ToString();
+                _printerType.SaveData(selectedPrinter);
             }
+        }
+
+        private void LoadPrinter(object sender, EventArgs e)
+        {
+            string loadedPrinter = _printerType.GetPrinterType();
+            _view.DsiplayPrinterType(loadedPrinter);
         }
 
         private void HandleRadioButton(object? sender, EventArgs e)

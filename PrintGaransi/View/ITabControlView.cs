@@ -28,7 +28,7 @@ namespace PrintGaransi.View
 
         // Methods
         void ShowFilter(BindingSource model);
-        void ShowPrintPreviewDialog(GaransiModel model);
+        void ShowPrintPreviewDialog(GaransiModel model, string printerType);
         void SetDefectListBindingSource(BindingSource model);
         void SelectTabPageByIndex(int data);
     }

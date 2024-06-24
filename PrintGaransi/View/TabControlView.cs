@@ -241,23 +241,28 @@ namespace PrintGaransi.View
             dataGridView2.DataSource = model;
         }
 
-        public void ShowPrintPreviewDialog(GaransiModel model)
+        public void ShowPrintPreviewDialog(GaransiModel model, string printerName)
         {
-
             string mode = _printMode.GetMode();
+
             // Membuat PrintDocument baru
             PrintDocument pd = new PrintDocument();
+
+            // Menetapkan printer yang akan digunakan
+            if (!string.IsNullOrEmpty(printerName))
+            {
+                pd.PrinterSettings.PrinterName = printerName;
+            }
 
             // Menambahkan event handler untuk PrintPage
             pd.PrintPage += (s, e) => _printLayout.Print(e, model);
 
-            // Membuat PrintPreviewDialog dan menetapkan PrintDocument-nya
-            PrintPreviewDialog printPreviewDialog = new PrintPreviewDialog();
-            printPreviewDialog.Document = pd;
-
-            if(mode == "preview")
+            if (mode == "preview")
             {
-                // Menampilkan dialog preview cetak
+                // Membuat PrintPreviewDialog dan menetapkan PrintDocument-nya
+                PrintPreviewDialog printPreviewDialog = new PrintPreviewDialog();
+                printPreviewDialog.Document = pd;
+
                 printPreviewDialog.Load += (s, e) =>
                 {
                     // Mengakses PrintPreviewControl menggunakan refleksi
@@ -265,7 +270,7 @@ namespace PrintGaransi.View
 
                     if (printPreviewControl != null)
                     {
-                        printPreviewControl.Zoom = 1.0; // Mengatur zoom 200%
+                        printPreviewControl.Zoom = 1.0; // Mengatur zoom 100%
                     }
 
                     // Mengatur posisi jendela ke tengah layar
@@ -278,9 +283,8 @@ namespace PrintGaransi.View
             }
             else
             {
-                 pd.Print();
+                pd.Print();
             }
-
         }
 
         private PrintPreviewControl FindPrintPreviewControl(Control parent)

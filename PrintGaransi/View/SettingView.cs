@@ -100,6 +100,7 @@ namespace PrintGaransi.View
         public event EventHandler SelectedProductType;
         public event EventHandler HandleRadioButton;
         public event EventHandler SelectedPrinterType;
+        public event EventHandler LoadPrinterType;
 
         public void DisplayName(string JPName)
         {
@@ -114,6 +115,11 @@ namespace PrintGaransi.View
         public void DisplayPort(int Port)
         {
             textBoxPort.Text = Port.ToString();
+        }
+
+        public void DsiplayPrinterType(string printerType)
+        {
+            printerBox.Text = printerType;
         }
 
         public void InitializeEventHandler()
@@ -228,6 +234,7 @@ namespace PrintGaransi.View
             LoadLocation?.Invoke(this, EventArgs.Empty);
             LoadIP?.Invoke(this, EventArgs.Empty);
             LoadPort?.Invoke(this, EventArgs.Empty);
+            LoadPrinterType?.Invoke(this, EventArgs.Empty);
             isInitializing = false;
 
         }

@@ -24,10 +24,12 @@ namespace PrintGaransi.View
         event EventHandler SelectedProductType;
         event EventHandler HandleRadioButton;
         event EventHandler SelectedPrinterType;
+        event EventHandler LoadPrinterType;
 
         void DisplayName(string JPName);
         void DisplayIP(string IPaddress);
         void DisplayPort(int portAddress);
         void DisplaySetting(string locationName);
+        void DsiplayPrinterType(string printerType);
     }
 }

@@ -8,5 +8,15 @@ namespace PrintGaransi.Model
 {
     public class PrinterTypeModel
     {
+        public void SaveData(string data)
+        {
+            Properties.Settings.Default.PrinterType = data;
+            Properties.Settings.Default.Save();
+        }
+
+        public string GetPrinterType()
+        {
+            return Properties.Settings.Default.PrinterType;
+        }
     }
 }
