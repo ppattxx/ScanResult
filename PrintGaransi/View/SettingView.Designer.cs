@@ -52,38 +52,38 @@
             // textBoxIP
             // 
             textBoxIP.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxIP.Location = new Point(312, 216);
+            textBoxIP.Location = new Point(270, 193);
             textBoxIP.Name = "textBoxIP";
-            textBoxIP.Size = new Size(207, 31);
+            textBoxIP.Size = new Size(308, 31);
             textBoxIP.TabIndex = 0;
             // 
             // textBoxPort
             // 
             textBoxPort.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxPort.Location = new Point(312, 266);
+            textBoxPort.Location = new Point(270, 243);
             textBoxPort.Name = "textBoxPort";
-            textBoxPort.Size = new Size(207, 31);
+            textBoxPort.Size = new Size(308, 31);
             textBoxPort.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Arial", 15.75F, FontStyle.Bold);
-            label1.Location = new Point(137, 219);
+            label1.Location = new Point(95, 196);
             label1.Name = "label1";
-            label1.Size = new Size(119, 24);
+            label1.Size = new Size(113, 24);
             label1.TabIndex = 2;
-            label1.Text = "IP Address";
+            label1.Text = "Camera IP";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Arial", 15.75F, FontStyle.Bold);
-            label2.Location = new Point(137, 272);
+            label2.Location = new Point(95, 249);
             label2.Name = "label2";
-            label2.Size = new Size(52, 24);
+            label2.Size = new Size(136, 24);
             label2.TabIndex = 3;
-            label2.Text = "Port";
+            label2.Text = "Camera Port";
             // 
             // label3
             // 
@@ -114,7 +114,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Arial", 15.75F, FontStyle.Bold);
-            label4.Location = new Point(137, 344);
+            label4.Location = new Point(95, 321);
             label4.Name = "label4";
             label4.Size = new Size(98, 24);
             label4.TabIndex = 6;
@@ -124,9 +124,9 @@
             // 
             locationBox.Font = new Font("MS Reference Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             locationBox.FormattingEnabled = true;
-            locationBox.Location = new Point(315, 340);
+            locationBox.Location = new Point(273, 317);
             locationBox.Name = "locationBox";
-            locationBox.Size = new Size(204, 34);
+            locationBox.Size = new Size(305, 34);
             locationBox.TabIndex = 7;
             // 
             // btnConnect
@@ -140,7 +140,7 @@
             btnConnect.FlatStyle = FlatStyle.Flat;
             btnConnect.Font = new Font("Helvetica", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnConnect.ForeColor = Color.White;
-            btnConnect.Location = new Point(137, 497);
+            btnConnect.Location = new Point(137, 553);
             btnConnect.Name = "btnConnect";
             btnConnect.Size = new Size(150, 40);
             btnConnect.TabIndex = 8;
@@ -152,7 +152,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Arial", 15.75F, FontStyle.Bold);
-            label5.Location = new Point(137, 404);
+            label5.Location = new Point(95, 381);
             label5.Name = "label5";
             label5.Size = new Size(143, 24);
             label5.TabIndex = 9;
@@ -162,16 +162,16 @@
             // 
             JPComboBox.Font = new Font("MS Reference Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             JPComboBox.FormattingEnabled = true;
-            JPComboBox.Location = new Point(315, 395);
+            JPComboBox.Location = new Point(273, 372);
             JPComboBox.Name = "JPComboBox";
-            JPComboBox.Size = new Size(204, 34);
+            JPComboBox.Size = new Size(305, 34);
             JPComboBox.TabIndex = 10;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Arial", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(137, 141);
+            label6.Location = new Point(93, 142);
             label6.Name = "label6";
             label6.Size = new Size(118, 24);
             label6.TabIndex = 2;
@@ -181,7 +181,7 @@
             // 
             btnOn.AutoSize = true;
             btnOn.Font = new Font("Arial", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnOn.Location = new Point(312, 140);
+            btnOn.Location = new Point(268, 141);
             btnOn.Name = "btnOn";
             btnOn.Size = new Size(68, 36);
             btnOn.TabIndex = 11;
@@ -193,7 +193,7 @@
             // 
             btnOff.AutoSize = true;
             btnOff.Font = new Font("Arial", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnOff.Location = new Point(389, 140);
+            btnOff.Location = new Point(358, 141);
             btnOff.Name = "btnOff";
             btnOff.Size = new Size(67, 36);
             btnOff.TabIndex = 11;
@@ -212,7 +212,7 @@
             btnClose.FlatStyle = FlatStyle.Flat;
             btnClose.Font = new Font("Helvetica", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnClose.ForeColor = Color.White;
-            btnClose.Location = new Point(369, 497);
+            btnClose.Location = new Point(369, 553);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(150, 40);
             btnClose.TabIndex = 8;
@@ -225,7 +225,7 @@
             label7.AutoSize = true;
             label7.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.Red;
-            label7.Location = new Point(312, 300);
+            label7.Location = new Point(270, 277);
             label7.Name = "label7";
             label7.Size = new Size(308, 18);
             label7.TabIndex = 12;
@@ -235,7 +235,7 @@
             // 
             btnPreview.AutoSize = true;
             btnPreview.Font = new Font("Arial", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnPreview.Location = new Point(473, 141);
+            btnPreview.Location = new Point(446, 142);
             btnPreview.Name = "btnPreview";
             btnPreview.Size = new Size(126, 36);
             btnPreview.TabIndex = 11;
@@ -247,7 +247,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Arial", 15.75F, FontStyle.Bold);
-            label8.Location = new Point(137, 455);
+            label8.Location = new Point(95, 432);
             label8.Name = "label8";
             label8.Size = new Size(77, 24);
             label8.TabIndex = 9;
@@ -257,9 +257,9 @@
             // 
             printerBox.Font = new Font("MS Reference Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             printerBox.FormattingEnabled = true;
-            printerBox.Location = new Point(315, 446);
+            printerBox.Location = new Point(273, 423);
             printerBox.Name = "printerBox";
-            printerBox.Size = new Size(204, 34);
+            printerBox.Size = new Size(305, 34);
             printerBox.TabIndex = 10;
             // 
             // SettingView

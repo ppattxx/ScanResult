@@ -75,6 +75,11 @@
             DateHeader = new Label();
             btnClear = new Resource.RDButton();
             tabControl1 = new TabControl();
+            tabPage3 = new TabPage();
+            tableLayoutPanel13 = new TableLayoutPanel();
+            label15 = new Label();
+            tableLayoutPanel12 = new TableLayoutPanel();
+            label14 = new Label();
             tableLayoutPanel4 = new TableLayoutPanel();
             tableLayoutPanel7 = new TableLayoutPanel();
             textBox1 = new TextBox();
@@ -111,6 +116,9 @@
             tableLayoutPanel6.SuspendLayout();
             tableLayoutPanel11.SuspendLayout();
             tabControl1.SuspendLayout();
+            tabPage3.SuspendLayout();
+            tableLayoutPanel13.SuspendLayout();
+            tableLayoutPanel12.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
             tableLayoutPanel7.SuspendLayout();
             tableLayoutPanel8.SuspendLayout();
@@ -750,12 +758,81 @@
             tabControl1.Appearance = TabAppearance.FlatButtons;
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
+            tabControl1.Controls.Add(tabPage3);
             tabControl1.Dock = DockStyle.Fill;
             tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(1215, 898);
             tabControl1.TabIndex = 0;
+            // 
+            // tabPage3
+            // 
+            tabPage3.Controls.Add(tableLayoutPanel13);
+            tabPage3.Controls.Add(tableLayoutPanel12);
+            tabPage3.Location = new Point(4, 27);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Padding = new Padding(3);
+            tabPage3.Size = new Size(1207, 867);
+            tabPage3.TabIndex = 2;
+            tabPage3.Text = "tabPage3";
+            tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel13
+            // 
+            tableLayoutPanel13.ColumnCount = 1;
+            tableLayoutPanel13.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel13.Controls.Add(label15, 0, 0);
+            tableLayoutPanel13.Dock = DockStyle.Fill;
+            tableLayoutPanel13.Location = new Point(3, 59);
+            tableLayoutPanel13.Margin = new Padding(0);
+            tableLayoutPanel13.Name = "tableLayoutPanel13";
+            tableLayoutPanel13.RowCount = 1;
+            tableLayoutPanel13.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel13.Size = new Size(1201, 805);
+            tableLayoutPanel13.TabIndex = 16;
+            // 
+            // label15
+            // 
+            label15.Anchor = AnchorStyles.Top;
+            label15.AutoSize = true;
+            label15.BackColor = Color.Transparent;
+            label15.Font = new Font("Helvetica", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label15.Location = new Point(403, 0);
+            label15.Name = "label15";
+            label15.Padding = new Padding(0, 50, 0, 0);
+            label15.Size = new Size(394, 138);
+            label15.TabIndex = 0;
+            label15.Text = "Copyright © 2024 \r\nPoliteknik Elektronika Negeri Surabaya and\r\nPT. Panasonic Manufactur, All right reserved.\r\n\r\n";
+            label15.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel12
+            // 
+            tableLayoutPanel12.BackColor = Color.FromArgb(0, 35, 105);
+            tableLayoutPanel12.ColumnCount = 1;
+            tableLayoutPanel12.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel12.Controls.Add(label14, 0, 0);
+            tableLayoutPanel12.Dock = DockStyle.Top;
+            tableLayoutPanel12.Location = new Point(3, 3);
+            tableLayoutPanel12.Margin = new Padding(0);
+            tableLayoutPanel12.Name = "tableLayoutPanel12";
+            tableLayoutPanel12.RowCount = 1;
+            tableLayoutPanel12.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel12.Size = new Size(1201, 56);
+            tableLayoutPanel12.TabIndex = 15;
+            // 
+            // label14
+            // 
+            label14.Anchor = AnchorStyles.Left;
+            label14.AutoSize = true;
+            label14.Font = new Font("Helvetica", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label14.ForeColor = Color.White;
+            label14.Location = new Point(3, 15);
+            label14.Name = "label14";
+            label14.Padding = new Padding(50, 0, 0, 0);
+            label14.Size = new Size(157, 25);
+            label14.TabIndex = 0;
+            label14.Text = "About Us";
             // 
             // tableLayoutPanel4
             // 
@@ -959,6 +1036,11 @@
             tableLayoutPanel11.ResumeLayout(false);
             tableLayoutPanel11.PerformLayout();
             tabControl1.ResumeLayout(false);
+            tabPage3.ResumeLayout(false);
+            tableLayoutPanel13.ResumeLayout(false);
+            tableLayoutPanel13.PerformLayout();
+            tableLayoutPanel12.ResumeLayout(false);
+            tableLayoutPanel12.PerformLayout();
             tableLayoutPanel4.ResumeLayout(false);
             tableLayoutPanel7.ResumeLayout(false);
             tableLayoutPanel7.PerformLayout();
@@ -1029,5 +1111,10 @@
         private PictureBox pictureBox7;
         private PictureBox pictureBox8;
         private Resource.RDButton btnClear2;
+        private TabPage tabPage3;
+        private TableLayoutPanel tableLayoutPanel13;
+        private Label label15;
+        private TableLayoutPanel tableLayoutPanel12;
+        private Label label14;
     }
 }

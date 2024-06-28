@@ -202,11 +202,6 @@ namespace PrintGaransi.View
             };
         }
 
-        private void PrinterBox_SelectedIndexChanged(object? sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         public void DisplaySetting(string locationName)
         {
             locationBox.Text = locationName;

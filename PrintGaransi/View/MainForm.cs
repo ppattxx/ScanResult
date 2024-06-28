@@ -74,6 +74,15 @@ namespace PrintGaransi
                 btnRePrint.BackColor = Color.FromArgb(0, 133, 181);
             };
 
+            btnAbtUs.Click += delegate
+            {
+                int selectedTabPageIndex = 2;
+                tabControlPresenter.ChangeTabPage(selectedTabPageIndex);
+                btnAbtUs.BackColor = Color.FromArgb(0,133,181);
+                btnRePrint.BackColor = Color.FromArgb(0,35,105);
+                btnHome.BackColor = Color.FromArgb(0, 35,105);
+            };
+
             btnLogOut.Click += delegate
             {
                 connection.CloseConnection();

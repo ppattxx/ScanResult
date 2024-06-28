@@ -33,6 +33,7 @@
             label2 = new Label();
             label1 = new Label();
             tableLayoutPanel4 = new TableLayoutPanel();
+            btnAbtUs = new Button();
             btnLogOut = new Button();
             btnRePrint = new Button();
             btnHome = new Button();
@@ -97,27 +98,48 @@
             tableLayoutPanel4.BackColor = Color.FromArgb(0, 35, 105);
             tableLayoutPanel4.ColumnCount = 1;
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel4.Controls.Add(btnLogOut, 0, 6);
+            tableLayoutPanel4.Controls.Add(btnAbtUs, 0, 6);
+            tableLayoutPanel4.Controls.Add(btnLogOut, 0, 7);
             tableLayoutPanel4.Controls.Add(btnRePrint, 0, 2);
             tableLayoutPanel4.Controls.Add(btnHome, 0, 0);
             tableLayoutPanel4.Controls.Add(btnSetting, 0, 4);
             tableLayoutPanel4.Dock = DockStyle.Fill;
+            tableLayoutPanel4.Font = new Font("Helvetica", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             tableLayoutPanel4.Location = new Point(0, 0);
             tableLayoutPanel4.Margin = new Padding(3, 0, 3, 5);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
-            tableLayoutPanel4.RowCount = 8;
+            tableLayoutPanel4.RowCount = 9;
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 2.278481F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 12.1794872F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 14.1993961F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 2.366864F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 11.5384617F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 71.79487F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 90F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 13.5951662F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 67.97583F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 89F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 111F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel4.Size = new Size(104, 511);
+            tableLayoutPanel4.Size = new Size(104, 641);
             tableLayoutPanel4.TabIndex = 0;
+            // 
+            // btnAbtUs
+            // 
+            btnAbtUs.Dock = DockStyle.Fill;
+            btnAbtUs.FlatAppearance.BorderSize = 0;
+            btnAbtUs.FlatStyle = FlatStyle.Flat;
+            btnAbtUs.Font = new Font("Helvetica", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAbtUs.ForeColor = Color.White;
+            btnAbtUs.Image = (Image)resources.GetObject("btnAbtUs.Image");
+            btnAbtUs.Location = new Point(3, 419);
+            btnAbtUs.Margin = new Padding(3, 0, 3, 3);
+            btnAbtUs.Name = "btnAbtUs";
+            btnAbtUs.Size = new Size(98, 86);
+            btnAbtUs.TabIndex = 5;
+            btnAbtUs.Text = "\r\nAbout";
+            btnAbtUs.TextAlign = ContentAlignment.BottomCenter;
+            btnAbtUs.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnAbtUs.UseVisualStyleBackColor = true;
             // 
             // btnLogOut
             // 
@@ -128,9 +150,9 @@
             btnLogOut.Font = new Font("Helvetica", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLogOut.ForeColor = Color.White;
             btnLogOut.Image = (Image)resources.GetObject("btnLogOut.Image");
-            btnLogOut.Location = new Point(3, 403);
+            btnLogOut.Location = new Point(3, 511);
             btnLogOut.Name = "btnLogOut";
-            btnLogOut.Size = new Size(98, 84);
+            btnLogOut.Size = new Size(98, 105);
             btnLogOut.TabIndex = 4;
             btnLogOut.Text = "Log Out";
             btnLogOut.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -146,9 +168,9 @@
             btnRePrint.Image = (Image)resources.GetObject("btnRePrint.Image");
             btnRePrint.Location = new Point(3, 98);
             btnRePrint.Name = "btnRePrint";
-            btnRePrint.Size = new Size(98, 32);
+            btnRePrint.Size = new Size(98, 41);
             btnRePrint.TabIndex = 3;
-            btnRePrint.Text = "\r\nRe-Print";
+            btnRePrint.Text = "\r\nRe Print\r\n";
             btnRePrint.TextAlign = ContentAlignment.BottomCenter;
             btnRePrint.TextImageRelation = TextImageRelation.ImageAboveText;
             btnRePrint.UseVisualStyleBackColor = true;
@@ -166,7 +188,7 @@
             btnHome.Name = "btnHome";
             btnHome.Size = new Size(98, 85);
             btnHome.TabIndex = 2;
-            btnHome.Text = "\r\nAuto Print";
+            btnHome.Text = "\r\nHome";
             btnHome.TextAlign = ContentAlignment.BottomCenter;
             btnHome.TextImageRelation = TextImageRelation.ImageAboveText;
             btnHome.UseVisualStyleBackColor = true;
@@ -179,9 +201,9 @@
             btnSetting.Font = new Font("Helvetica", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSetting.ForeColor = Color.White;
             btnSetting.Image = (Image)resources.GetObject("btnSetting.Image");
-            btnSetting.Location = new Point(3, 143);
+            btnSetting.Location = new Point(3, 152);
             btnSetting.Name = "btnSetting";
-            btnSetting.Size = new Size(98, 30);
+            btnSetting.Size = new Size(98, 39);
             btnSetting.TabIndex = 1;
             btnSetting.Text = "\r\nSetting";
             btnSetting.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -200,7 +222,7 @@
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.BackColor = Color.FromArgb(224, 235, 245);
-            splitContainer1.Size = new Size(1265, 511);
+            splitContainer1.Size = new Size(1265, 641);
             splitContainer1.SplitterDistance = 104;
             splitContainer1.TabIndex = 14;
             // 
@@ -209,9 +231,10 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(1265, 600);
+            ClientSize = new Size(1265, 730);
             Controls.Add(splitContainer1);
             Controls.Add(tableLayoutPanel1);
+            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(2);
             Name = "MainForm";
             Text = "WARRANTY CARD PRINTING";
@@ -237,5 +260,6 @@
         private SplitContainer splitContainer1;
         private Label label1;
         private Label label2;
+        private Button btnAbtUs;
     }
 }

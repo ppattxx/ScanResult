@@ -23,28 +23,6 @@ namespace PrintGaransi.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-66EIFJP\\SQLEXPRESS;Initial Catalog=LSBUDBPRODUCTION;Integrate" +
-            "d Security=True;TrustServerCertificate=True")]
-        public string LSBUDBPRODUCTIONConnectionString {
-            get {
-                return ((string)(this["LSBUDBPRODUCTIONConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-A0O7AHQS\\SQLEXPRESS;Initial Catalog=LSBUDBPRODUCTION;Integrate" +
-            "d Security=True;Encrypt=True;TrustServerCertificate=True")]
-        public string LSBUDBPRODUCTION {
-            get {
-                return ((string)(this["LSBUDBPRODUCTION"]));
-            }
-        }
-        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
