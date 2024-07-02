@@ -218,10 +218,10 @@ namespace PrintGaransi.Presenter
         }
 
         public void LoadAllDataList()
-        {   //manual set date
-            //DateTime specificDate = new DateTime(2024, 5, 30);
+        {
+            string loc = _smodel.LoadLocation();
 
-            _model = _garansiRepository.GetAll();
+            _model = _garansiRepository.GetAll(loc);
             _dataBindingSource.DataSource = _model;
             _dataBindingSource2.DataSource = _model;
             _view.SetDefectListBindingSource(_dataBindingSource);
@@ -229,7 +229,9 @@ namespace PrintGaransi.Presenter
 
         public void SearchFilter(object sender, EventArgs e)
         {
-            _model = _garansiRepository.GetFilter(_view.Search, _view.SelectedDate);
+            string loc = _smodel.LoadLocation();
+
+            _model = _garansiRepository.GetFilter(_view.Search, _view.SelectedDate, loc);
             _dataBindingSource2.DataSource = _model;
             _view.ShowFilter(_dataBindingSource2);
         }

@@ -10,8 +10,8 @@ namespace PrintGaransi.Model
     {
         void Add(dynamic model);
         IEnumerable<GaransiModel> GetData(string model);
-        IEnumerable<GaransiModel> GetAll();
-        IEnumerable<GaransiModel> GetFilter(string globalCodeId, DateTime selectDate);
+        IEnumerable<GaransiModel> GetAll(string location);
+        IEnumerable<GaransiModel> GetFilter(string globalCodeId, DateTime selectDate, string location);
         IEnumerable<GaransiModel> GetExists(string noSeri, string modelCode);
         List<string> JenisProduk();
     }

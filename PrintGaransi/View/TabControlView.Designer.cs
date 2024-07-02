@@ -798,12 +798,12 @@
             label15.AutoSize = true;
             label15.BackColor = Color.Transparent;
             label15.Font = new Font("Helvetica", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label15.Location = new Point(403, 0);
+            label15.Location = new Point(233, 0);
             label15.Name = "label15";
             label15.Padding = new Padding(0, 50, 0, 0);
-            label15.Size = new Size(394, 138);
+            label15.Size = new Size(734, 138);
             label15.TabIndex = 0;
-            label15.Text = "Copyright © 2024 \r\nPoliteknik Elektronika Negeri Surabaya and\r\nPT. Panasonic Manufactur, All right reserved.\r\n\r\n";
+            label15.Text = "Copyright © 2024 \r\nPoliteknik Elektronika Negeri Surabaya Collaboration Business Unit Laundry System\r\nPT. Panasonic Manufacturing Indoensia, All right reserved.\r\n\r\n";
             label15.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel12

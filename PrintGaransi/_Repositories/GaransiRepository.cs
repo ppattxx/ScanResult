@@ -22,19 +22,42 @@ namespace PrintGaransi._Repositories
             throw new NotImplementedException();
         }
 
-        public IEnumerable<GaransiModel> GetAll()
+        public IEnumerable<GaransiModel> GetAll(string location)
         {
             List<GaransiModel> models = new List<GaransiModel>();
 
-            string query = "SELECT Result_Warranty_Cards.Id, Result_Warranty_Cards.JenisProduk, Result_Warranty_Cards.ModelCode, Result_Warranty_Cards.ModelNumber, Result_Warranty_Cards.SerialNumber, Result_Warranty_Cards.Register, Result_Warranty_Cards.ScanningDate, Result_Warranty_Cards.ScanningTime, Locations.LocationName AS Location, AspNetUsers.Name AS InspectorId " +
-                "FROM Result_Warranty_Cards " +
-                "INNER JOIN LSBU_Auth.dbo.AspNetUsers ON Result_Warranty_Cards.InspectorId = AspNetUsers.NIK " +
-                "INNER JOIN LSBU_Common.dbo.Locations ON Result_Warranty_Cards.Location = Locations.Id " +
-                "WHERE CONVERT(DATE, ScanningDate) = @date ORDER BY Id DESC;";
+            string query = @"
+                    SELECT 
+                        Result_Warranty_Cards.Id,
+                        Result_Warranty_Cards.JenisProduk,
+                        Result_Warranty_Cards.ModelCode,
+                        Result_Warranty_Cards.ModelNumber,
+                        Result_Warranty_Cards.SerialNumber,
+                        Result_Warranty_Cards.Register,
+                        CONVERT(DATE, Result_Warranty_Cards.ScanningDate) AS ScanningDate,
+                        Result_Warranty_Cards.ScanningTime,
+                        Locations.LocationName AS Location,
+                        AspNetUsers.Name AS InspectorId
+                    FROM 
+                        Result_Warranty_Cards
+                    INNER JOIN 
+                        LSBU_Auth.dbo.AspNetUsers 
+                    ON 
+                        Result_Warranty_Cards.InspectorId = AspNetUsers.NIK
+                    INNER JOIN 
+                        LSBU_Common.dbo.Locations 
+                    ON 
+                        Result_Warranty_Cards.Location = Locations.Id
+                    WHERE 
+                        Locations.LocationName = @Location AND CONVERT(DATE, ScanningDate) = @date
+                    ORDER BY 
+                        Id DESC;
+                ";
 
             using (SqlConnection connection = new SqlConnection(LSBUDBPRODUCTION))
             using (SqlCommand command = new SqlCommand(query, connection))
             {
+                command.Parameters.AddWithValue("@Location", location);
                 command.Parameters.AddWithValue("@date", Convert.ToDateTime(DateTime.Today).Date);
                 connection.Open();
 
@@ -63,14 +86,36 @@ namespace PrintGaransi._Repositories
         }
 
 
-        public IEnumerable<GaransiModel> GetFilter(string serialNumber, DateTime selectedDate)
+        public IEnumerable<GaransiModel> GetFilter(string serialNumber, DateTime selectedDate, string location)
         {
             List<GaransiModel> results = new List<GaransiModel>();
-            string query = "SELECT Result_Warranty_Cards.Id, Result_Warranty_Cards.JenisProduk, Result_Warranty_Cards.ModelCode, Result_Warranty_Cards.ModelNumber, Result_Warranty_Cards.SerialNumber, Result_Warranty_Cards.Register, Result_Warranty_Cards.ScanningDate, Result_Warranty_Cards.ScanningTime, Locations.LocationName AS Location, AspNetUsers.Name AS InspectorId " +
-                "FROM Result_Warranty_Cards " +
-                "INNER JOIN LSBU_Auth.dbo.AspNetUsers ON Result_Warranty_Cards.InspectorId = AspNetUsers.NIK " +
-                "INNER JOIN LSBU_Common.dbo.Locations ON Result_Warranty_Cards.Location = Locations.Id " +
-                "WHERE SerialNumber LIKE @SerialNumber AND CAST(ScanningDate AS DATE) = @SelectedDate ";
+
+            string query = @"
+                    SELECT 
+                        Result_Warranty_Cards.Id, 
+                        Result_Warranty_Cards.JenisProduk, 
+                        Result_Warranty_Cards.ModelCode, 
+                        Result_Warranty_Cards.ModelNumber, 
+                        Result_Warranty_Cards.SerialNumber, 
+                        Result_Warranty_Cards.Register, 
+                        Result_Warranty_Cards.ScanningDate, 
+                        Result_Warranty_Cards.ScanningTime, 
+                        Locations.LocationName AS Location, 
+                        AspNetUsers.Name AS InspectorId 
+                    FROM 
+                        Result_Warranty_Cards 
+                    INNER JOIN 
+                        LSBU_Auth.dbo.AspNetUsers 
+                    ON 
+                        Result_Warranty_Cards.InspectorId = AspNetUsers.NIK 
+                    INNER JOIN 
+                        LSBU_Common.dbo.Locations 
+                    ON 
+                        Result_Warranty_Cards.Location = Locations.Id 
+                    WHERE 
+                        SerialNumber LIKE @SerialNumber 
+                        AND CAST(ScanningDate AS DATE) = @SelectedDate
+                        AND Locations.LocationName = @Location";
 
             using (SqlConnection connection = new SqlConnection(LSBUDBPRODUCTION))
             using (SqlCommand command = new SqlCommand(query, connection))
@@ -78,6 +123,7 @@ namespace PrintGaransi._Repositories
                 connection.Open();
                 command.Parameters.Add("@SerialNumber", SqlDbType.VarChar).Value = "%" + serialNumber;
                 command.Parameters.Add("@SelectedDate", SqlDbType.Date).Value = selectedDate.Date;
+                command.Parameters.Add("@Location", SqlDbType.VarChar).Value = location;
 
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
