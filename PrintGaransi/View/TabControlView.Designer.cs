@@ -130,7 +130,7 @@
             tabPage2.Location = new Point(4, 27);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1207, 867);
+            tabPage2.Size = new Size(1262, 867);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Search";
             tabPage2.UseVisualStyleBackColor = true;
@@ -139,17 +139,17 @@
             // 
             tableLayoutPanel9.ColumnCount = 1;
             tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel9.Controls.Add(dataGridView2, 0, 2);
-            tableLayoutPanel9.Controls.Add(tableLayoutPanel10, 0, 1);
+            tableLayoutPanel9.Controls.Add(dataGridView2, 0, 1);
+            tableLayoutPanel9.Controls.Add(tableLayoutPanel10, 0, 0);
             tableLayoutPanel9.Dock = DockStyle.Fill;
             tableLayoutPanel9.Location = new Point(3, 3);
             tableLayoutPanel9.Margin = new Padding(3, 0, 3, 10);
             tableLayoutPanel9.Name = "tableLayoutPanel9";
-            tableLayoutPanel9.RowCount = 3;
-            tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Absolute, 9F));
-            tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 12.7934275F));
+            tableLayoutPanel9.RowCount = 2;
+            tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 12.79343F));
             tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 87.20657F));
-            tableLayoutPanel9.Size = new Size(1201, 861);
+            tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel9.Size = new Size(1256, 861);
             tableLayoutPanel9.TabIndex = 8;
             // 
             // dataGridView2
@@ -161,12 +161,12 @@
             dataGridView2.Columns.AddRange(new DataGridViewColumn[] { No2 });
             dataGridView2.Dock = DockStyle.Fill;
             dataGridView2.EnableHeadersVisualStyles = false;
-            dataGridView2.Location = new Point(3, 121);
+            dataGridView2.Location = new Point(3, 113);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.ReadOnly = true;
             dataGridView2.RowHeadersVisible = false;
             dataGridView2.RowHeadersWidth = 62;
-            dataGridView2.Size = new Size(1195, 737);
+            dataGridView2.Size = new Size(1250, 745);
             dataGridView2.TabIndex = 4;
             // 
             // No2
@@ -185,7 +185,7 @@
             tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5.4840765F));
             tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 29.45733F));
             tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 65.05859F));
-            tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 555F));
+            tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 445F));
             tableLayoutPanel10.Controls.Add(textBoxSearch, 2, 0);
             tableLayoutPanel10.Controls.Add(label11, 1, 0);
             tableLayoutPanel10.Controls.Add(dtFromDate, 2, 1);
@@ -195,24 +195,24 @@
             tableLayoutPanel10.Controls.Add(pictureBox8, 0, 1);
             tableLayoutPanel10.Controls.Add(btnClear2, 3, 0);
             tableLayoutPanel10.Dock = DockStyle.Fill;
-            tableLayoutPanel10.Location = new Point(3, 12);
+            tableLayoutPanel10.Location = new Point(3, 3);
             tableLayoutPanel10.Margin = new Padding(3, 3, 3, 10);
             tableLayoutPanel10.Name = "tableLayoutPanel10";
             tableLayoutPanel10.RowCount = 2;
             tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel10.Size = new Size(1195, 96);
+            tableLayoutPanel10.Size = new Size(1250, 97);
             tableLayoutPanel10.TabIndex = 3;
             // 
             // textBoxSearch
             // 
             textBoxSearch.Dock = DockStyle.Fill;
             textBoxSearch.Font = new Font("Arial", 18F);
-            textBoxSearch.Location = new Point(226, 2);
+            textBoxSearch.Location = new Point(284, 2);
             textBoxSearch.Margin = new Padding(3, 2, 3, 0);
             textBoxSearch.Name = "textBoxSearch";
-            textBoxSearch.Size = new Size(410, 35);
+            textBoxSearch.Size = new Size(517, 35);
             textBoxSearch.TabIndex = 11;
             textBoxSearch.KeyDown += textBoxSearch_KeyDown;
             // 
@@ -220,7 +220,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Arial", 18F, FontStyle.Bold);
-            label11.Location = new Point(35, 7);
+            label11.Location = new Point(44, 7);
             label11.Margin = new Padding(0, 7, 5, 0);
             label11.Name = "label11";
             label11.Size = new Size(171, 41);
@@ -234,10 +234,10 @@
             dtFromDate.Dock = DockStyle.Fill;
             dtFromDate.Font = new Font("Segoe UI", 18F);
             dtFromDate.Format = DateTimePickerFormat.Custom;
-            dtFromDate.Location = new Point(226, 48);
+            dtFromDate.Location = new Point(284, 48);
             dtFromDate.Margin = new Padding(3, 0, 10, 0);
             dtFromDate.Name = "dtFromDate";
-            dtFromDate.Size = new Size(403, 39);
+            dtFromDate.Size = new Size(510, 39);
             dtFromDate.TabIndex = 13;
             dtFromDate.KeyDown += dtFromDate_KeyDown;
             // 
@@ -254,11 +254,11 @@
             btnSearch.Font = new Font("Arial Rounded MT Bold", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSearch.ForeColor = Color.White;
             btnSearch.Image = (Image)resources.GetObject("btnSearch.Image");
-            btnSearch.Location = new Point(664, 48);
+            btnSearch.Location = new Point(829, 48);
             btnSearch.Margin = new Padding(25, 0, 0, 8);
             btnSearch.Name = "btnSearch";
-            btnSearch.Padding = new Padding(130, 0, 0, 0);
-            btnSearch.Size = new Size(531, 40);
+            btnSearch.Padding = new Padding(95, 0, 0, 0);
+            btnSearch.Size = new Size(421, 41);
             btnSearch.TabIndex = 12;
             btnSearch.Text = "Search";
             btnSearch.TextColor = Color.White;
@@ -269,7 +269,7 @@
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Arial", 18F, FontStyle.Bold);
-            label13.Location = new Point(38, 56);
+            label13.Location = new Point(47, 56);
             label13.Margin = new Padding(3, 8, 100, 0);
             label13.Name = "label13";
             label13.Size = new Size(64, 29);
@@ -312,11 +312,11 @@
             btnClear2.Font = new Font("Arial Rounded MT Bold", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnClear2.ForeColor = Color.White;
             btnClear2.Image = (Image)resources.GetObject("btnClear2.Image");
-            btnClear2.Location = new Point(664, 3);
+            btnClear2.Location = new Point(829, 3);
             btnClear2.Margin = new Padding(25, 3, 3, 3);
             btnClear2.Name = "btnClear2";
-            btnClear2.Padding = new Padding(100, 0, 0, 0);
-            btnClear2.Size = new Size(528, 42);
+            btnClear2.Padding = new Padding(70, 0, 0, 0);
+            btnClear2.Size = new Size(418, 42);
             btnClear2.TabIndex = 17;
             btnClear2.Text = "Clear Search";
             btnClear2.TextColor = Color.White;
@@ -329,7 +329,7 @@
             tabPage1.Location = new Point(4, 27);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1207, 867);
+            tabPage1.Size = new Size(1262, 867);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Home";
             tabPage1.UseVisualStyleBackColor = true;
@@ -348,7 +348,7 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 32.08396F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 67.91604F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.Size = new Size(1201, 861);
+            tableLayoutPanel2.Size = new Size(1256, 861);
             tableLayoutPanel2.TabIndex = 8;
             // 
             // dataGridView1
@@ -365,7 +365,7 @@
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1195, 579);
+            dataGridView1.Size = new Size(1250, 579);
             dataGridView1.TabIndex = 2;
             // 
             // No1
@@ -392,7 +392,7 @@
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 1;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel3.Size = new Size(1198, 270);
+            tableLayoutPanel3.Size = new Size(1253, 270);
             tableLayoutPanel3.TabIndex = 3;
             // 
             // tableLayoutPanel5
@@ -430,7 +430,7 @@
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 24.6913586F));
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 46F));
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
-            tableLayoutPanel5.Size = new Size(780, 264);
+            tableLayoutPanel5.Size = new Size(819, 264);
             tableLayoutPanel5.TabIndex = 7;
             // 
             // label4
@@ -438,7 +438,7 @@
             label4.AutoSize = true;
             label4.BackColor = SystemColors.Control;
             label4.Font = new Font("Arial", 18F, FontStyle.Bold);
-            label4.Location = new Point(49, 0);
+            label4.Location = new Point(52, 0);
             label4.Name = "label4";
             label4.Size = new Size(131, 29);
             label4.TabIndex = 5;
@@ -448,27 +448,27 @@
             // 
             textBoxModelNumber.Dock = DockStyle.Fill;
             textBoxModelNumber.Font = new Font("Arial", 18F);
-            textBoxModelNumber.Location = new Point(221, 88);
+            textBoxModelNumber.Location = new Point(232, 88);
             textBoxModelNumber.Name = "textBoxModelNumber";
             textBoxModelNumber.ReadOnly = true;
-            textBoxModelNumber.Size = new Size(556, 35);
+            textBoxModelNumber.Size = new Size(584, 35);
             textBoxModelNumber.TabIndex = 1;
             // 
             // textBoxCode
             // 
             textBoxCode.Dock = DockStyle.Fill;
             textBoxCode.Font = new Font("Arial", 18F);
-            textBoxCode.Location = new Point(221, 43);
+            textBoxCode.Location = new Point(232, 43);
             textBoxCode.Name = "textBoxCode";
             textBoxCode.ReadOnly = true;
-            textBoxCode.Size = new Size(556, 35);
+            textBoxCode.Size = new Size(584, 35);
             textBoxCode.TabIndex = 2;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Arial", 18F, FontStyle.Bold);
-            label6.Location = new Point(49, 133);
+            label6.Location = new Point(52, 133);
             label6.Name = "label6";
             label6.Size = new Size(154, 29);
             label6.TabIndex = 8;
@@ -478,7 +478,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Arial", 18F, FontStyle.Bold);
-            label7.Location = new Point(49, 40);
+            label7.Location = new Point(52, 40);
             label7.Name = "label7";
             label7.Size = new Size(151, 29);
             label7.TabIndex = 6;
@@ -488,10 +488,10 @@
             // 
             textBoxSerial.Dock = DockStyle.Fill;
             textBoxSerial.Font = new Font("Arial", 18F);
-            textBoxSerial.Location = new Point(221, 3);
+            textBoxSerial.Location = new Point(232, 3);
             textBoxSerial.Name = "textBoxSerial";
             textBoxSerial.ReadOnly = true;
-            textBoxSerial.Size = new Size(556, 35);
+            textBoxSerial.Size = new Size(584, 35);
             textBoxSerial.TabIndex = 1;
             textBoxSerial.KeyDown += textBoxSerial_KeyDown;
             // 
@@ -499,7 +499,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Arial", 18F, FontStyle.Bold);
-            label8.Location = new Point(49, 85);
+            label8.Location = new Point(52, 85);
             label8.Name = "label8";
             label8.Size = new Size(103, 48);
             label8.TabIndex = 7;
@@ -509,7 +509,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Arial", 18F, FontStyle.Bold);
-            label5.Location = new Point(49, 222);
+            label5.Location = new Point(52, 222);
             label5.Name = "label5";
             label5.Size = new Size(86, 29);
             label5.TabIndex = 8;
@@ -520,19 +520,19 @@
             textBoxStatus.BackColor = SystemColors.Control;
             textBoxStatus.Dock = DockStyle.Fill;
             textBoxStatus.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxStatus.Location = new Point(221, 225);
+            textBoxStatus.Location = new Point(232, 225);
             textBoxStatus.Name = "textBoxStatus";
-            textBoxStatus.Size = new Size(556, 35);
+            textBoxStatus.Size = new Size(584, 35);
             textBoxStatus.TabIndex = 10;
             // 
             // textBoxRegister
             // 
             textBoxRegister.Dock = DockStyle.Fill;
             textBoxRegister.Font = new Font("Arial", 18F);
-            textBoxRegister.Location = new Point(221, 136);
+            textBoxRegister.Location = new Point(232, 136);
             textBoxRegister.Name = "textBoxRegister";
             textBoxRegister.ReadOnly = true;
-            textBoxRegister.Size = new Size(556, 35);
+            textBoxRegister.Size = new Size(584, 35);
             textBoxRegister.TabIndex = 1;
             textBoxRegister.TextChanged += textBoxRegister_TextChanged;
             // 
@@ -542,7 +542,7 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(3, 3);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(40, 31);
+            pictureBox1.Size = new Size(43, 31);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 11;
             pictureBox1.TabStop = false;
@@ -553,7 +553,7 @@
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(3, 43);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(40, 35);
+            pictureBox2.Size = new Size(43, 35);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 12;
             pictureBox2.TabStop = false;
@@ -564,7 +564,7 @@
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
             pictureBox3.Location = new Point(3, 88);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(40, 38);
+            pictureBox3.Size = new Size(43, 38);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 13;
             pictureBox3.TabStop = false;
@@ -575,7 +575,7 @@
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
             pictureBox4.Location = new Point(3, 136);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(40, 34);
+            pictureBox4.Size = new Size(43, 34);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 14;
             pictureBox4.TabStop = false;
@@ -586,7 +586,7 @@
             pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
             pictureBox5.Location = new Point(3, 225);
             pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(40, 36);
+            pictureBox5.Size = new Size(43, 36);
             pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox5.TabIndex = 15;
             pictureBox5.TabStop = false;
@@ -595,7 +595,7 @@
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Arial", 18F, FontStyle.Bold);
-            label12.Location = new Point(49, 176);
+            label12.Location = new Point(52, 176);
             label12.Name = "label12";
             label12.Size = new Size(121, 29);
             label12.TabIndex = 16;
@@ -606,10 +606,10 @@
             textBoxInspector.BackColor = SystemColors.Control;
             textBoxInspector.Dock = DockStyle.Fill;
             textBoxInspector.Font = new Font("Arial Narrow", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxInspector.Location = new Point(221, 179);
+            textBoxInspector.Location = new Point(232, 179);
             textBoxInspector.Name = "textBoxInspector";
             textBoxInspector.ReadOnly = true;
-            textBoxInspector.Size = new Size(556, 35);
+            textBoxInspector.Size = new Size(584, 35);
             textBoxInspector.TabIndex = 17;
             // 
             // pictureBox6
@@ -618,7 +618,7 @@
             pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
             pictureBox6.Location = new Point(3, 179);
             pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(40, 32);
+            pictureBox6.Size = new Size(43, 32);
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox6.TabIndex = 18;
             pictureBox6.TabStop = false;
@@ -632,7 +632,7 @@
             tableLayoutPanel6.Controls.Add(tableLayoutPanel11, 0, 0);
             tableLayoutPanel6.Controls.Add(btnClear, 0, 2);
             tableLayoutPanel6.Dock = DockStyle.Fill;
-            tableLayoutPanel6.Location = new Point(786, 3);
+            tableLayoutPanel6.Location = new Point(825, 3);
             tableLayoutPanel6.Margin = new Padding(3, 3, 0, 3);
             tableLayoutPanel6.Name = "tableLayoutPanel6";
             tableLayoutPanel6.Padding = new Padding(20, 0, 0, 0);
@@ -642,7 +642,7 @@
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel6.Size = new Size(313, 264);
+            tableLayoutPanel6.Size = new Size(329, 264);
             tableLayoutPanel6.TabIndex = 8;
             // 
             // btnManual
@@ -660,7 +660,7 @@
             btnManual.Location = new Point(20, 66);
             btnManual.Margin = new Padding(0, 0, 0, 2);
             btnManual.Name = "btnManual";
-            btnManual.Size = new Size(293, 64);
+            btnManual.Size = new Size(309, 64);
             btnManual.TabIndex = 7;
             btnManual.Text = "Input Manual";
             btnManual.TextColor = Color.White;
@@ -681,7 +681,7 @@
             btnPrint.Location = new Point(20, 198);
             btnPrint.Margin = new Padding(0, 0, 0, 2);
             btnPrint.Name = "btnPrint";
-            btnPrint.Size = new Size(293, 64);
+            btnPrint.Size = new Size(309, 64);
             btnPrint.TabIndex = 6;
             btnPrint.Text = "Print";
             btnPrint.TextColor = Color.White;
@@ -700,7 +700,7 @@
             tableLayoutPanel11.RowCount = 2;
             tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel11.Size = new Size(287, 60);
+            tableLayoutPanel11.Size = new Size(303, 60);
             tableLayoutPanel11.TabIndex = 9;
             // 
             // timeHeader
@@ -712,7 +712,7 @@
             timeHeader.Location = new Point(3, 30);
             timeHeader.Margin = new Padding(3, 0, 0, 0);
             timeHeader.Name = "timeHeader";
-            timeHeader.Size = new Size(284, 30);
+            timeHeader.Size = new Size(300, 30);
             timeHeader.TabIndex = 6;
             timeHeader.Text = "time";
             timeHeader.TextAlign = ContentAlignment.MiddleCenter;
@@ -726,7 +726,7 @@
             DateHeader.Location = new Point(0, 0);
             DateHeader.Margin = new Padding(0, 0, 3, 0);
             DateHeader.Name = "DateHeader";
-            DateHeader.Size = new Size(284, 30);
+            DateHeader.Size = new Size(300, 30);
             DateHeader.TabIndex = 5;
             DateHeader.Text = "Date";
             DateHeader.TextAlign = ContentAlignment.MiddleCenter;
@@ -746,7 +746,7 @@
             btnClear.Location = new Point(20, 135);
             btnClear.Margin = new Padding(0, 3, 0, 3);
             btnClear.Name = "btnClear";
-            btnClear.Size = new Size(293, 60);
+            btnClear.Size = new Size(309, 60);
             btnClear.TabIndex = 8;
             btnClear.Text = "Clear";
             btnClear.TextColor = Color.White;
@@ -763,7 +763,7 @@
             tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1215, 898);
+            tabControl1.Size = new Size(1270, 898);
             tabControl1.TabIndex = 0;
             // 
             // tabPage3
@@ -773,7 +773,7 @@
             tabPage3.Location = new Point(4, 27);
             tabPage3.Name = "tabPage3";
             tabPage3.Padding = new Padding(3);
-            tabPage3.Size = new Size(1207, 867);
+            tabPage3.Size = new Size(1262, 867);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "tabPage3";
             tabPage3.UseVisualStyleBackColor = true;
@@ -789,7 +789,7 @@
             tableLayoutPanel13.Name = "tableLayoutPanel13";
             tableLayoutPanel13.RowCount = 1;
             tableLayoutPanel13.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel13.Size = new Size(1201, 805);
+            tableLayoutPanel13.Size = new Size(1256, 805);
             tableLayoutPanel13.TabIndex = 16;
             // 
             // label15
@@ -798,7 +798,7 @@
             label15.AutoSize = true;
             label15.BackColor = Color.Transparent;
             label15.Font = new Font("Helvetica", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label15.Location = new Point(233, 0);
+            label15.Location = new Point(261, 0);
             label15.Name = "label15";
             label15.Padding = new Padding(0, 50, 0, 0);
             label15.Size = new Size(734, 138);
@@ -818,7 +818,7 @@
             tableLayoutPanel12.Name = "tableLayoutPanel12";
             tableLayoutPanel12.RowCount = 1;
             tableLayoutPanel12.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel12.Size = new Size(1201, 56);
+            tableLayoutPanel12.Size = new Size(1256, 56);
             tableLayoutPanel12.TabIndex = 15;
             // 
             // label14
@@ -1011,7 +1011,7 @@
             BackColor = Color.FromArgb(224, 235, 245);
             Controls.Add(tabControl1);
             Name = "TabControlView";
-            Size = new Size(1215, 898);
+            Size = new Size(1270, 898);
             Load += TabControlView_Load;
             tabPage2.ResumeLayout(false);
             tableLayoutPanel9.ResumeLayout(false);

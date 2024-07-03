@@ -68,8 +68,12 @@ namespace PrintGaransi.Presenter
                     Location = selectedData.Location
                 };
 
-                string printerType = _printerType.GetPrinterType();
-                _view.ShowPrintPreviewDialog(model,printerType);
+                DialogResult dialogResult = MessageBox.Show("Apakah ingin melakukan print ulang?", "Re-Print", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                if (dialogResult == DialogResult.OK)
+                {
+                    string printerType = _printerType.GetPrinterType();
+                    _view.ShowPrintPreviewDialog(model, printerType);
+                }
             }
         }
 
@@ -84,6 +88,14 @@ namespace PrintGaransi.Presenter
             }
 
             if (string.IsNullOrWhiteSpace(_view.ModelCode))
+            {
+                _view.Status = "Model Code harus terisi";
+                _view.StatusBackColor = Color.Salmon;
+                _view.StatusForeColor = Color.Black;
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(_view.Register))
             {
                 _view.Status = "Model Code harus terisi";
                 _view.StatusBackColor = Color.Salmon;
