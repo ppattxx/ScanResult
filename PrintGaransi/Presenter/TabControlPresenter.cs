@@ -68,7 +68,7 @@ namespace PrintGaransi.Presenter
                     Location = selectedData.Location
                 };
 
-                DialogResult dialogResult = MessageBox.Show("Apakah ingin melakukan print ulang?", "Re-Print", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                DialogResult dialogResult = CustomeMessageBox.Show("Apakah ingin melakukan print ulang?", "Re-Print", MessageBoxButtons.OKCancel, MessageBoxDefaultButton.Button1);
                 if (dialogResult == DialogResult.OK)
                 {
                     string printerType = _printerType.GetPrinterType();

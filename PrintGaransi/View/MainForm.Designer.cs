@@ -170,7 +170,7 @@
             btnRePrint.Name = "btnRePrint";
             btnRePrint.Size = new Size(98, 41);
             btnRePrint.TabIndex = 3;
-            btnRePrint.Text = "\r\nRe Print\r\n";
+            btnRePrint.Text = "\r\nRe-Print\r\n";
             btnRePrint.TextAlign = ContentAlignment.BottomCenter;
             btnRePrint.TextImageRelation = TextImageRelation.ImageAboveText;
             btnRePrint.UseVisualStyleBackColor = true;

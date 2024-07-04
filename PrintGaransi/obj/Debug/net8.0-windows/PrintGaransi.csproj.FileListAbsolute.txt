@@ -223,3 +223,4 @@ D:\Perkuliahan\Semester6\Panasonic\PrintKartuGaransi\PrintGaransi\PrintGaransi\o
 D:\Perkuliahan\Semester6\Panasonic\PrintKartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\BCrypt.Net-Next.dll
 D:\WarrantyPrint\versi Juni\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\BCrypt.Net-Next.dll
 D:\WarrantyPrint\versi Juni\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.MainForm.resources
+D:\Perkuliahan\Semester6\Panasonic\PrintKartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.View.CustomeMessageBox.resources
