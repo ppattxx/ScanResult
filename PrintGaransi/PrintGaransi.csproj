@@ -6,6 +6,8 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>3925426-print-printer-printing-icon_111556.ico</ApplicationIcon>
+    <PackageIcon>3925426-print-printer-printing-icon_111556.ico</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,11 +15,23 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="3925426-print-printer-printing-icon_111556.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\3925426-print-printer-printing-icon_111556.ico">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="Dapper" Version="2.1.66" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
   </ItemGroup>
 
   <ItemGroup>

@@ -14,7 +14,7 @@ namespace PrintGaransi._Repositories
 
         public GaransiRepository()
         {
-            LSBUDBPRODUCTION = ConfigurationManager.ConnectionStrings["LSBUProduction"].ConnectionString;
+            LSBUDBPRODUCTION = ConfigurationManager.ConnectionStrings["LSBUConnection"].ConnectionString;
         }
 
         public IEnumerable<GaransiModel> GetData(string model)
@@ -37,15 +37,15 @@ namespace PrintGaransi._Repositories
                         CONVERT(DATE, Result_Warranty_Cards.ScanningDate) AS ScanningDate,
                         Result_Warranty_Cards.ScanningTime,
                         Locations.LocationName AS Location,
-                        AspNetUsers.Name AS InspectorId
+                        AspNetUsers.Name AS OperatorId
                     FROM 
                         Result_Warranty_Cards
                     INNER JOIN 
-                        LSBU_Auth.dbo.AspNetUsers 
+                        AspNetUsers 
                     ON 
-                        Result_Warranty_Cards.InspectorId = AspNetUsers.NIK
+                        Result_Warranty_Cards.OperatorId = AspNetUsers.NIK
                     INNER JOIN 
-                        LSBU_Common.dbo.Locations 
+                        Locations 
                     ON 
                         Result_Warranty_Cards.Location = Locations.Id
                     WHERE 
@@ -76,7 +76,7 @@ namespace PrintGaransi._Repositories
                             Date = Convert.ToDateTime(reader["ScanningDate"]).ToString("yyyy-MM-dd"),
                             ScanTime = reader["ScanningTime"].ToString(),
                             Location = reader["Location"].ToString(),
-                            Inspector = reader["InspectorId"].ToString()
+                            Inspector = reader["OperatorId"].ToString()
                         });
                     }
                 }
@@ -101,21 +101,24 @@ namespace PrintGaransi._Repositories
                         Result_Warranty_Cards.ScanningDate, 
                         Result_Warranty_Cards.ScanningTime, 
                         Locations.LocationName AS Location, 
-                        AspNetUsers.Name AS InspectorId 
+                        AspNetUsers.Name AS OperatorId 
                     FROM 
                         Result_Warranty_Cards 
                     INNER JOIN 
-                        LSBU_Auth.dbo.AspNetUsers 
+                        AspNetUsers 
                     ON 
-                        Result_Warranty_Cards.InspectorId = AspNetUsers.NIK 
+                        Result_Warranty_Cards.OperatorId = AspNetUsers.NIK 
                     INNER JOIN 
-                        LSBU_Common.dbo.Locations 
+                        Locations 
                     ON 
                         Result_Warranty_Cards.Location = Locations.Id 
                     WHERE 
                         SerialNumber LIKE @SerialNumber 
                         AND CAST(ScanningDate AS DATE) = @SelectedDate
-                        AND Locations.LocationName = @Location";
+                        AND Locations.LocationName = @Location
+                    ORDER BY
+                        Id DESC;
+                    ";
 
             using (SqlConnection connection = new SqlConnection(LSBUDBPRODUCTION))
             using (SqlCommand command = new SqlCommand(query, connection))
@@ -140,7 +143,7 @@ namespace PrintGaransi._Repositories
                             Date = Convert.ToDateTime(reader["ScanningDate"]).ToString("yyyy-MM-dd"),
                             ScanTime = reader["ScanningTime"].ToString(),
                             Location = reader["Location"].ToString(),
-                            Inspector = reader["InspectorId"].ToString()
+                            Inspector = reader["OperatorId"].ToString()
                         };
                         results.Add(result);
                     }
@@ -159,16 +162,18 @@ namespace PrintGaransi._Repositories
                 connection.Open();
                 command.Connection = connection;
 
-                command.CommandText = "INSERT INTO Result_Warranty_Cards (JenisProduk, ModelCode, ModelNumber, SerialNumber, ScanningDate, ScanningTime, Location, Register, InspectorId) values (@JenisProduk, @ModelCode, @ModelNumber, @SerialNumber, @ScanningDate, @ScanningTime, @Location, @Register, @InspectorId)";
-                command.Parameters.Add("@JenisProduk", SqlDbType.VarChar).Value = model.JenisProduk;
-                command.Parameters.Add("@ModelCode", SqlDbType.VarChar).Value = model.ModelCode;
-                command.Parameters.Add("@ModelNumber", SqlDbType.VarChar).Value = model.ModelNumber;
-                command.Parameters.Add("@SerialNumber", SqlDbType.VarChar).Value = model.NoSeri;
-                command.Parameters.Add("@ScanningDate", SqlDbType.Date).Value = model.Date;
-                command.Parameters.Add("@ScanningTime", SqlDbType.Time).Value = model.ScanTime;
-                command.Parameters.Add("@Location", SqlDbType.Int).Value = model.Location;
-                command.Parameters.Add("@Register", SqlDbType.VarChar).Value = model.NoReg;
-                command.Parameters.Add("@InspectorId", SqlDbType.VarChar).Value = model.inspectorId;
+                command.CommandText = "INSERT INTO Result_ScanMotorWash (product, scanResult, modelCodeId, motorModelId, result, dateTime, inspector, location) " +
+                                      "VALUES (@product, @scanResult, @modelCodeId, @motorModelId, @result, @dateTime, @inspector, @location)";
+
+                command.Parameters.Add("@product", SqlDbType.VarChar).Value = model.JenisProduk;
+                command.Parameters.Add("@scanResult", SqlDbType.VarChar).Value = model.NoPart;
+                command.Parameters.Add("@modelCodeId", SqlDbType.VarChar).Value = model.ModelCode;
+                command.Parameters.Add("@motorModelId", SqlDbType.VarChar).Value = model.ModelNumber; 
+                command.Parameters.Add("@result", SqlDbType.VarChar).Value = model.ScanResult;
+                command.Parameters.Add("@dateTime", SqlDbType.DateTime).Value = model.Date; 
+                command.Parameters.Add("@inspector", SqlDbType.VarChar).Value = model.inspectorId;
+                command.Parameters.Add("@location", SqlDbType.Int).Value = model.Location;
+
                 command.ExecuteNonQuery();
 
                 connection.Close();

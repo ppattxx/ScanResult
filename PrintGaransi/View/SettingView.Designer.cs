@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingView));
             textBoxIP = new TextBox();
             textBoxPort = new TextBox();
             label1 = new Label();
@@ -47,31 +48,35 @@
             btnPreview = new RadioButton();
             label8 = new Label();
             printerBox = new ComboBox();
+            checkBox = new CheckBox();
+            label9 = new Label();
             SuspendLayout();
             // 
             // textBoxIP
             // 
             textBoxIP.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxIP.Location = new Point(270, 193);
+            textBoxIP.Location = new Point(309, 289);
+            textBoxIP.Margin = new Padding(3, 4, 3, 4);
             textBoxIP.Name = "textBoxIP";
-            textBoxIP.Size = new Size(308, 31);
+            textBoxIP.Size = new Size(351, 37);
             textBoxIP.TabIndex = 0;
             // 
             // textBoxPort
             // 
             textBoxPort.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxPort.Location = new Point(270, 243);
+            textBoxPort.Location = new Point(309, 356);
+            textBoxPort.Margin = new Padding(3, 4, 3, 4);
             textBoxPort.Name = "textBoxPort";
-            textBoxPort.Size = new Size(308, 31);
+            textBoxPort.Size = new Size(351, 37);
             textBoxPort.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Arial", 15.75F, FontStyle.Bold);
-            label1.Location = new Point(95, 196);
+            label1.Location = new Point(109, 293);
             label1.Name = "label1";
-            label1.Size = new Size(113, 24);
+            label1.Size = new Size(150, 32);
             label1.TabIndex = 2;
             label1.Text = "Camera IP";
             // 
@@ -79,21 +84,21 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Arial", 15.75F, FontStyle.Bold);
-            label2.Location = new Point(95, 249);
+            label2.Location = new Point(109, 364);
             label2.Name = "label2";
-            label2.Size = new Size(136, 24);
+            label2.Size = new Size(179, 32);
             label2.TabIndex = 3;
             label2.Text = "Camera Port";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Helvetica", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(221, 33);
+            label3.Font = new Font("Arial", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(318, 32);
             label3.Name = "label3";
-            label3.Size = new Size(250, 32);
+            label3.Size = new Size(171, 51);
             label3.TabIndex = 5;
-            label3.Text = "Setting IP Camera";
+            label3.Text = "Setting";
             // 
             // tableLayoutPanel4
             // 
@@ -114,9 +119,9 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Arial", 15.75F, FontStyle.Bold);
-            label4.Location = new Point(95, 321);
+            label4.Location = new Point(109, 460);
             label4.Name = "label4";
-            label4.Size = new Size(98, 24);
+            label4.Size = new Size(129, 32);
             label4.TabIndex = 6;
             label4.Text = "Location";
             // 
@@ -124,9 +129,10 @@
             // 
             locationBox.Font = new Font("MS Reference Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             locationBox.FormattingEnabled = true;
-            locationBox.Location = new Point(273, 317);
+            locationBox.Location = new Point(312, 455);
+            locationBox.Margin = new Padding(3, 4, 3, 4);
             locationBox.Name = "locationBox";
-            locationBox.Size = new Size(305, 34);
+            locationBox.Size = new Size(348, 41);
             locationBox.TabIndex = 7;
             // 
             // btnConnect
@@ -136,25 +142,29 @@
             btnConnect.BorderColor = Color.PaleVioletRed;
             btnConnect.BorderRadius = 8;
             btnConnect.BorderSize = 0;
+            btnConnect.Cursor = Cursors.Hand;
             btnConnect.FlatAppearance.BorderSize = 0;
             btnConnect.FlatStyle = FlatStyle.Flat;
-            btnConnect.Font = new Font("Helvetica", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnConnect.ForeColor = Color.White;
-            btnConnect.Location = new Point(137, 553);
+            btnConnect.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnConnect.ForeColor = Color.Transparent;
+            btnConnect.Image = (Image)resources.GetObject("btnConnect.Image");
+            btnConnect.ImageAlign = ContentAlignment.MiddleLeft;
+            btnConnect.Location = new Point(157, 737);
+            btnConnect.Margin = new Padding(3, 4, 3, 4);
             btnConnect.Name = "btnConnect";
-            btnConnect.Size = new Size(150, 40);
+            btnConnect.Size = new Size(200, 53);
             btnConnect.TabIndex = 8;
-            btnConnect.Text = "Connect";
-            btnConnect.TextColor = Color.White;
+            btnConnect.Text = "     Connect";
+            btnConnect.TextColor = Color.Transparent;
             btnConnect.UseVisualStyleBackColor = false;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Arial", 15.75F, FontStyle.Bold);
-            label5.Location = new Point(95, 381);
+            label5.Location = new Point(109, 540);
             label5.Name = "label5";
-            label5.Size = new Size(143, 24);
+            label5.Size = new Size(187, 32);
             label5.TabIndex = 9;
             label5.Text = "Jenis Produk";
             // 
@@ -162,18 +172,19 @@
             // 
             JPComboBox.Font = new Font("MS Reference Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             JPComboBox.FormattingEnabled = true;
-            JPComboBox.Location = new Point(273, 372);
+            JPComboBox.Location = new Point(312, 528);
+            JPComboBox.Margin = new Padding(3, 4, 3, 4);
             JPComboBox.Name = "JPComboBox";
-            JPComboBox.Size = new Size(305, 34);
+            JPComboBox.Size = new Size(348, 41);
             JPComboBox.TabIndex = 10;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Arial", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(93, 142);
+            label6.Location = new Point(106, 221);
             label6.Name = "label6";
-            label6.Size = new Size(118, 24);
+            label6.Size = new Size(155, 32);
             label6.TabIndex = 2;
             label6.Text = "Print Mode";
             // 
@@ -181,9 +192,10 @@
             // 
             btnOn.AutoSize = true;
             btnOn.Font = new Font("Arial", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnOn.Location = new Point(268, 141);
+            btnOn.Location = new Point(332, 221);
+            btnOn.Margin = new Padding(3, 4, 3, 4);
             btnOn.Name = "btnOn";
-            btnOn.Size = new Size(68, 36);
+            btnOn.Size = new Size(83, 43);
             btnOn.TabIndex = 11;
             btnOn.TabStop = true;
             btnOn.Text = "On";
@@ -193,9 +205,10 @@
             // 
             btnOff.AutoSize = true;
             btnOff.Font = new Font("Arial", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnOff.Location = new Point(358, 141);
+            btnOff.Location = new Point(421, 221);
+            btnOff.Margin = new Padding(3, 4, 3, 4);
             btnOff.Name = "btnOff";
-            btnOff.Size = new Size(67, 36);
+            btnOff.Size = new Size(83, 43);
             btnOff.TabIndex = 11;
             btnOff.TabStop = true;
             btnOff.Text = "Off";
@@ -208,13 +221,17 @@
             btnClose.BorderColor = Color.PaleVioletRed;
             btnClose.BorderRadius = 8;
             btnClose.BorderSize = 0;
+            btnClose.Cursor = Cursors.Hand;
             btnClose.FlatAppearance.BorderSize = 0;
             btnClose.FlatStyle = FlatStyle.Flat;
-            btnClose.Font = new Font("Helvetica", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnClose.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnClose.ForeColor = Color.White;
-            btnClose.Location = new Point(369, 553);
+            btnClose.Image = (Image)resources.GetObject("btnClose.Image");
+            btnClose.ImageAlign = ContentAlignment.MiddleLeft;
+            btnClose.Location = new Point(422, 737);
+            btnClose.Margin = new Padding(3, 4, 3, 4);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(150, 40);
+            btnClose.Size = new Size(200, 53);
             btnClose.TabIndex = 8;
             btnClose.Text = "Close";
             btnClose.TextColor = Color.White;
@@ -225,9 +242,9 @@
             label7.AutoSize = true;
             label7.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.Red;
-            label7.Location = new Point(270, 277);
+            label7.Location = new Point(309, 401);
             label7.Name = "label7";
-            label7.Size = new Size(308, 18);
+            label7.Size = new Size(399, 22);
             label7.TabIndex = 12;
             label7.Text = "*Click button Connect after change IP/Port";
             // 
@@ -235,9 +252,10 @@
             // 
             btnPreview.AutoSize = true;
             btnPreview.Font = new Font("Arial", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnPreview.Location = new Point(446, 142);
+            btnPreview.Location = new Point(510, 221);
+            btnPreview.Margin = new Padding(3, 4, 3, 4);
             btnPreview.Name = "btnPreview";
-            btnPreview.Size = new Size(126, 36);
+            btnPreview.Size = new Size(155, 43);
             btnPreview.TabIndex = 11;
             btnPreview.TabStop = true;
             btnPreview.Text = "Preview";
@@ -247,9 +265,9 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Arial", 15.75F, FontStyle.Bold);
-            label8.Location = new Point(95, 432);
+            label8.Location = new Point(109, 608);
             label8.Name = "label8";
-            label8.Size = new Size(77, 24);
+            label8.Size = new Size(103, 32);
             label8.TabIndex = 9;
             label8.Text = "Printer";
             // 
@@ -257,16 +275,42 @@
             // 
             printerBox.Font = new Font("MS Reference Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             printerBox.FormattingEnabled = true;
-            printerBox.Location = new Point(273, 423);
+            printerBox.Location = new Point(312, 596);
+            printerBox.Margin = new Padding(3, 4, 3, 4);
             printerBox.Name = "printerBox";
-            printerBox.Size = new Size(305, 34);
+            printerBox.Size = new Size(348, 41);
             printerBox.TabIndex = 10;
+            // 
+            // checkBox
+            // 
+            checkBox.AutoSize = true;
+            checkBox.Cursor = Cursors.Hand;
+            checkBox.Font = new Font("Arial", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            checkBox.Location = new Point(332, 155);
+            checkBox.Margin = new Padding(3, 4, 3, 4);
+            checkBox.Name = "checkBox";
+            checkBox.Size = new Size(167, 43);
+            checkBox.TabIndex = 13;
+            checkBox.Text = "checklist";
+            checkBox.UseVisualStyleBackColor = true;
+            checkBox.CheckedChanged += checkBox_CheckedChanged;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Arial", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.Location = new Point(109, 155);
+            label9.Name = "label9";
+            label9.Size = new Size(213, 32);
+            label9.TabIndex = 2;
+            label9.Text = "Actived Setting";
             // 
             // SettingView
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(674, 643);
+            ClientSize = new Size(770, 857);
+            Controls.Add(checkBox);
             Controls.Add(label7);
             Controls.Add(btnPreview);
             Controls.Add(btnOff);
@@ -281,11 +325,13 @@
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
+            Controls.Add(label9);
             Controls.Add(label6);
             Controls.Add(label1);
             Controls.Add(textBoxPort);
             Controls.Add(textBoxIP);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "SettingView";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Setting";
@@ -317,5 +363,7 @@
         private RadioButton btnPreview;
         private Label label8;
         private ComboBox printerBox;
+        private CheckBox checkBox;
+        private Label label9;
     }
 }

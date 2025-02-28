@@ -13,6 +13,8 @@ namespace PrintGaransi.Presenter
         public ITabControlView View { get; }
         public IGaransiRepository GaransiRepository { get; }
         public LoginModel _User { get; }
+        public object ResultRepository { get; internal set; }
+        public IModelNumberRepository? ModelNumberRepository { get; internal set; }
 
         public TabControlDataPresenter(ITabControlView view, IGaransiRepository garansiRepository,LoginModel user)
         {

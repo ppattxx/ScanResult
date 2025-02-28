@@ -224,3 +224,304 @@ D:\Perkuliahan\Semester6\Panasonic\PrintKartuGaransi\PrintGaransi\PrintGaransi\b
 D:\WarrantyPrint\versi Juni\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\BCrypt.Net-Next.dll
 D:\WarrantyPrint\versi Juni\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.MainForm.resources
 D:\Perkuliahan\Semester6\Panasonic\PrintKartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.View.CustomeMessageBox.resources
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\PrintGaransi.exe
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\PrintGaransi.dll.config
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\PrintGaransi.deps.json
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\PrintGaransi.runtimeconfig.json
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\PrintGaransi.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\PrintGaransi.pdb
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Azure.Core.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Azure.Identity.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\BCrypt.Net-Next.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.Data.SqlClient.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.Identity.Client.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.Identity.Client.NativeInterop.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Logging.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Protocols.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Tokens.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.SqlServer.Server.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.Web.WebView2.Core.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.Web.WebView2.WinForms.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.Web.WebView2.Wpf.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\System.Memory.Data.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\System.Runtime.Caching.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\de\Microsoft.Data.SqlClient.resources.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\es\Microsoft.Data.SqlClient.resources.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\fr\Microsoft.Data.SqlClient.resources.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\it\Microsoft.Data.SqlClient.resources.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\ja\Microsoft.Data.SqlClient.resources.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\ko\Microsoft.Data.SqlClient.resources.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\pt-BR\Microsoft.Data.SqlClient.resources.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\ru\Microsoft.Data.SqlClient.resources.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\unix\lib\net8.0\Microsoft.Data.SqlClient.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\Microsoft.Data.SqlClient.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-arm64\native\msalruntime_arm64.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-x64\native\msalruntime.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-x86\native\msalruntime_x86.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-arm64\native\WebView2Loader.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-x64\native\WebView2Loader.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-x86\native\WebView2Loader.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Runtime.Caching.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.csproj.AssemblyReference.cache
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.Properties.Resources.resources
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.View.CustomeMessageBox.resources
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.View.LoginView.resources
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.MainForm.resources
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.View.SettingView.resources
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.View.TabControlView.resources
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.csproj.GenerateResource.cache
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.AssemblyInfoInputs.cache
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.AssemblyInfo.cs
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.csproj.CoreCompileInputs.cache
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.sourcelink.json
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGar.D66A7998.Up2Date
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\refint\PrintGaransi.dll
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.pdb
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.genruntimeconfig.cache
+C:\Users\LS\Documents\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\ref\PrintGaransi.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\PrintGaransi.exe
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\PrintGaransi.dll.config
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\PrintGaransi.deps.json
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\PrintGaransi.runtimeconfig.json
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\PrintGaransi.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\PrintGaransi.pdb
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Azure.Core.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Azure.Identity.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\BCrypt.Net-Next.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.Bcl.AsyncInterfaces.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.Data.SqlClient.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.Identity.Client.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.Identity.Client.Extensions.Msal.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.Identity.Client.NativeInterop.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Abstractions.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.IdentityModel.JsonWebTokens.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Logging.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Protocols.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Tokens.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.SqlServer.Server.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.Web.WebView2.Core.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.Web.WebView2.WinForms.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.Web.WebView2.Wpf.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\System.IdentityModel.Tokens.Jwt.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\System.Memory.Data.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\System.Runtime.Caching.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\de\Microsoft.Data.SqlClient.resources.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\es\Microsoft.Data.SqlClient.resources.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\fr\Microsoft.Data.SqlClient.resources.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\it\Microsoft.Data.SqlClient.resources.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\ja\Microsoft.Data.SqlClient.resources.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\ko\Microsoft.Data.SqlClient.resources.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\pt-BR\Microsoft.Data.SqlClient.resources.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\ru\Microsoft.Data.SqlClient.resources.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\unix\lib\net8.0\Microsoft.Data.SqlClient.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\Microsoft.Data.SqlClient.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-arm64\native\msalruntime_arm64.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-x64\native\msalruntime.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-x86\native\msalruntime_x86.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-arm64\native\WebView2Loader.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-x64\native\WebView2Loader.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-x86\native\WebView2Loader.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Runtime.Caching.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.csproj.AssemblyReference.cache
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.Properties.Resources.resources
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.View.CustomeMessageBox.resources
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.View.LoginView.resources
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.MainForm.resources
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.View.SettingView.resources
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.View.TabControlView.resources
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.csproj.GenerateResource.cache
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.GeneratedMSBuildEditorConfig.editorconfig
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.AssemblyInfoInputs.cache
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.AssemblyInfo.cs
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.csproj.CoreCompileInputs.cache
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.sourcelink.json
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGar.D66A7998.Up2Date
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\refint\PrintGaransi.dll
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.pdb
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.genruntimeconfig.cache
+F:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\ref\PrintGaransi.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\PrintGaransi.exe
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\PrintGaransi.dll.config
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\PrintGaransi.deps.json
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\PrintGaransi.runtimeconfig.json
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\PrintGaransi.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\PrintGaransi.pdb
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Azure.Core.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Azure.Identity.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\BCrypt.Net-Next.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.Data.SqlClient.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.Identity.Client.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.Identity.Client.NativeInterop.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Abstractions.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Logging.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Protocols.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Tokens.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.SqlServer.Server.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.Web.WebView2.Core.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.Web.WebView2.WinForms.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.Web.WebView2.Wpf.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\System.IdentityModel.Tokens.Jwt.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\System.Memory.Data.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\System.Runtime.Caching.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\de\Microsoft.Data.SqlClient.resources.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\es\Microsoft.Data.SqlClient.resources.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\fr\Microsoft.Data.SqlClient.resources.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\it\Microsoft.Data.SqlClient.resources.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\ja\Microsoft.Data.SqlClient.resources.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\ko\Microsoft.Data.SqlClient.resources.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\pt-BR\Microsoft.Data.SqlClient.resources.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\ru\Microsoft.Data.SqlClient.resources.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\unix\lib\net8.0\Microsoft.Data.SqlClient.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\Microsoft.Data.SqlClient.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-arm64\native\msalruntime_arm64.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-x64\native\msalruntime.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-x86\native\msalruntime_x86.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-arm64\native\WebView2Loader.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-x64\native\WebView2Loader.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-x86\native\WebView2Loader.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Runtime.Caching.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.csproj.AssemblyReference.cache
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.Properties.Resources.resources
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.View.CustomeMessageBox.resources
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.View.LoginView.resources
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.MainForm.resources
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.View.SettingView.resources
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.View.TabControlView.resources
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.csproj.GenerateResource.cache
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.GeneratedMSBuildEditorConfig.editorconfig
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.AssemblyInfoInputs.cache
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.AssemblyInfo.cs
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.csproj.CoreCompileInputs.cache
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.sourcelink.json
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGar.D66A7998.Up2Date
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\refint\PrintGaransi.dll
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.pdb
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.genruntimeconfig.cache
+D:\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\ref\PrintGaransi.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\PrintGaransi.exe
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\PrintGaransi.dll.config
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\PrintGaransi.deps.json
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\PrintGaransi.runtimeconfig.json
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\PrintGaransi.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\PrintGaransi.pdb
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Azure.Core.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Azure.Identity.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\BCrypt.Net-Next.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.Data.SqlClient.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.Identity.Client.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.Identity.Client.NativeInterop.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Abstractions.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Logging.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Protocols.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.IdentityModel.Tokens.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.SqlServer.Server.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.Web.WebView2.Core.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.Web.WebView2.WinForms.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Microsoft.Web.WebView2.Wpf.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\System.IdentityModel.Tokens.Jwt.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\System.Memory.Data.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\System.Runtime.Caching.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\de\Microsoft.Data.SqlClient.resources.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\es\Microsoft.Data.SqlClient.resources.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\fr\Microsoft.Data.SqlClient.resources.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\it\Microsoft.Data.SqlClient.resources.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\ja\Microsoft.Data.SqlClient.resources.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\ko\Microsoft.Data.SqlClient.resources.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\pt-BR\Microsoft.Data.SqlClient.resources.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\ru\Microsoft.Data.SqlClient.resources.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\unix\lib\net8.0\Microsoft.Data.SqlClient.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\Microsoft.Data.SqlClient.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-arm64\native\msalruntime_arm64.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-x64\native\msalruntime.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-x86\native\msalruntime_x86.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-arm64\native\WebView2Loader.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-x64\native\WebView2Loader.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-x86\native\WebView2Loader.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Runtime.Caching.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.csproj.AssemblyReference.cache
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.Properties.Resources.resources
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.View.CustomeMessageBox.resources
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.View.LoginView.resources
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.MainForm.resources
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.View.SettingView.resources
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.View.TabControlView.resources
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.csproj.GenerateResource.cache
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.AssemblyInfoInputs.cache
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.AssemblyInfo.cs
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.csproj.CoreCompileInputs.cache
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.sourcelink.json
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGar.D66A7998.Up2Date
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\refint\PrintGaransi.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.pdb
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\PrintGaransi.genruntimeconfig.cache
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\obj\Debug\net8.0-windows\ref\PrintGaransi.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\Dapper.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
+C:\Kuliah\Belajar C Sharp\Source Code Application\KartuGaransi\PrintGaransi\PrintGaransi\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Data.SqlClient.dll

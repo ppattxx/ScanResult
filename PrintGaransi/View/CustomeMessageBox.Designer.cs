@@ -74,8 +74,9 @@
             // labelMessage
             // 
             labelMessage.AutoSize = true;
+            labelMessage.BackColor = SystemColors.ButtonHighlight;
             labelMessage.Dock = DockStyle.Fill;
-            labelMessage.Font = new Font("Helvetica", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelMessage.Font = new Font("Arial", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelMessage.Location = new Point(3, 0);
             labelMessage.Name = "labelMessage";
             labelMessage.Size = new Size(663, 109);
@@ -85,6 +86,7 @@
             // 
             // panelButtons
             // 
+            panelButtons.BackColor = SystemColors.ButtonHighlight;
             panelButtons.ColumnCount = 2;
             panelButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             panelButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
@@ -102,7 +104,8 @@
             // 
             button1.Anchor = AnchorStyles.None;
             button1.BackColor = Color.MediumSeaGreen;
-            button1.Font = new Font("Helvetica", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.Cursor = Cursors.Hand;
+            button1.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
             button1.Location = new Point(116, 16);
             button1.Name = "button1";
@@ -115,7 +118,8 @@
             // 
             button2.Anchor = AnchorStyles.None;
             button2.BackColor = Color.Firebrick;
-            button2.Font = new Font("Helvetica", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button2.Cursor = Cursors.Hand;
+            button2.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.White;
             button2.Location = new Point(451, 16);
             button2.Name = "button2";
@@ -129,7 +133,7 @@
             labelCaption.AutoSize = true;
             labelCaption.BackColor = Color.FromArgb(0, 35, 105);
             labelCaption.Dock = DockStyle.Fill;
-            labelCaption.Font = new Font("Helvetica Rounded", 23.9999962F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelCaption.Font = new Font("Microsoft Sans Serif", 23.9999962F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelCaption.ForeColor = Color.White;
             labelCaption.Location = new Point(0, 0);
             labelCaption.Margin = new Padding(0);
@@ -143,6 +147,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ButtonHighlight;
             ClientSize = new Size(675, 222);
             Controls.Add(panelTitleBar);
             FormBorderStyle = FormBorderStyle.None;

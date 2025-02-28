@@ -85,7 +85,7 @@ namespace PrintGaransi.Model
             set => scanTime = value;
         }
 
-        [DisplayName("Inspector")]
+        [DisplayName("Operator")]
         public string Inspector
         {
             get => inspectorId;
@@ -99,6 +99,7 @@ namespace PrintGaransi.Model
             get => location;
             set => location = value;
         }
+        public string InspectorId { get; internal set; }
 
         public void SaveScanTime(string myData)
         {

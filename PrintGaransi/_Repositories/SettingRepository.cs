@@ -17,7 +17,7 @@ namespace PrintGaransi._Repositories
         private int locationId;
         public SettingRepository()
         {
-            DbConnectionCommon = ConfigurationManager.ConnectionStrings["DBConnectionCommon"].ConnectionString;
+            DbConnectionCommon = ConfigurationManager.ConnectionStrings["LSBUConnection"].ConnectionString;
         }
 
         public List<string> GetData()

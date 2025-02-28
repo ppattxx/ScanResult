@@ -15,14 +15,20 @@ namespace PrintGaransi._Repositories
         private readonly string DBConnectionLogin;
         public LoginRepository()
         {
-            DBConnectionLogin = ConfigurationManager.ConnectionStrings["DBConnectionLogin"].ConnectionString;
+            DBConnectionLogin = ConfigurationManager.ConnectionStrings["LSBUConnection"].ConnectionString;
         }
 
         public LoginModel GetUserByUsername(string username)
         {
+            return GetUserByUsernames(username);
+        }
+
+        public LoginModel GetUserByUsernames(string username)
+        {
             using (var connection = new SqlConnection(DBConnectionLogin))
             using (var command = new SqlCommand())
             {
+                
                 connection.Open();
                 command.Connection = connection;
                 command.CommandText = "SELECT PasswordHash, NIK, Name FROM AspNetUsers WHERE NIK = @NIK";

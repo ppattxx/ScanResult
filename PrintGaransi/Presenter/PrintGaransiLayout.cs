@@ -17,7 +17,7 @@ namespace PrintGaransi.Presenter
             e.PageSettings.PaperSize = customPaperSize;
             int marginTop = 410;
             int yPos = marginTop;
-            int xPos = 214;
+            int xPos = 210;
 
             // Menentukan font
             Font fs1 = new Font("Helvetica", 12);

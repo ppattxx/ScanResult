@@ -28,8 +28,14 @@ namespace PrintGaransi.View
             InitializeComponent();
             InitializeEventHandler();
             _printMode = new PrintModeModel();
+            LoadCheckBoxSetting();
             LoadRadioSettings();
             LoadPrinters();
+        }
+
+        private void LoadCheckBoxSetting()
+        {
+            checkBox.Checked = Properties.Settings.Default.CheckBoxChecked;
         }
 
         private void LoadPrinters()
@@ -90,6 +96,14 @@ namespace PrintGaransi.View
 
         public string mode { get; set; }
 
+        public bool IsCheckBoxChecked
+        {
+            get => checkBox.Checked;
+            set => checkBox.Checked = value;
+        }
+        public static string LocationName { get; internal set; }
+        public static string ProductName { get; internal set; }
+
         public event EventHandler SelectedIndexChanged;
         public event EventHandler SaveIPSettings;
         public event EventHandler SavePortSettings;
@@ -101,6 +115,7 @@ namespace PrintGaransi.View
         public event EventHandler HandleRadioButton;
         public event EventHandler SelectedPrinterType;
         public event EventHandler LoadPrinterType;
+        public event EventHandler HandleCheckBox;
 
         public void DisplayName(string JPName)
         {
@@ -152,15 +167,28 @@ namespace PrintGaransi.View
 
             btnConnect.Click += delegate
             {
+                if (!checkBox.Checked)
+                {
+                    // Tampilkan pesan atau lakukan tindakan yang sesuai
+                    DialogResult dialogResult = CustomeMessageBox.Show("Mohon centang checkbox actived sebelum menutup setting.", "Peringatan", MessageBoxButtons.OKCancel, MessageBoxDefaultButton.Button1);
+                    if (dialogResult == DialogResult.OK)
+                    {
+                        return;
+                    }
+                    if (dialogResult == DialogResult.Cancel)
+                    {
+                        return;
+                    }
+                }
                 ILoginView loginView = new LoginView();
                 LoginPresenter loginPresenter = new LoginPresenter(loginView, new LoginRepository());
                 (loginView as Form)?.Show();
                 this.Close();
             };
 
-            btnOn.CheckedChanged += (sender, e) => 
+            btnOn.CheckedChanged += (sender, e) =>
             {
-                if (btnOn.Checked && lastMode != "on" )
+                if (btnOn.Checked && lastMode != "on")
                 {
                     mode = "on";
                     lastMode = "on";
@@ -180,7 +208,7 @@ namespace PrintGaransi.View
 
             btnPreview.CheckedChanged += (sender, e) =>
             {
-                if(btnPreview.Checked && lastMode != "preview")
+                if (btnPreview.Checked && lastMode != "preview")
                 {
                     mode = "preview";
                     lastMode = "preview";
@@ -190,14 +218,52 @@ namespace PrintGaransi.View
 
             btnClose.Click += delegate
             {
+                if (!checkBox.Checked)
+                {
+                    // Tampilkan pesan atau lakukan tindakan yang sesuai
+                    DialogResult dialogResult = CustomeMessageBox.Show("Mohon centang checkbox actived sebelum menutup setting.", "Peringatan", MessageBoxButtons.OKCancel, MessageBoxDefaultButton.Button1);
+                    if (dialogResult == DialogResult.OK)
+                    {
+                        return;
+                    }
+                    if (dialogResult == DialogResult.Cancel)
+                    {
+                        return;
+                    }
+                }
                 this.Close();
+
             };
 
             printerBox.SelectedIndexChanged += (sender, e) =>
             {
-                if(!isInitializing)
+                if (!isInitializing)
                 {
                     SelectedPrinterType?.Invoke(sender, e);
+                }
+            };
+
+            checkBox.CheckedChanged += (sender, e) =>
+            {
+                if (checkBox.Checked)
+                {
+                    // Ketika checkbox diceklis
+                    textBoxIP.ReadOnly = true;
+                    textBoxPort.ReadOnly = true;
+                    JPComboBox.Enabled = false;
+                    locationBox.Enabled = false;
+                    printerBox.Enabled = false;
+                    HandleCheckBox?.Invoke(sender, e);
+                }
+                else
+                {
+                    // Ketika checkbox tidak diceklis
+                    textBoxIP.ReadOnly = false;
+                    textBoxPort.ReadOnly = false;
+                    JPComboBox.Enabled = true;
+                    locationBox.Enabled = true;
+                    printerBox.Enabled = true;
+                    HandleCheckBox?.Invoke(sender, e);
                 }
             };
         }
@@ -231,6 +297,20 @@ namespace PrintGaransi.View
             LoadPort?.Invoke(this, EventArgs.Empty);
             LoadPrinterType?.Invoke(this, EventArgs.Empty);
             isInitializing = false;
+
+        }
+        public string GetSelectedProduct()
+        {
+            return JPComboBox.SelectedItem?.ToString();
+        }
+
+        public string GetSelectedLocation()
+        {
+            return locationBox.SelectedItem?.ToString();
+        }
+
+        private void checkBox_CheckedChanged(object sender, EventArgs e)
+        {
 
         }
     }

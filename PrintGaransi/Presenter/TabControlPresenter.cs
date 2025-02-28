@@ -1,27 +1,39 @@
-﻿using PrintGaransi._Repositories;
+﻿using Microsoft.IdentityModel.Tokens;
+using PrintGaransi._Repositories;
 using PrintGaransi.Model;
 using PrintGaransi.View;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Reflection;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace PrintGaransi.Presenter
 {
     public class TabControlPresenter
     {
         private readonly ITabControlView _view;
-        private IEnumerable<GaransiModel> _model;
+        private IEnumerable<ResultModel> _model;
         private readonly GaransiModel _garansiModel;
         private readonly SettingModel _smodel;
         private readonly ProductTypeModel _productType;
         private readonly PrinterTypeModel _printerType;
         private readonly IModelNumberRepository _modelNumberRepository;
         private readonly IGaransiRepository _garansiRepository;
+        private readonly ResultRepository _resultModel;
         private BindingSource _dataBindingSource;
         private BindingSource _dataBindingSource2;
         private DateTime _lastScanTime;
+        private string inputModelCode;
+        private string mode;
+        private DateTime date;
         private readonly PrintModeModel _printMode;
         private readonly LoginModel _login;
+
+        public int SrchPartCodeId_TextChanged { get; }
+        public int SrchPartCode_TextChanged { get; }
+        public int SrchModelNum_TextChanged { get; }
 
         public TabControlPresenter(TabControlDataPresenter Data)
         {
@@ -34,6 +46,7 @@ namespace PrintGaransi.Presenter
             _modelNumberRepository = new ModelNumberRepository();
             _printMode = new PrintModeModel();
             _printerType = new PrinterTypeModel();
+            _resultModel = new ResultRepository(ConfigurationManager.ConnectionStrings["LSBUConnection"].ConnectionString);
 
             _view.SearchModelNumber += SearchModelNumber;
             _view.SearchFilter += SearchFilter;
@@ -45,208 +58,165 @@ namespace PrintGaransi.Presenter
             _dataBindingSource = new BindingSource();
             _dataBindingSource2 = new BindingSource();
             _view.SetDefectListBindingSource(_dataBindingSource);
+
             LoadAllDataList();
         }
+
 
         private void CellClicked(object sender, DataGridViewCellEventArgs e)
         {
             if (sender is DataGridView dataGridView && e.RowIndex >= 0)
             {
                 var selectedRow = dataGridView.Rows[e.RowIndex];
-                var selectedData = (GaransiModel)selectedRow.DataBoundItem;
+                var selectedData = (ResultModel)selectedRow.DataBoundItem;
 
 
-                var model = new GaransiModel
+                var model = new ResultModel
                 {
                     JenisProduk = selectedData.JenisProduk,
-                    ModelCode = selectedData.ModelCode,
+                    PartCode = selectedData.PartCode,
+                    PartCodeId = selectedData.PartCodeId,
                     ModelNumber = selectedData.ModelNumber,
-                    NoReg = selectedData.NoReg,
-                    NoSeri = selectedData.NoSeri,
+                    ScanResult = selectedData.ScanResult,
                     Date = selectedData.Date,
-                    ScanTime = selectedData.ScanTime,
+                    InspectorId = selectedData.InspectorId,
                     Location = selectedData.Location
                 };
-
-                DialogResult dialogResult = CustomeMessageBox.Show("Apakah ingin melakukan print ulang?", "Re-Print", MessageBoxButtons.OKCancel, MessageBoxDefaultButton.Button1);
-                if (dialogResult == DialogResult.OK)
-                {
-                    string printerType = _printerType.GetPrinterType();
-                    _view.ShowPrintPreviewDialog(model, printerType);
-                }
             }
         }
 
         private void CheckProperties(object sender, EventArgs e)
         {
+            // Validasi setiap input harus terisi
             if (string.IsNullOrWhiteSpace(_view.SerialNumber))
             {
-                _view.Status = "Serial Number harus terisi";
-                _view.StatusBackColor = Color.Salmon;
-                _view.StatusForeColor = Color.Black;
+                _view.SetStatus("Serial Number harus terisi");
+                SetStatusWarning();
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(_view.ModelCode))
+            if (string.IsNullOrWhiteSpace(_view.ModelNumber))
             {
-                _view.Status = "Model Code harus terisi";
-                _view.StatusBackColor = Color.Salmon;
-                _view.StatusForeColor = Color.Black;
+                _view.SetStatus("Model harus terisi");
+                SetStatusWarning();
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(_view.Register))
             {
-                _view.Status = "Model Code harus terisi";
-                _view.StatusBackColor = Color.Salmon;
-                _view.StatusForeColor = Color.Black;
+                _view.SetStatus("Register harus terisi");
+                SetStatusWarning();
                 return;
             }
 
-            var existingRecords = _garansiRepository.GetExists(_view.SerialNumber, _view.ModelCode);
-            string mode = _printMode.GetMode();
-
-            if (existingRecords != null && existingRecords.Any())
+            // **Perbandingan Serial Number & Model Number**
+            if (_view.SerialNumber != "")
             {
-              
-               if( mode == "off")
-               {
-                    _view.Register = "";
-                   _view.Status = "Data sudah tersimpan dalam database, Print dalam mode Off";
-                   _view.StatusBackColor = Color.Orange;
-                   _view.StatusForeColor = Color.Black;
-                   return;
-               }
-               else if(mode == "preview")
+                if (_view.SerialNumber.Trim().Equals(_view.PartCode.Trim(),StringComparison.OrdinalIgnoreCase))
                 {
-                    _view.Register = "";
-                    _view.Status = "Print dalam mode Preview";
-                    _view.StatusBackColor = Color.Orange;
-                    _view.StatusForeColor = Color.Black;
-                    return;
+                    _view.btnOk = Color.Green;
+                    _view.BtnOkEnabled = true;
+                    _view.BtnCancelEnabled = false;
+                    _view.btnCancel = Color.Gray;
+                    _view.PushDataToDatabase("OK");
+                    _view.SetStatus("Data berhasil disimpan");
+                    _view.StatusBackColor = Color.Green;
                 }
-               else if( mode == "on")
-               {
-                    _view.Register = "";
-                   _view.Status = "Data sudah tersimpan dalam database";
-                   _view.StatusBackColor = Color.Orange;
-                   _view.StatusForeColor = Color.Black;
-                   return;
-               }
+                else
+                {
+                    _view.btnOk = Color.Gray;
+                    _view.BtnOkEnabled = false;
+                    _view.BtnCancelEnabled = true;
+                    _view.btnCancel = Color.Red;
+                    _view.PushDataToDatabase("NG");
+                    _view.SetStatus("Data gagal disimpan");
+                    _view.StatusBackColor = Color.Red;
+                    MessageBox.Show("hasilnya ng");
+                }
+                _view.Refresh();
+                LoadAllDataList();
+                _view.ResetButtonColor();
             }
-
-            CreateModel();
-            LoadAllDataList();
         }
-
-        private void CreateModel()
+        // Fungsi tambahan untuk mengatur status warning
+        private void SetStatusWarning()
         {
-            DateTime currentTime = DateTime.Now;
-            string date = currentTime.ToString("d");
-            string time;
-            string mode = _printMode.GetMode();
-            var existingRecords = _garansiRepository.GetExists(_view.SerialNumber, _view.ModelCode);
-
-            // Mengatur waktu ketika sudah ganti hari
-            if (_lastScanTime.Date != currentTime.Date)
-            {
-                time = currentTime.ToString("HH:mm:ss");
-                //_lastScanTime = currentTime;
-            }
-            else
-            {
-                time = currentTime.ToString(@"T");
-            }
-
-            string printerType = _printerType.GetPrinterType();
-
-            var model = new GaransiModel
-            {
-                JenisProduk = _productType.LoadProductType(),
-                ModelCode = _view.ModelCode,
-                ModelNumber = _view.ModelNumber,
-                NoReg = _view.Register,
-                NoSeri = _view.SerialNumber,
-                Date = date,
-                ScanTime = time,
-                Location = _smodel.LoadLocationID(),
-                inspectorId = _view.InspectorId
-            };
-
-            if (mode == "off")
-            {
-                if (existingRecords == null || !existingRecords.Any())
-                {
-                    // Data belum ada dalam database
-                    _view.Register = "";
-                    _view.Status = "Data berhasil tersimpan, print dalam mode OFF.";
-                    _view.StatusBackColor = Color.Green;
-                    _view.StatusForeColor = Color.White;
-                    _garansiRepository.Add(model);
-                }
-                else
-                {
-                    // Data sudah ada dalam database
-                    _view.Register = "";
-                    _view.Status = "Data sudah tersimpan dalam database, Print dalam mode OFF";
-                    _view.StatusBackColor = Color.Orange;
-                    _view.StatusForeColor = Color.Black;
-                }
-            }
-            else if (mode == "preview")
-            {             
-                // Data sudah ada dalam database
-                _view.Status = "Print dalam mode Preview";
-                _view.StatusBackColor = Color.Orange;
-                _view.StatusForeColor = Color.Black;
-                _view.ShowPrintPreviewDialog(model, printerType);
-            }
-            else if (mode == "on")
-            {
-                if (existingRecords == null || !existingRecords.Any())
-                {
-                    // Data belum ada dalam database, print diizinkan
-                    _view.ShowPrintPreviewDialog(model, printerType);
-                    _view.Register = "";
-                    _view.Status = "Data berhasil di simpan";
-                    _view.StatusBackColor = Color.Green;
-                    _view.StatusForeColor = Color.White;
-                    _garansiRepository.Add(model);
-                }
-                else
-                {
-                    // Data sudah ada dalam database
-                    _view.Register = "";
-                    _view.Status = "Data sudah tersimpan dalam database.";
-                    _view.StatusBackColor = Color.Orange;
-                    _view.StatusForeColor = Color.Black;
-                }
-            }
-
-            LoadAllDataList();
-
-            // Save Last Scan
-            _garansiModel.SaveScanTime(_lastScanTime.ToString("O"));
+            _view.StatusBackColor = Color.Yellow;
+            _view.StatusForeColor = Color.Black;
+            _view.BtnOkEnabled = false;
+            _view.BtnCancelEnabled = true;
+            _view.btnCancel = Color.Red;
         }
 
         public void LoadAllDataList()
         {
-            string loc = _smodel.LoadLocation();
+            try
+            {
+                DateTime today = DateTime.Today;
 
-            _model = _garansiRepository.GetAll(loc);
-            _dataBindingSource.DataSource = _model;
-            _dataBindingSource2.DataSource = _model;
-            _view.SetDefectListBindingSource(_dataBindingSource);
+                // Ambil semua data
+                var results = _resultModel.GetAll();
+
+                // Filter hanya data hari ini
+                var filteredResults = results.Where(x => x.Date.Date == today).ToList();
+
+                _dataBindingSource.DataSource = filteredResults ?? new List<ResultModel>();
+                _view.SetDefectListBindingSource(_dataBindingSource);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+
+        public void SaveAllDataList()
+        {
+            try
+            {
+                // Ambil data dari DataGridView (BindingSource)
+                var updatedResults = (List<ResultModel>)_dataBindingSource.DataSource;
+
+                // Simpan ke database (gunakan repository)
+                _resultModel.SaveAll(updatedResults);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Gagal menyimpan data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public void SearchFilter(object sender, EventArgs e)
         {
-            string loc = _smodel.LoadLocation();
+            DateTime selectedDate = _view.SelectedDate.Date;
+            string selectedStatus = _view.SelectedStatus; 
+            string searchPartCode = _view.SrchPartCode?.Trim();
 
-            _model = _garansiRepository.GetFilter(_view.Search, _view.SelectedDate, loc);
-            _dataBindingSource2.DataSource = _model;
-            _view.ShowFilter(_dataBindingSource2);
+            _model = _resultModel.GetAll(); 
+
+            var filteredData = _model.Where(r => r.Date.Date == selectedDate).ToList();
+
+            if (selectedStatus != "ALL" && !string.IsNullOrEmpty(selectedStatus))
+            {
+                filteredData = filteredData.Where(r => r.ScanResult.Equals(selectedStatus, StringComparison.OrdinalIgnoreCase)).ToList();
+            }
+
+            // Filter berdasarkan SrchPartCode di tiga kolom (PartCode, PartCodeId, ModelNumber)
+            if (!string.IsNullOrEmpty(searchPartCode))
+            {
+                filteredData = filteredData.Where(r =>
+                    r.PartCode.Contains(searchPartCode, StringComparison.OrdinalIgnoreCase) ||
+                    r.PartCodeId.Contains(searchPartCode, StringComparison.OrdinalIgnoreCase) ||
+                    r.ModelNumber.Contains(searchPartCode, StringComparison.OrdinalIgnoreCase)
+                ).ToList();
+            }
+
+
+            _dataBindingSource.DataSource = filteredData;
+            _view.ShowFilter(_dataBindingSource);
         }
+
 
         public void ChangeTabPage(int index)
         {
@@ -255,37 +225,36 @@ namespace PrintGaransi.Presenter
 
         private void SearchModelNumber(object sender, ModelEventArgs e)
         {
-           var model = new GaransiModel
-           {
-               ModelCode = _view.ModelCode.ToString()
-           };
+            var model = new GaransiModel
+            {
+                ModelCode = _view.GetModelCode().ToString()
+            };
+            _view.LastInput = _view.SerialNumber;
 
-           var searchModel = _modelNumberRepository.GetByModelCode(model);
+            var allModels = _modelNumberRepository.GetAllModelCodes();
+            var searchModel = allModels.FirstOrDefault(m => m.ModelCode == model.ModelCode);
 
-           if (searchModel != null)
-           {
-               _view.ModelNumber = searchModel.ModelNumber;
-               _view.Register = searchModel.NoReg;
+            if (searchModel != null)
+            {
+                _view.ModelNumber = searchModel.ModelNumber;
+                _view.Register = searchModel.NoReg;
             }
-           else
-           {
-               ClearViewFields();
-                _view.Status = "Hasil scan tidak terbaca";
-                _view.StatusBackColor = Color.Salmon;
+            else
+            {
+                ClearViewFields();
+                _view.SetStatus("Hasil scan tidak terbaca");
+                _view.StatusBackColor = Color.Yellow;
                 _view.StatusForeColor = Color.Black;
-           }
+            }
         }
 
         private void ClearViewFields()
         {
             _view.SerialNumber = "";
-            _view.ModelCode = "";
-            _view.ModelNumber = "";
-            _view.Register = "";
-            _view.Status = "";
+            _view.SetStatus("");
             _view.StatusBackColor = SystemColors.Control;
-        } 
-        
+        }
+
         public void ResetDataBinding()
         {
             _dataBindingSource.DataSource = null;

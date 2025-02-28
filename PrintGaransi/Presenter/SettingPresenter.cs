@@ -39,8 +39,14 @@ namespace PrintGaransi.Presenter
             _view.HandleRadioButton += HandleRadioButton;
             _view.SelectedPrinterType += SelectedPrinterType;
             _view.LoadPrinterType += LoadPrinter;
+            _view.HandleCheckBox += HandleCheckBox;
         }
 
+        private void HandleCheckBox(object? sender, EventArgs e)
+        {
+            Properties.Settings.Default.CheckBoxChecked = _view.IsCheckBoxChecked;
+            Properties.Settings.Default.Save();
+        }
 
         private void SelectedPrinterType(object? sender, EventArgs e)
         {
@@ -73,13 +79,11 @@ namespace PrintGaransi.Presenter
         private void PreviewRadio_Checked()
         {
             _printMode.SaveData(_view.mode);
-            Debug.WriteLine(_view.mode);
         }
 
         private void offRadio_Checked()
         {
-            _printMode.SaveData(_view.mode);
-            Debug.WriteLine(_view.mode);
+            _printMode.SaveData(_view.mode);;
         }
 
         private void onRadio_Checked()

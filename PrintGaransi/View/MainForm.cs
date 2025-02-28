@@ -26,7 +26,7 @@ namespace PrintGaransi
             _user = user;
             AssociateAndRaiseViewEvents();
             InitializeTabControl();
-            btnHome.BackColor = Color.FromArgb(0, 133, 181);
+            btnHome.BackColor = Color.Teal;
 
             tabControlPresenter.LoadAllDataList();
         }
@@ -55,8 +55,8 @@ namespace PrintGaransi
             {
                 int selectedTabPageIndex = 0;
                 tabControlPresenter.ChangeTabPage(selectedTabPageIndex);
-                btnHome.BackColor = Color.FromArgb(0, 133, 181);
-                btnRePrint.BackColor = Color.FromArgb(0, 35, 105);
+                btnHome.BackColor = Color.Teal;
+                btnRePrint.BackColor = Color.Teal;
             };
 
             btnSetting.Click += delegate
@@ -70,17 +70,17 @@ namespace PrintGaransi
             {
                 int selectedTabPageIndex = 1;
                 tabControlPresenter.ChangeTabPage(selectedTabPageIndex);
-                btnHome.BackColor = Color.FromArgb(0, 35, 105);
-                btnRePrint.BackColor = Color.FromArgb(0, 133, 181);
+                btnHome.BackColor = Color.Teal;
+                btnRePrint.BackColor = Color.Teal;
             };
 
             btnAbtUs.Click += delegate
             {
                 int selectedTabPageIndex = 2;
                 tabControlPresenter.ChangeTabPage(selectedTabPageIndex);
-                btnAbtUs.BackColor = Color.FromArgb(0,133,181);
-                btnRePrint.BackColor = Color.FromArgb(0,35,105);
-                btnHome.BackColor = Color.FromArgb(0, 35,105);
+                btnAbtUs.BackColor = Color.Teal;
+                btnRePrint.BackColor = Color.Teal;
+                btnHome.BackColor = Color.Teal;
             };
 
             btnLogOut.Click += delegate
@@ -89,12 +89,17 @@ namespace PrintGaransi
 
                 tabControlPresenter.UnassociateViewEvents();
                 ResetBinding();
-                
+
                 this.Close();
 
                 ILoginView loginView = new LoginView();
                 LoginPresenter loginPresenter = new LoginPresenter(loginView, new LoginRepository());
                 (loginView as Form)?.Show();
+            };
+
+            btnMinimized.Click += delegate
+            {
+                WindowState = FormWindowState.Minimized;
             };
         }
 
@@ -132,6 +137,16 @@ namespace PrintGaransi
             }
 
             return instance;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -8,6 +8,6 @@ namespace PrintGaransi.Model
 {
     public interface IModelNumberRepository
     {
-        GaransiModel GetByModelCode(GaransiModel model);
+        public List<GaransiModel> GetAllModelCodes();
     }
 }
