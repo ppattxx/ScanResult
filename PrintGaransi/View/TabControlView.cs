@@ -700,9 +700,10 @@ namespace PrintGaransi.View
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            comboBox2.DropDownStyle = ComboBoxStyle.DropDown;
-            comboBox2.SelectedIndex = -1;
-            comboBox2.Text = "Pilih Status";
+            if (comboBox2.SelectedIndex == -1)
+            {
+                comboBox2.Text = "Pilih Status";
+            }
         }
 
 

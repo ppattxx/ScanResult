@@ -40,12 +40,16 @@
             btnHome = new Button();
             btnSetting = new Button();
             splitContainer1 = new SplitContainer();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            label3 = new Label();
+            label4 = new Label();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnMinimized).BeginInit();
             tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -53,11 +57,10 @@
             tableLayoutPanel1.BackColor = Color.FromArgb(0, 192, 192);
             tableLayoutPanel1.ColumnCount = 3;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 623F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 8F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 41F));
-            tableLayoutPanel1.Controls.Add(label2, 0, 0);
-            tableLayoutPanel1.Controls.Add(label1, 0, 0);
             tableLayoutPanel1.Controls.Add(btnMinimized, 2, 0);
+            tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Top;
             tableLayoutPanel1.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tableLayoutPanel1.Location = new Point(0, 0);
@@ -65,7 +68,7 @@
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1446, 119);
+            tableLayoutPanel1.Size = new Size(1446, 111);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // label2
@@ -75,12 +78,13 @@
             label2.Dock = DockStyle.Fill;
             label2.Font = new Font("Arial", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(785, 0);
+            label2.Location = new Point(1015, 0);
             label2.Name = "label2";
-            label2.Size = new Size(617, 119);
+            label2.Size = new Size(373, 58);
             label2.TabIndex = 2;
-            label2.Text = "Laundry System\r\nBusiness Unit";
+            label2.Text = "Laundry System";
             label2.TextAlign = ContentAlignment.MiddleCenter;
+            label2.Click += label2_Click;
             // 
             // label1
             // 
@@ -92,9 +96,9 @@
             label1.Location = new Point(3, 0);
             label1.Margin = new Padding(3, 0, 0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(779, 119);
+            label1.Size = new Size(1009, 58);
             label1.TabIndex = 1;
-            label1.Text = "WARRANTY CARD PRINTING";
+            label1.Text = "POKAYOKE SPIN TIMER";
             label1.TextAlign = ContentAlignment.MiddleLeft;
             label1.Click += label1_Click;
             // 
@@ -138,7 +142,7 @@
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 27F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 27F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 27F));
-            tableLayoutPanel4.Size = new Size(168, 854);
+            tableLayoutPanel4.Size = new Size(168, 862);
             tableLayoutPanel4.TabIndex = 0;
             // 
             // btnAbtUs
@@ -152,7 +156,7 @@
             btnAbtUs.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAbtUs.ForeColor = Color.White;
             btnAbtUs.Image = (Image)resources.GetObject("btnAbtUs.Image");
-            btnAbtUs.Location = new Point(3, 585);
+            btnAbtUs.Location = new Point(3, 592);
             btnAbtUs.Margin = new Padding(3, 0, 3, 4);
             btnAbtUs.Name = "btnAbtUs";
             btnAbtUs.Size = new Size(162, 88);
@@ -173,7 +177,7 @@
             btnLogOut.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLogOut.ForeColor = Color.White;
             btnLogOut.Image = (Image)resources.GetObject("btnLogOut.Image");
-            btnLogOut.Location = new Point(3, 681);
+            btnLogOut.Location = new Point(3, 688);
             btnLogOut.Margin = new Padding(3, 4, 3, 4);
             btnLogOut.Name = "btnLogOut";
             btnLogOut.Size = new Size(162, 140);
@@ -197,7 +201,7 @@
             btnRePrint.Location = new Point(3, 108);
             btnRePrint.Margin = new Padding(3, 2, 0, 2);
             btnRePrint.Name = "btnRePrint";
-            btnRePrint.Size = new Size(165, 82);
+            btnRePrint.Size = new Size(165, 83);
             btnRePrint.TabIndex = 3;
             btnRePrint.Text = "\r\nList\r\n\r\n";
             btnRePrint.TextAlign = ContentAlignment.BottomCenter;
@@ -237,10 +241,10 @@
             btnSetting.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSetting.ForeColor = Color.White;
             btnSetting.Image = (Image)resources.GetObject("btnSetting.Image");
-            btnSetting.Location = new Point(3, 203);
+            btnSetting.Location = new Point(3, 204);
             btnSetting.Margin = new Padding(3, 4, 0, 4);
             btnSetting.Name = "btnSetting";
-            btnSetting.Size = new Size(165, 82);
+            btnSetting.Size = new Size(165, 83);
             btnSetting.TabIndex = 1;
             btnSetting.Text = "\r\nSetting";
             btnSetting.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -249,7 +253,7 @@
             // splitContainer1
             // 
             splitContainer1.Dock = DockStyle.Fill;
-            splitContainer1.Location = new Point(0, 119);
+            splitContainer1.Location = new Point(0, 111);
             splitContainer1.Margin = new Padding(3, 4, 3, 4);
             splitContainer1.Name = "splitContainer1";
             // 
@@ -260,10 +264,52 @@
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.BackColor = Color.FromArgb(224, 235, 245);
-            splitContainer1.Size = new Size(1446, 854);
+            splitContainer1.Size = new Size(1446, 862);
             splitContainer1.SplitterDistance = 168;
             splitContainer1.SplitterWidth = 5;
             splitContainer1.TabIndex = 14;
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.ColumnCount = 2;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 72.75342F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 27.2465858F));
+            tableLayoutPanel2.Controls.Add(label2, 1, 0);
+            tableLayoutPanel2.Controls.Add(label1, 0, 0);
+            tableLayoutPanel2.Controls.Add(label3, 0, 1);
+            tableLayoutPanel2.Controls.Add(label4, 1, 1);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(3, 3);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 2;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 55.2380943F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 44.7619057F));
+            tableLayoutPanel2.Size = new Size(1391, 105);
+            tableLayoutPanel2.TabIndex = 0;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Dock = DockStyle.Fill;
+            label3.Font = new Font("Arial", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(3, 58);
+            label3.Name = "label3";
+            label3.Size = new Size(1006, 47);
+            label3.TabIndex = 3;
+            label3.Text = " MODEL SPIN TIMER INSPECTION";
+            // 
+            // label4
+            // 
+            label4.Anchor = AnchorStyles.Top;
+            label4.AutoSize = true;
+            label4.Font = new Font("Arial", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(1044, 58);
+            label4.Name = "label4";
+            label4.Size = new Size(314, 47);
+            label4.TabIndex = 4;
+            label4.Text = "Business Unit";
             // 
             // MainForm
             // 
@@ -280,12 +326,13 @@
             WindowState = FormWindowState.Maximized;
             FormClosed += PrintGaransiView_FormClosed;
             tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)btnMinimized).EndInit();
             tableLayoutPanel4.ResumeLayout(false);
             splitContainer1.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -302,5 +349,8 @@
         private Label label2;
         private Button btnAbtUs;
         private PictureBox btnMinimized;
+        private TableLayoutPanel tableLayoutPanel2;
+        private Label label3;
+        private Label label4;
     }
 }
